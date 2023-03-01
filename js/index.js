@@ -167,67 +167,67 @@ function printLs(num) {
     printLine("total " + num);
 
     // Discord
-    printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0", "--text");
     printSpan("discord", "--accent");
     printLineBreak();
 
     // Steam
-    printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0", "--text");
     printSpan("steam", "--accent");
     printLineBreak();
 
     // Twitter
-    printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0", "--text");
     printSpan("twitter", "--accent");
     printLineBreak();
 
     // GitHub
-    printSpan("-rw-r--r-- 1 fluttr coding 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr coding 64 Mar  1 13:29\u00A0", "--text");
     printSpan("github", "--accent");
     printLineBreak();
 
     // Codewars
-    printSpan("-rw-r--r-- 1 fluttr coding 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr coding 64 Mar  1 13:29\u00A0", "--text");
     printSpan("codewars", "--accent");
     printLineBreak();
 
     // Last.fm
-    printSpan("-rw-r--r-- 1 fluttr stats- 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr stats- 64 Mar  1 13:29\u00A0", "--text");
     printSpan("lastfm", "--accent");
     printLineBreak();
 
     // Anilist
-    printSpan("-rw-r--r-- 1 fluttr stats- 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr stats- 64 Mar  1 13:29\u00A0", "--text");
     printSpan("anilist", "--accent");
     printLineBreak();
 
     // Bandcamp#
-    printSpan("-rw-r--r-- 1 fluttr music- 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr music- 64 Mar  1 13:29\u00A0", "--text");
     printSpan("bandcamp", "--accent");
     printLineBreak();
 
     // YouTube (Music)
-    printSpan("-rw-r--r-- 1 fluttr music- 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr music- 64 Mar  1 13:29\u00A0", "--text");
     printSpan("youtube", "--accent");
     printLineBreak();
 
     // Soundcloud
-    printSpan("-rw-r--r-- 1 fluttr music- 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr music- 64 Mar  1 13:29\u00A0", "--text");
     printSpan("soundcloud", "--accent");
     printLineBreak();
 
     // Ko-Fi 
-    printSpan("-rw-r--r-- 1 fluttr donate 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr donate 64 Mar  1 13:29\u00A0", "--text");
     printSpan("kofi", "--accent");
     printLineBreak();
 
     // Flickr
-    printSpan("-rw-r--r-- 1 fluttr photos 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr photos 64 Mar  1 13:29\u00A0", "--text");
     printSpan("flickr", "--accent");
     printLineBreak();
 
     // Plushies
-    printSpan("-rw-r--r-- 1 fluttr images 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr images 64 Mar  1 13:29\u00A0", "--text");
     printSpan("plushies", "--accent");
     printLineBreak();
 }
@@ -236,12 +236,12 @@ function printLsExtra() {
     printLs(13);
 
     // Fake Onlyfans
-    printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0", "--text");
     printSpan(".onlyfans", "--accent2");
     printLineBreak();
 
     // Favorite music
-    printSpan("-rw-r--r-- 1 fluttr lists- 64 Mar  1 13:29 ", "--text");
+    printSpan("-rw-r--r-- 1 fluttr lists- 64 Mar  1 13:29\u00A0", "--text");
     printSpan(".favmusic", "--accent2");
     printLineBreak();
 }
@@ -287,6 +287,7 @@ function printSpan(string, color) {
     const node = document.createTextNode(string);
     description.appendChild(node);
     description.style.color = "var(" + color + ", #fff)";
+    description.style.display = "inline-block";
 
     element = document.getElementById("window");
     element.appendChild(description);
