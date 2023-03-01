@@ -1,0 +1,158 @@
+html {
+	font-size: 16px;
+	font-family: Raleway, Helvetica, Arial, sans-serif;
+	color: white;
+	background-color: #252525;
+}
+
+p {
+	font-family: Nunito, Helvetica, Arial, sans-serif;
+	color: white;
+	font-size: 18px;
+}
+
+body {
+	background-color: #252525;
+	max-width: 100%;
+	opacity: 0;
+	transition: opacity 1s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: white;
+	font-family: "Varela Round", Raleway, Helvetica, Arial, sans-serif;
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 5rem;
+}
+
+#logo-main {
+	flex-shrink: 0;
+	width: 10rem;
+	height: 10rem;
+	border: 0.3rem solid white;
+	border-radius: 50%;
+}
+
+#main-box {
+	max-width: 100%;
+	height: 50rem;
+	background-color: #4c4177;
+	background-image: linear-gradient(315deg, hsl(252, 40%, 36%) 0%, hsl(204, 60%, 30%) 100%);
+	overflow: hidden;
+	position: relative;
+}
+
+#stars-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../img/stars.svg') 0 0 repeat;
+		background-size: 400px;
+		transform-origin: center center initial;
+		animation: animatedBackground 1000s linear infinite;
+}
+
+@keyframes animatedBackground {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+#title-hr {
+	color: white;
+	background-color: rgb(120, 198, 188);
+	height: 5px;
+	width: 17rem;
+	border-radius: 5px;
+}
+
+.section-hr {
+	color: white;
+	background-color: rgb(200, 200, 200);
+	height: 3px;
+	width: 70%;
+	border-radius: 5px;
+}
+
+#arrow {
+	color: white;
+	opacity: 1;
+	transition: opacity 0.5s;
+	font-size: 2.5rem;
+	position: absolute;
+	bottom: 2.5rem;
+	animation: arrowHover 1.6s ease-in-out infinite;
+}
+
+@keyframes arrowHover {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(20px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+#secondsection {
+	background-color: #222;
+	overflow: hidden;
+	position: relative;
+	z-index: 100;
+}
+
+#secondsection::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url('../img/blobs.svg') 0 0 repeat;
+	background-repeat: repeat;
+	background-position: center;
+	background-size: 1000px;
+	z-index: 1;
+}
+
+#secondsectioncontent {
+	z-index: 200;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+a:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+.item-icon {
+	color: #CCC;
+}
+
+#footer {
+	height: 10rem;
+	background-color: #1C1C1C
+}
+
+#footer-logo {
+	height: 7rem;
+	width: auto;
+}

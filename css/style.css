@@ -1,0 +1,93 @@
+:root {
+    --accent: #14a10c;
+    --text: #ddd;
+    --background: #1b011f;
+    --accent2: #3b78ff;
+}
+
+.accent {
+    color: var(--accent, #fff);
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    font-size: 1.2rem;
+    font-family: Ubuntu Mono;
+    font-weight: 500;
+    background-color: var(--background, #000);
+    overflow: wrap;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: wrap;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+#window {
+    box-sizing: border-box;
+    padding: 1rem;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: wrap;
+}
+
+br {
+    height: 1rem;
+}
+
+p {
+    margin: 0;
+    margin-bottom: 0rem;
+    color: var(--text, #fff);
+}
+
+a {
+    color: var(--text, #fff);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--accent, #fff);
+}
+
+#input {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    background-color: var(--background, #000);
+    caret-color: transparent;
+}
+
+*[contenteditable]:empty:before {
+    content: "\feff"; /* ZERO WIDTH NO-BREAK SPACE */
+}
+
+.indent {
+    margin-left: 1.5rem;
+}
