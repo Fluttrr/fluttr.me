@@ -219,7 +219,7 @@ function printAbout() {
 
 function printLs() {
     const header = document.createElement("p");
-    const node = document.createTextNode("total 11");
+    const node = document.createTextNode("total 13");
     header.appendChild(node);
 
     // Discord
