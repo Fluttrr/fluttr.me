@@ -45,6 +45,7 @@ function commandPrompt() {
     input.setAttribute("auto-focus", "true");
     input.setAttribute("onBlur", "doFocus()");
     input.setAttribute("ng-blur", "doFocus()");
+    window.addEventListener("keydown", doFocus())
     input.setAttribute("spellcheck", "false");
     span3.appendChild(input);
     input.focus();
