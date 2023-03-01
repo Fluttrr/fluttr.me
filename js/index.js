@@ -1,31 +1,15 @@
 function commandPrompt() {
-    // Create green visitor@fluttr.me: text    
-    const span1 = document.createElement("span");
-    const node1 = document.createTextNode("visitor@fluttr.me:");
-    span1.appendChild(node1);
-    span1.style.color = "var(--accent, #ffffff)";
-    span1.style.display = ("inline-block");
+    // Create green visitor@fluttr.me: text   
+    printSpan("visitor@fluttr.me:", "--accent");
 
     // Create blue tilde
-    const span2 = document.createElement("span");
-    const node2 = document.createTextNode("~");
-    span2.appendChild(node2);
-    span2.style.color = "var(--accent2, #ffffff)"
-    span2.style.display = ("inline-block");
+    printSpan("~", "--accent2");
 
     // Create white dollar sign
-    const span3 = document.createElement("span");
-    const node3 = document.createTextNode("$ ");
-    span3.appendChild(node3);
-    span3.style.color = "var(--text, #ffffff)";
-    span3.style.display = ("inline-block");
+    const dollar = printSpan("$ ", "--text");
 
-    // Append to window
+    // Get window element
     const element = document.getElementById("window");
-    element.appendChild(span1);
-    element.appendChild(span2);
-    element.appendChild(span3);
-    console.log("commandPrompt");
 
     // Create blinking text prompt
     const span4 = document.createElement("span");
@@ -46,7 +30,7 @@ function commandPrompt() {
     input.setAttribute("onBlur", "this.focus(); doFocus()");
     input.setAttribute("ng-blur", "doFocus()");
     input.setAttribute("spellcheck", "false");
-    span3.appendChild(input);
+    dollar.appendChild(input);
     input.focus();
     element.addEventListener("keydown", doFocus());
 
@@ -70,10 +54,7 @@ function evalCommand() {
 
     const command = previousInput.innerText;
 
-    // Create new line
-    const br = document.createElement("br");
-    const element = document.getElementById("window");
-    element.appendChild(br);
+    printLineBreak();
 
     switch (command.toLowerCase()) {
         case "help":
@@ -83,46 +64,64 @@ function evalCommand() {
             printAbout();
             break;
         case "ls":
-            printLs();
+            printLs(11);
             break;
         case "cat discord":
-            printDiscord();
+            printLine("Flutter#9523");
             break;
         case "cat steam":
-            printLink("https://steamcommunity.com/id/fluttr/");
+            printLink("https://steamcommunity.com/id/fluttr/", "https://steamcommunity.com/id/fluttr/");
+            printLineBreak();
             break;
         case "cat twitter":
-            printLink("https://twitter.com/fluttr_me");
+            printLink("https://twitter.com/fluttr_me", "https://twitter.com/fluttr_me");
+            printLineBreak();
             break;
         case "cat github":
-            printLink("https://github.com/Fluttrr")
+            printLink("https://github.com/Fluttrr", "https://github.com/Fluttrr");
+            printLineBreak();
             break;
         case "cat codewars":
-            printLink("https://www.codewars.com/users/Flutter")
+            printLink("https://www.codewars.com/users/Flutter", "https://www.codewars.com/users/Flutter");
+            printLineBreak();
             break;
         case "cat lastfm":
-            printLink("https://www.last.fm/user/Fluttrr")
+            printLink("https://www.last.fm/user/Fluttrr", "https://www.last.fm/user/Fluttrr");
+            printLineBreak();
             break;
         case "cat anilist":
-            printLink("https://anilist.co/user/Flutter/")
+            printLink("https://anilist.co/user/Flutter/", "https://anilist.co/user/Flutter/");
+            printLineBreak();
             break;
         case "cat bandcamp":
-            printLink("https://fluttr.bandcamp.com/")
+            printLink("https://fluttr.bandcamp.com/", "https://fluttr.bandcamp.com/");
+            printLineBreak();
             break;
         case "cat youtube":
-            printLink("https://www.youtube.com/channel/UCrtf_NgTcCwwrMfWCb3PKHA")
+            printLink("https://www.youtube.com/channel/UCrtf_NgTcCwwrMfWCb3PKHA", "https://www.youtube.com/channel/UCrtf_NgTcCwwrMfWCb3PKHA");
+            printLineBreak();
             break;
         case "cat soundcloud":
-            printLink("https://soundcloud.com/fluttrr")
+            printLink("https://soundcloud.com/fluttrr", "https://soundcloud.com/fluttrr");
+            printLineBreak();
             break;
         case "cat kofi":
-            printLink("https://ko-fi.com/fluttr")
+            printLink("https://ko-fi.com/fluttr", "https://ko-fi.com/fluttr");
+            printLineBreak();
             break;
         case "cat flickr":
-            printLink("https://www.flickr.com/photos/192855899@N07/")
+            printLink("https://www.flickr.com/photos/192855899@N07/", "https://www.flickr.com/photos/192855899@N07/");
+            printLineBreak();
             break;
         case "cat plushies":
-            printLink("https://imgur.com/a/Lg5jDp0")
+            printLink("https://imgur.com/a/Lg5jDp0", "https://imgur.com/a/Lg5jDp0");
+            printLineBreak();
+            break;
+        case "cat .onlyfans":
+            printLine("You really thought I'd put my OnlyFans link here? You gotta look harder than that.");
+            break;
+        case "cat .favmusic":
+            printFavMusic();
             break;
         case "site":
             window.location.href = "./regular";
@@ -130,8 +129,9 @@ function evalCommand() {
         case "":
             break;
         default:
-            if (command.toLowerCase().startsWith("cat")) printCatHelp();
-            else printError();
+            if (command.toLowerCase().startsWith("cat")) printLine("Usage: cat [file]");
+            else if (command.toLowerCase().startsWith("ls") && command.toLowerCase().includes("a")) printLsExtra();
+            else printLine("Command not found. Type \"help\" for a list of available commands.");
             break;
     }
 
@@ -140,273 +140,174 @@ function evalCommand() {
 }
 
 function printHelp() {
-    const description = document.createElement("p");
-    const node = document.createTextNode("Available commands:");
-    description.appendChild(node);
-
-    const item1 = document.createElement("p");
-    const node1 = document.createTextNode("* help - Displays this help message");
-    item1.appendChild(node1);
-    item1.setAttribute("class", "indent");
-
-    const item2 = document.createElement("p");
-    const node2 = document.createTextNode("* about - Information about me");
-    item2.appendChild(node2);
-    item2.setAttribute("class", "indent");
-
-    const item3 = document.createElement("p");
-    const node3 = document.createTextNode("* ls - Displays all accessible files (links)");
-    item3.appendChild(node3);
-    item3.setAttribute("class", "indent");
-
-    const item4 = document.createElement("p");
-    const node4 = document.createTextNode("* cat <file> - Displays contents of file");
-    item4.appendChild(node4);
-    item4.setAttribute("class", "indent");
-
-    const item5 = document.createElement("p");
-    const node5 = document.createTextNode("* site - Launches a normal webpage with my info");
-    item5.appendChild(node5);
-    item5.setAttribute("class", "indent");
-
-    element = document.getElementById("window");
-    element.appendChild(description);
-    element.appendChild(item1);
-    element.appendChild(item2);
-    element.appendChild(item3);
-    element.appendChild(item4);
-    element.appendChild(item5);
+    printLine("Available commands:");
+    printIndentedLine("* help - Displays this help message");
+    printIndentedLine("* about - Information about me");
+    printIndentedLine("* ls - Displays all accessible files (links)");
+    printIndentedLine("* cat <file> - Displays contents of file");
+    printIndentedLine("* site - redirects to a regular website");
 }
 
 function printAbout() {
-    const description1 = document.createElement("p");
-    const node1 = document.createTextNode("My name is Anna, I'm a 21 years old computer science student from Germany.");
-    description1.appendChild(node1);
+    printLine("My name is Anna, I'm a 21 years old computer science student from Germany.");
+    printLineBreak();
+    printLine("I make music, I do digital illustrations, I sew and make plushies, I do photography, I create designs, I love watercolor painting and much more!");
+    printLineBreak();
 
-    const description2 = document.createElement("p");
-    const node2 = document.createTextNode("I make music, I do digital illustrations, I sew and make plushies, I do photography, I create designs, I love watercolor painting and much more!");
-    description2.appendChild(node2);
+    const line = printSpan("You can find links to any of my profiles by either using the \"ls\" command or just going on my normal homepage by typing \"site\" (or just click ", "--text");
+    printLink("here", "./regular");
+    printSpan(").", "--text");
+    printLineBreak();
 
-    const description3 = document.createElement("p");
-    const node3 = document.createTextNode("You can find links to any of my profiles by either using the \"ls\" command or just going on my normal homepage by typing \"site\" (or just click ");
-    description3.appendChild(node3);
-
-    const link = document.createElement("a");
-    const linkText = document.createTextNode("here");
-    link.appendChild(linkText);
-    link.href = "./regular";
-    description3.appendChild(link);
-
-    const description3end = document.createElement("span");
-    const node3end = document.createTextNode(").");
-    description3end.appendChild(node3end);
-    description3.appendChild(description3end);
-
-
-    const description4 = document.createElement("p");
-    const node4 = document.createTextNode("Feel free to contact me anywhere for any reason!");
-    description4.appendChild(node4);
-
-    element = document.getElementById("window");
-    element.appendChild(description1);
-    element.appendChild(document.createElement("br"));
-    element.appendChild(description2);
-    element.appendChild(document.createElement("br"));
-    element.appendChild(description3);
-    element.appendChild(document.createElement("br"));
-    element.appendChild(description4);
+    printLineBreak();
+    printLine("Feel free to contact me anywhere for any reason!");
 }
 
-function printLs() {
-    const header = document.createElement("p");
-    const node = document.createTextNode("total 13");
-    header.appendChild(node);
+function printLs(num) {
+    printLine("total " + num);
 
     // Discord
-    const link1 = document.createElement("p");
-    const node1 = document.createTextNode("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29 ");
-    link1.appendChild(node1);
-    const file1 = document.createElement("span");
-    const file1Text = document.createTextNode("discord");
-    file1.appendChild(file1Text);
-    file1.style.color = "var(--accent, #fff)"
-    link1.appendChild(file1);
+    printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29 ", "--text");
+    printSpan("discord", "--accent");
+    printLineBreak();
 
     // Steam
-    const link2 = document.createElement("p");
-    const node2 = document.createTextNode("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29 ");
-    link2.appendChild(node2);
-    const file2 = document.createElement("span");
-    const file2Text = document.createTextNode("steam");
-    file2.appendChild(file2Text);
-    file2.style.color = "var(--accent, #fff)"
-    link2.appendChild(file2);
+    printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29 ", "--text");
+    printSpan("steam", "--accent");
+    printLineBreak();
 
     // Twitter
-    const link3 = document.createElement("p");
-    const node3 = document.createTextNode("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29 ");
-    link3.appendChild(node3);
-    const file3 = document.createElement("span");
-    const file3Text = document.createTextNode("twitter");
-    file3.appendChild(file3Text);
-    file3.style.color = "var(--accent, #fff)"
-    link3.appendChild(file3);
-
-    // Last.fm
-    const link4 = document.createElement("p");
-    const node4 = document.createTextNode("-rw-r--r-- 1 fluttr stats- 64 Mar  1 13:29 ");
-    link4.appendChild(node4);
-    const file4 = document.createElement("span");
-    const file4Text = document.createTextNode("lastfm");
-    file4.appendChild(file4Text);
-    file4.style.color = "var(--accent, #fff)"
-    link4.appendChild(file4);
-
-    // Anilist
-    const link5 = document.createElement("p");
-    const node5 = document.createTextNode("-rw-r--r-- 1 fluttr stats- 64 Mar  1 13:29 ");
-    link5.appendChild(node5);
-    const file5 = document.createElement("span");
-    const file5Text = document.createTextNode("anilist");
-    file5.appendChild(file5Text);
-    file5.style.color = "var(--accent, #fff)"
-    link5.appendChild(file5);
-
-    // Bandcamp
-    const link6 = document.createElement("p");
-    const node6 = document.createTextNode("-rw-r--r-- 1 fluttr music- 64 Mar  1 13:29 ");
-    link6.appendChild(node6);
-    const file6 = document.createElement("span");
-    const file6Text = document.createTextNode("bandcamp");
-    file6.appendChild(file6Text);
-    file6.style.color = "var(--accent, #fff)"
-    link6.appendChild(file6);
-
-    // YouTube (Music)
-    const link7 = document.createElement("p");
-    const node7 = document.createTextNode("-rw-r--r-- 1 fluttr music- 64 Mar  1 13:29 ");
-    link7.appendChild(node7);
-    const file7 = document.createElement("span");
-    const file7Text = document.createTextNode("youtube");
-    file7.appendChild(file7Text);
-    file7.style.color = "var(--accent, #fff)"
-    link7.appendChild(file7);
-
-    // Soundcloud
-    const link8 = document.createElement("p");
-    const node8 = document.createTextNode("-rw-r--r-- 1 fluttr music- 64 Mar  1 13:29 ");
-    link8.appendChild(node8);
-    const file8 = document.createElement("span");
-    const file8Text = document.createTextNode("soundcloud");
-    file8.appendChild(file8Text);
-    file8.style.color = "var(--accent, #fff)"
-    link8.appendChild(file8);
-
-    // Ko-Fi 
-    const link9 = document.createElement("p");
-    const node9 = document.createTextNode("-rw-r--r-- 1 fluttr donate 64 Mar  1 13:29 ");
-    link9.appendChild(node9);
-    const file9 = document.createElement("span");
-    const file9Text = document.createTextNode("kofi");
-    file9.appendChild(file9Text);
-    file9.style.color = "var(--accent, #fff)"
-    link9.appendChild(file9);
-
-    // Flickr
-    const link10 = document.createElement("p");
-    const node10 = document.createTextNode("-rw-r--r-- 1 fluttr photos 64 Mar  1 13:29 ");
-    link10.appendChild(node10);
-    const file10 = document.createElement("span");
-    const file10Text = document.createTextNode("flickr");
-    file10.appendChild(file10Text);
-    file10.style.color = "var(--accent, #fff)"
-    link10.appendChild(file10);
-
-    // Plushies
-    const link11 = document.createElement("p");
-    const node11 = document.createTextNode("-rw-r--r-- 1 fluttr images 64 Mar  1 13:29 ");
-    link11.appendChild(node11);
-    const file11 = document.createElement("span");
-    const file11Text = document.createTextNode("plushies");
-    file11.appendChild(file11Text);
-    file11.style.color = "var(--accent, #fff)"
-    link11.appendChild(file11);
+    printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29 ", "--text");
+    printSpan("twitter", "--accent");
+    printLineBreak();
 
     // GitHub
-    const link12 = document.createElement("p");
-    const node12 = document.createTextNode("-rw-r--r-- 1 fluttr coding 64 Mar  1 13:29 ");
-    link12.appendChild(node12);
-    const file12 = document.createElement("span");
-    const file12Text = document.createTextNode("github");
-    file12.appendChild(file12Text);
-    file12.style.color = "var(--accent, #fff)"
-    link12.appendChild(file12);
+    printSpan("-rw-r--r-- 1 fluttr coding 64 Mar  1 13:29 ", "--text");
+    printSpan("github", "--accent");
+    printLineBreak();
 
     // Codewars
-    const link13 = document.createElement("p");
-    const node13 = document.createTextNode("-rw-r--r-- 1 fluttr coding 64 Mar  1 13:29 ");
-    link13.appendChild(node13);
-    const file13 = document.createElement("span");
-    const file13Text = document.createTextNode("codewars");
-    file13.appendChild(file13Text);
-    file13.style.color = "var(--accent, #fff)"
-    link13.appendChild(file13);
+    printSpan("-rw-r--r-- 1 fluttr coding 64 Mar  1 13:29 ", "--text");
+    printSpan("codewars", "--accent");
+    printLineBreak();
 
+    // Last.fm
+    printSpan("-rw-r--r-- 1 fluttr stats- 64 Mar  1 13:29 ", "--text");
+    printSpan("lastfm", "--accent");
+    printLineBreak();
 
-    element = document.getElementById("window");
-    element.appendChild(header);
-    element.appendChild(link1);
-    element.appendChild(link2);
-    element.appendChild(link3);
-    element.appendChild(link12);
-    element.appendChild(link13);
-    element.appendChild(link4);
-    element.appendChild(link5);
-    element.appendChild(link6);
-    element.appendChild(link7);
-    element.appendChild(link8);
-    element.appendChild(link9);
-    element.appendChild(link10);
-    element.appendChild(link11);
+    // Anilist
+    printSpan("-rw-r--r-- 1 fluttr stats- 64 Mar  1 13:29 ", "--text");
+    printSpan("anilist", "--accent");
+    printLineBreak();
+
+    // Bandcamp#
+    printSpan("-rw-r--r-- 1 fluttr music- 64 Mar  1 13:29 ", "--text");
+    printSpan("bandcamp", "--accent");
+    printLineBreak();
+
+    // YouTube (Music)
+    printSpan("-rw-r--r-- 1 fluttr music- 64 Mar  1 13:29 ", "--text");
+    printSpan("youtube", "--accent");
+    printLineBreak();
+
+    // Soundcloud
+    printSpan("-rw-r--r-- 1 fluttr music- 64 Mar  1 13:29 ", "--text");
+    printSpan("soundcloud", "--accent");
+    printLineBreak();
+
+    // Ko-Fi 
+    printSpan("-rw-r--r-- 1 fluttr donate 64 Mar  1 13:29 ", "--text");
+    printSpan("kofi", "--accent");
+    printLineBreak();
+
+    // Flickr
+    printSpan("-rw-r--r-- 1 fluttr photos 64 Mar  1 13:29 ", "--text");
+    printSpan("flickr", "--accent");
+    printLineBreak();
+
+    // Plushies
+    printSpan("-rw-r--r-- 1 fluttr images 64 Mar  1 13:29 ", "--text");
+    printSpan("plushies", "--accent");
+    printLineBreak();
 }
 
-function printDiscord() {
+function printLsExtra() {
+    printLs(13);
+
+    // Fake Onlyfans
+    printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29 ", "--text");
+    printSpan(".onlyfans", "--accent2");
+    printLineBreak();
+
+    // Favorite music
+    printSpan("-rw-r--r-- 1 fluttr lists- 64 Mar  1 13:29 ", "--text");
+    printSpan(".favmusic", "--accent2");
+    printLineBreak();
+}
+
+function printFavMusic() {
+    printLink("The 1975 - Guys (Pop Rock)", "https://www.youtube.com/watch?v=X0mzMd17jG0");
+    printLineBreak();
+    printLink("San Holo - worthy (Electronic)", "https://www.youtube.com/watch?v=ZIjGhWi6FEI");
+    printLineBreak();
+    printLink("Lauv - Bad Trip (Singer-Songwriter/Rock/Pop)", "https://www.youtube.com/watch?v=vYqb9AmKVIM");
+    printLineBreak();
+    printLink("Aries - KIDS ON MOLLY (Rock/Rap)", "https://www.youtube.com/watch?v=6gbV8tUuYiY");
+    printLineBreak();
+    printLink("Corderoy - Touch Your Face (Electronic)", "https://www.youtube.com/watch?v=sqdTzyxiuP8");
+    printLineBreak();
+    printLink("Max Elto - Shadow of the Sun (Mako Remix) (Progressive House)", "https://www.youtube.com/watch?v=WoCfFoQeWoU");
+    printLineBreak();
+}
+
+function printLine(string) {
     const description = document.createElement("p");
-    const node = document.createTextNode("Flutter#9523");
+    const node = document.createTextNode(string);
     description.appendChild(node);
 
     element = document.getElementById("window");
     element.appendChild(description);
+    return description;
 }
 
-function printLink(link) {
+function printIndentedLine(string) {
+    const description = document.createElement("p");
+    const node = document.createTextNode(string);
+    description.appendChild(node);
+    description.setAttribute("class", "indent");
+
+    element = document.getElementById("window");
+    element.appendChild(description);
+    return description;
+}
+
+function printSpan(string, color) {
+    const description = document.createElement("span");
+    const node = document.createTextNode(string);
+    description.appendChild(node);
+    description.style.color = "var(" + color + ", #fff)";
+
+    element = document.getElementById("window");
+    element.appendChild(description);
+    return description;
+}
+
+function printLink(string, link) {
     const description = document.createElement("a");
-    const node = document.createTextNode(link);
+    const node = document.createTextNode(string);
     description.appendChild(node);
     description.setAttribute("href", link);
     description.setAttribute("target", "_blank");
 
     element = document.getElementById("window");
     element.appendChild(description);
+    return description;
+}
+
+function printLineBreak() {
+    element = document.getElementById("window");
     element.appendChild(document.createElement("br"));
-}
-
-function printCatHelp() {
-    const description = document.createElement("p");
-    const node = document.createTextNode("Usage: cat [file]");
-    description.appendChild(node);
-
-    element = document.getElementById("window");
-    element.appendChild(description);
-}
-
-function printError() {
-    const description = document.createElement("p");
-    const node = document.createTextNode("Command not found. Type \"help\" for a list of available commands.");
-    description.appendChild(node);
-
-    element = document.getElementById("window");
-    element.appendChild(description);
 }
 
 function doFocus() {
