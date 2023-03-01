@@ -195,7 +195,6 @@ function printAbout() {
     const linkText = document.createTextNode("here");
     link.appendChild(linkText);
     link.href = "./regular";
-    link.setAttribute("target", "_blank");
     description3.appendChild(link);
 
     const description3end = document.createElement("span");
@@ -385,6 +384,7 @@ function printLink(link) {
     const node = document.createTextNode(link);
     description.appendChild(node);
     description.setAttribute("href", link);
+    description.setAttribute("target", "_blank");
 
     element = document.getElementById("window");
     element.appendChild(description);
