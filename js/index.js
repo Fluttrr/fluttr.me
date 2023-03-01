@@ -43,12 +43,12 @@ function commandPrompt() {
     input.setAttribute("contenteditable", "true");
     input.setAttribute("autofocus", "true");
     input.setAttribute("auto-focus", "true");
-    input.setAttribute("onBlur", "doFocus()");
+    input.setAttribute("onBlur", "this.focus(); doFocus()");
     input.setAttribute("ng-blur", "doFocus()");
-    window.addEventListener("keydown", doFocus())
     input.setAttribute("spellcheck", "false");
     span3.appendChild(input);
     input.focus();
+    element.addEventListener("keydown", doFocus());
 
     // Listen for enter key and evaluate command
     input.addEventListener("keydown", function (event) {
