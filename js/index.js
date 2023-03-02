@@ -151,15 +151,29 @@ function printHelp() {
 function printAbout() {
     printLine("My name is Anna, I'm a 21 years old computer science student from Germany.");
     printLineBreak();
+    
     printLine("I make music, I do digital illustrations, I sew and make plushies, I do photography, I create designs, I love watercolor painting and much more!");
     printLineBreak();
 
-    const line = printSpan("You can find links to any of my profiles by either using the \"ls\" command or just going on my normal homepage by typing \"site\" (or just click\u00A0", "--text");
-    printLink("here", "./regular");
-    printSpan(").", "--text");
-    printLineBreak();
+    const line = printSpan("You can find links to any of my profiles by either using the \"ls\" command and printing each link using \"cat [link]\" or just going on my normal homepage by typing \"site\" (or just click\u00A0", "--text");
+    
+    const link = document.createElement("a");
+    const node = document.createTextNode("here");
+    link.setAttribute("href", "./regular");
+    link.appendChild(node);
+    line.appendChild(link);
+
+    const endOfLine = document.createElement("span");
+    const node2 = document.createTextNode(").");
+    endOfLine.appendChild(node2);
+    line.appendChild(endOfLine);
 
     printLineBreak();
+    printLineBreak();
+
+    printLine("This site is made using nothing but HTML, CSS and vanilla JavaScript.");
+    printLineBreak();
+
     printLine("Feel free to contact me anywhere for any reason!");
 }
 
