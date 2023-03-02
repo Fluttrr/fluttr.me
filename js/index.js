@@ -154,7 +154,7 @@ function printAbout() {
     printLine("I make music, I do digital illustrations, I sew and make plushies, I do photography, I create designs, I love watercolor painting and much more!");
     printLineBreak();
 
-    const line = printSpan("You can find links to any of my profiles by either using the \"ls\" command or just going on my normal homepage by typing \"site\" (or just click ", "--text");
+    const line = printSpan("You can find links to any of my profiles by either using the \"ls\" command or just going on my normal homepage by typing \"site\" (or just click\u00A0", "--text");
     printLink("here", "./regular");
     printSpan(").", "--text");
     printLineBreak();
