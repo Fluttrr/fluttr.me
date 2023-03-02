@@ -1,8 +1,10 @@
 :root {
-    --accent: #14a10c;
-    --text: #ddd;
-    --background: #1b011f;
-    --accent2: #3b78ff;
+    --accent: #8ae234;
+    --text: #fdfefc;
+    --background: #2d0922;
+    --accent2: #6d98c8;
+    --common-font: Ubuntu Mono;
+
 }
 
 .accent {
@@ -44,7 +46,7 @@ html {
     margin: 0;
     max-width: 100%;
     font-size: 1.2rem;
-    font-family: Ubuntu Mono, monospace, sans-serif;
+    font-family: var(--common-font), Ubuntu Mono, monospace, sans-serif;
     font-weight: 500;
     background-color: var(--background, #000);
     overflow: wrap;
