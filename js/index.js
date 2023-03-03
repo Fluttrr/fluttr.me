@@ -1,3 +1,5 @@
+let history = "";
+
 function commandPrompt() {
     // Create green visitor@fluttr.me: text   
     printSpan("visitor@fluttr.me:", "--accent");
@@ -19,6 +21,7 @@ function commandPrompt() {
     span4.style.color = "var(--text, #ffffff)";
     span4.style.animation = "blink steps(1) 1s infinite";
     span4.style.display = ("inline-block");
+    span4.setAttribute("class", "clearable")
     element.appendChild(span4);
 
     // Create input
@@ -30,6 +33,7 @@ function commandPrompt() {
     input.setAttribute("onBlur", "this.focus(); doFocus()");
     input.setAttribute("ng-blur", "doFocus()");
     input.setAttribute("spellcheck", "false");
+    input.setAttribute("class", "clearable")
     dollar.appendChild(input);
     input.focus();
     element.addEventListener("keydown", doFocus());
@@ -53,6 +57,7 @@ function evalCommand() {
     previousBlinkingCursor.setAttribute("id", "previousBlinkingCursor");
 
     const command = previousInput.innerText;
+    history += command + "§"
 
     printLineBreak();
 
@@ -123,6 +128,12 @@ function evalCommand() {
         case "cat .favmusic":
             printFavMusic();
             break;
+        case "clear":
+            clear();
+            break;
+        case "history":
+            printLine(history.substring(0,history.length-9).replaceAll("§", ", "));
+            break;
         case "site":
             window.location.href = "./regular";
             break;
@@ -141,11 +152,13 @@ function evalCommand() {
 
 function printHelp() {
     printLine("Available commands:");
-    printIndentedLine("* help - Displays this help message");
-    printIndentedLine("* about - Information about me");
-    printIndentedLine("* ls - Displays all accessible files (links)");
+    printIndentedLine("* help \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- Displays this help message");
+    printIndentedLine("* about \u00A0\u00A0\u00A0\u00A0\u00A0- Information about me");
+    printIndentedLine("* ls \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- Displays all accessible files (links)");
     printIndentedLine("* cat <file> - Displays contents of file");
-    printIndentedLine("* site - redirects to a regular website");
+    printIndentedLine("* site \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- Redirects to a regular website");
+    printIndentedLine("* clear \u00A0\u00A0\u00A0\u00A0\u00A0- Clears the screen")
+    printIndentedLine("* history \u00A0\u00A0\u00A0- Shows previously used commands")
 }
 
 function printAbout() {
@@ -215,7 +228,7 @@ function printLs(num) {
     printSpan("anilist", "--accent");
     printLineBreak();
 
-    // Bandcamp#
+    // Bandcamp
     printSpan("-rw-r--r-- 1 fluttr music\u00A0 64 Mar  1 13:29\u00A0", "--text");
     printSpan("bandcamp", "--accent");
     printLineBreak();
@@ -275,12 +288,21 @@ function printFavMusic() {
     printLineBreak();
 }
 
+function clear() {
+    var list = document.getElementsByClassName("clearable");
+
+    while (list[0]) {
+        list[0].parentNode.removeChild(list[0]);
+    }
+}
+
 function printLine(string) {
     const description = document.createElement("p");
     const node = document.createTextNode(string);
     description.appendChild(node);
+    description.setAttribute("class", "clearable")
 
-    element = document.getElementById("window");
+    const element = document.getElementById("window");
     element.appendChild(description);
     return description;
 }
@@ -289,9 +311,9 @@ function printIndentedLine(string) {
     const description = document.createElement("p");
     const node = document.createTextNode(string);
     description.appendChild(node);
-    description.setAttribute("class", "indent");
+    description.setAttribute("class", "indent clearable");
 
-    element = document.getElementById("window");
+    const element = document.getElementById("window");
     element.appendChild(description);
     return description;
 }
@@ -302,8 +324,9 @@ function printSpan(string, color) {
     description.appendChild(node);
     description.style.color = "var(" + color + ", #fff)";
     description.style.display = "inline-block";
+    description.setAttribute("class", "clearable")
 
-    element = document.getElementById("window");
+    const element = document.getElementById("window");
     element.appendChild(description);
     return description;
 }
@@ -314,15 +337,19 @@ function printLink(string, link) {
     description.appendChild(node);
     description.setAttribute("href", link);
     description.setAttribute("target", "_blank");
+    description.setAttribute("class", "clearable")
 
-    element = document.getElementById("window");
+    const element = document.getElementById("window");
     element.appendChild(description);
     return description;
 }
 
 function printLineBreak() {
-    element = document.getElementById("window");
-    element.appendChild(document.createElement("br"));
+    const linebreak = document.createElement("br");
+    linebreak.setAttribute("class", "clearable");
+
+    const element = document.getElementById("window");
+    element.appendChild(linebreak);
 }
 
 function doFocus() {
