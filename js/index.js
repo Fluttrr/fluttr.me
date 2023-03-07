@@ -61,80 +61,80 @@ function evalCommand() {
 
     printLineBreak();
 
-    switch (command.toLowerCase()) {
-        case "help":
+    switch (hankyPanky(command.toLowerCase())) {
+        case "aGVscA==":
             printHelp();
             break;
-        case "about":
+        case "YWJvdXQ=":
             printAbout();
             break;
-        case "ls":
+        case "bHM=":
             printLs(11);
             break;
-        case "cat discord":
+        case "Y2F0IGRpc2NvcmQ=":
             printLine("Flutter#9523");
             break;
-        case "cat steam":
+        case "Y2F0IHN0ZWFt":
             printLink("https://steamcommunity.com/id/fluttr/", "https://steamcommunity.com/id/fluttr/");
             printLineBreak();
             break;
-        case "cat twitter":
+        case "Y2F0IHR3aXR0ZXI=":
             printLink("https://twitter.com/fluttr_me", "https://twitter.com/fluttr_me");
             printLineBreak();
             break;
-        case "cat github":
+        case "Y2F0IGdpdGh1Yg==":
             printLink("https://github.com/Fluttrr", "https://github.com/Fluttrr");
             printLineBreak();
             break;
-        case "cat codewars":
+        case "Y2F0IGNvZGV3YXJz":
             printLink("https://www.codewars.com/users/Flutter", "https://www.codewars.com/users/Flutter");
             printLineBreak();
             break;
-        case "cat lastfm":
+        case "Y2F0IGxhc3RmbQ==":
             printLink("https://www.last.fm/user/Fluttrr", "https://www.last.fm/user/Fluttrr");
             printLineBreak();
             break;
-        case "cat anilist":
+        case "Y2F0IGFuaWxpc3Q=":
             printLink("https://anilist.co/user/Flutter/", "https://anilist.co/user/Flutter/");
             printLineBreak();
             break;
-        case "cat bandcamp":
+        case "Y2F0IGJhbmRjYW1w":
             printLink("https://fluttr.bandcamp.com/", "https://fluttr.bandcamp.com/");
             printLineBreak();
             break;
-        case "cat youtube":
+        case "Y2F0IHlvdXR1YmU=":
             printLink("https://www.youtube.com/channel/UCrtf_NgTcCwwrMfWCb3PKHA", "https://www.youtube.com/channel/UCrtf_NgTcCwwrMfWCb3PKHA");
             printLineBreak();
             break;
-        case "cat soundcloud":
+        case "Y2F0IHNvdW5kY2xvdWQ=":
             printLink("https://soundcloud.com/fluttrr", "https://soundcloud.com/fluttrr");
             printLineBreak();
             break;
-        case "cat kofi":
+        case "Y2F0IGtvZmk=":
             printLink("https://ko-fi.com/fluttr", "https://ko-fi.com/fluttr");
             printLineBreak();
             break;
-        case "cat flickr":
+        case "Y2F0IGZsaWNrcg==":
             printLink("https://www.flickr.com/photos/192855899@N07/", "https://www.flickr.com/photos/192855899@N07/");
             printLineBreak();
             break;
-        case "cat plushies":
+        case "Y2F0IHBsdXNoaWVz":
             printLink("https://imgur.com/a/Lg5jDp0", "https://imgur.com/a/Lg5jDp0");
             printLineBreak();
             break;
-        case "cat .onlyfans":
+        case "Y2F0IC5vbmx5ZmFucw==":
             printLine("You really thought I'd put my OnlyFans link here? You gotta look harder than that.");
             break;
-        case "cat .favmusic":
+        case "Y2F0IC5mYXZtdXNpYw==":
             printFavMusic();
             break;
-        case "clear":
+        case "Y2xlYXI=":
             clear();
             break;
-        case "history":
+        case "aGlzdG9yeQ==":
             printLine(history.substring(0,history.length-9).replaceAll("§", ", "));
             break;
-        case "site":
+        case "c2l0ZQ==":
             window.location.href = "./regular";
             break;
         case "":
@@ -357,4 +357,9 @@ function doFocus() {
     setTimeout(function() { 
          myInput.focus(); 
     }, 50);
+}
+
+function hankyPanky(string) {
+    console.log(btoa(string))
+    return btoa(string)
 }
