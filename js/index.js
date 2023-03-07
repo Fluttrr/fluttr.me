@@ -360,6 +360,5 @@ function doFocus() {
 }
 
 function hankyPanky(string) {
-    console.log(btoa(string))
-    return btoa(string)
+    return btoa(string);
 }
