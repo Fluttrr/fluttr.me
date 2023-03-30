@@ -66,6 +66,12 @@ body::-webkit-scrollbar {
     display: none;  /* Safari and Chrome */
 }
 
+#focussing-window {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
 #window {
     animation: appear steps(1) 1s forwards;
     box-sizing: border-box;
