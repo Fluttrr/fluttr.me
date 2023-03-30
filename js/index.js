@@ -427,7 +427,6 @@ function printLineBreak() {
 }
 
 function doFocus() {
-  console.log("ikefhdp");
   const myInput = document.getElementById("input");
   setTimeout(function () {
     myInput.focus();
