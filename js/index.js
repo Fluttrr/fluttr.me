@@ -331,8 +331,8 @@ function printLsExtra() {
 
 function printFavMusic() {
   printLink(
-    "The 1975 - Guys (Pop Rock)",
-    "https://www.youtube.com/watch?v=X0mzMd17jG0"
+    "The 1975 - I Always Wanna Die (Sometimes) (Pop Rock)",
+    "https://youtu.be/k0Z6IxOeuMk"
   );
   printLineBreak();
   printLink(
