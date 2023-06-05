@@ -331,13 +331,13 @@ function printLsExtra() {
 
 function printFavMusic() {
   printLink(
-    "The 1975 - I Always Wanna Die (Sometimes) (Pop Rock)",
-    "https://youtu.be/k0Z6IxOeuMk"
+    "San Holo - worthy (Electronic)",
+    "https://www.youtube.com/watch?v=ZIjGhWi6FEI"
   );
   printLineBreak();
   printLink(
-    "San Holo - worthy (Electronic)",
-    "https://www.youtube.com/watch?v=ZIjGhWi6FEI"
+    "The 1975 - I Always Wanna Die (Sometimes) (Pop Rock)",
+    "https://youtu.be/k0Z6IxOeuMk"
   );
   printLineBreak();
   printLink(
