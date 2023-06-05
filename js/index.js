@@ -356,8 +356,8 @@ function printFavMusic() {
   );
   printLineBreak();
   printLink(
-    "Max Elto - Shadow of the Sun (Mako Remix) (Progressive House)",
-    "https://www.youtube.com/watch?v=WoCfFoQeWoU"
+    "San Holo - idk anything (demo) (Electronic)",
+    "https://youtu.be/rT7hbSMQh9w"
   );
   printLineBreak();
 }
