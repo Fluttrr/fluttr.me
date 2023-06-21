@@ -114,6 +114,13 @@ function evalCommand() {
       );
       printLineBreak();
       break;
+    case "ZGlzY29ncw==":
+        printLink(
+          "https://www.discogs.com/user/Fluttr/collection?header=1",
+          "https://www.discogs.com/user/Fluttr/collection?header=1"
+        );
+        printLineBreak();
+        break;
     case "Y2F0IGJhbmRjYW1w":
       printLink("https://fluttr.bandcamp.com/", "https://fluttr.bandcamp.com/");
       printLineBreak();
@@ -283,6 +290,11 @@ function printLs(num) {
   printSpan("-rw-r--r-- 1 fluttr stats\u00A0 64 Mar  1 13:29\u00A0", "--text");
   printSpan("anilist", "--accent");
   printLineBreak();
+
+    // Discogs
+    printSpan("-rw-r--r-- 1 fluttr stats\u00A0 64 Mar  1 13:29\u00A0", "--text");
+    printSpan("discogs", "--accent");
+    printLineBreak();
 
   // Bandcamp
   printSpan("-rw-r--r-- 1 fluttr music\u00A0 64 Mar  1 13:29\u00A0", "--text");
