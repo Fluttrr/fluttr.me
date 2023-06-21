@@ -114,7 +114,7 @@ function evalCommand() {
       );
       printLineBreak();
       break;
-    case "ZGlzY29ncw==":
+    case "Y2F0IGRpc2NvZ3M=":
         printLink(
           "https://www.discogs.com/user/Fluttr/collection?header=1",
           "https://www.discogs.com/user/Fluttr/collection?header=1"
