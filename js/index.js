@@ -114,6 +114,13 @@ function evalCommand() {
       );
       printLineBreak();
       break;
+    case "Y2F0IGRpc2NvZ3M=":
+        printLink(
+          "https://www.discogs.com/user/Fluttr/collection?header=1",
+          "https://www.discogs.com/user/Fluttr/collection?header=1"
+        );
+        printLineBreak();
+        break;
     case "Y2F0IGJhbmRjYW1w":
       printLink("https://fluttr.bandcamp.com/", "https://fluttr.bandcamp.com/");
       printLineBreak();
@@ -284,6 +291,11 @@ function printLs(num) {
   printSpan("anilist", "--accent");
   printLineBreak();
 
+    // Discogs
+    printSpan("-rw-r--r-- 1 fluttr stats\u00A0 64 Mar  1 13:29\u00A0", "--text");
+    printSpan("discogs", "--accent");
+    printLineBreak();
+
   // Bandcamp
   printSpan("-rw-r--r-- 1 fluttr music\u00A0 64 Mar  1 13:29\u00A0", "--text");
   printSpan("bandcamp", "--accent");
@@ -331,13 +343,13 @@ function printLsExtra() {
 
 function printFavMusic() {
   printLink(
-    "The 1975 - Guys (Pop Rock)",
-    "https://www.youtube.com/watch?v=X0mzMd17jG0"
+    "San Holo - worthy (Electronic)",
+    "https://www.youtube.com/watch?v=ZIjGhWi6FEI"
   );
   printLineBreak();
   printLink(
-    "San Holo - worthy (Electronic)",
-    "https://www.youtube.com/watch?v=ZIjGhWi6FEI"
+    "The 1975 - I Always Wanna Die (Sometimes) (Pop Rock)",
+    "https://youtu.be/k0Z6IxOeuMk"
   );
   printLineBreak();
   printLink(
@@ -356,8 +368,8 @@ function printFavMusic() {
   );
   printLineBreak();
   printLink(
-    "Max Elto - Shadow of the Sun (Mako Remix) (Progressive House)",
-    "https://www.youtube.com/watch?v=WoCfFoQeWoU"
+    "San Holo - idk anything (demo) (Electronic)",
+    "https://youtu.be/rT7hbSMQh9w"
   );
   printLineBreak();
 }
