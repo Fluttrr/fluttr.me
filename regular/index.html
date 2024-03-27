@@ -15,7 +15,7 @@
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
 			<link href="./css/style.css" rel="stylesheet" type="text/css" />
 		</head>
-		<body onload="setSize();spawnBody();" onscroll="removeArrow();" id="body">
+		<body onload="setCurrentYear();setSize();spawnBody();" onscroll="removeArrow();" id="body">
 			<div class="container-fluid d-flex justify-content-center" id="main-box">
 				<div id="stars-overlay"></div>
 				<div class="col-8 d-flex justify-content-sm-around justify-content-center flex-column flex-sm-row align-items-center">
@@ -62,7 +62,7 @@
 				<div class="col-12 d-flex justify-content-center align-items-center">
 					<img src="./img/logopurplecyan1.svg" alt="logo" class="p-2 m-4" id="footer-logo" />
 					<div>
-						<p class="mb-0 text-center">&copy; fluttr.me<br />2023</p>
+						<p class="mb-0 text-center">&copy; fluttr.me<br /><span id="currentYear">2023</span></p>
 					</div>
 				</div>
 			</div>
