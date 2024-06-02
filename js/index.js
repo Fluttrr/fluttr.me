@@ -237,9 +237,6 @@ function printAbout() {
   printIndentedLine("* Wild Camping (also very rarely do this lol)");
   printLineBreak();
 
-  printLine("Feel free to message me anywhere for any reason!");
-  printLineBreak();
-
   const line = printSpan(
     'You can find links to any of my profiles by using the "ls" command to list all my profiles and then using "cat [link]". You can also just switch to the regular version of this site by typing "site" (or just click\u00A0',
     "--text"
@@ -264,7 +261,7 @@ function printAbout() {
   );
   printLineBreak();
 
-  printLine("Feel free to contact me anywhere for any reason!");
+  printLine("Feel free to message me anywhere for any reason!");
 }
 
 function printLs(num) {
