@@ -62,116 +62,111 @@ function evalCommand() {
 
   printLineBreak();
 
-  switch (hankyPanky(command.toLowerCase())) {
-    case "aGVscA==":
+  switch (command.toLowerCase().trim()) {
+    // Commands for the terminal
+    case "help":
       printHelp();
       break;
-    case "YWJvdXQ=":
+    case "about":
       printAbout();
       break;
-    case "bHM=":
+    case "ls":
       printLs(11);
       break;
-    case "Y2F0IGRpc2NvcmQ=":
-      printLine("Flutter#9523");
+    case "clear":
+      clear();
       break;
-    case "Y2F0IHN0ZWFt":
+    case "history":
+      printLine(history.substring(0, history.length - 9).replaceAll("§", ", "));
+      break;
+    case "site":
+      window.location.href = "./regular";
+      break;
+    case "":
+      break;
+    // Commands for links
+    case "cat discord":
+      printLine("@fluttr.");
+      break;
+    case "cat steam":
       printLink(
         "https://steamcommunity.com/id/fluttr/",
         "https://steamcommunity.com/id/fluttr/"
       );
       printLineBreak();
       break;
-    case "Y2F0IHR3aXR0ZXI=":
-      printLink(
-        "https://twitter.com/fluttr_me",
-        "https://twitter.com/fluttr_me"
-      );
-      printLineBreak();
-      break;
-    case "Y2F0IGdpdGh1Yg==":
+    case "cat github":
       printLink("https://github.com/Fluttrr", "https://github.com/Fluttrr");
       printLineBreak();
       break;
-    case "Y2F0IGNvZGV3YXJz":
+    case "cat codewars":
       printLink(
         "https://www.codewars.com/users/Flutter",
         "https://www.codewars.com/users/Flutter"
       );
       printLineBreak();
       break;
-    case "Y2F0IGxhc3RmbQ==":
+    case "cat lastfm":
       printLink(
         "https://www.last.fm/user/Fluttrr",
         "https://www.last.fm/user/Fluttrr"
       );
       printLineBreak();
       break;
-    case "Y2F0IGFuaWxpc3Q=":
+    case "cat anilist":
       printLink(
         "https://anilist.co/user/Flutter/",
         "https://anilist.co/user/Flutter/"
       );
       printLineBreak();
       break;
-    case "Y2F0IGRpc2NvZ3M=":
-        printLink(
-          "https://www.discogs.com/user/Fluttr/collection?header=1",
-          "https://www.discogs.com/user/Fluttr/collection?header=1"
-        );
-        printLineBreak();
-        break;
-    case "Y2F0IGJhbmRjYW1w":
+    case "cat discogs":
+      printLink(
+        "https://www.discogs.com/user/Fluttr/collection?header=1",
+        "https://www.discogs.com/user/Fluttr/collection?header=1"
+      );
+      printLineBreak();
+      break;
+    case "cat bandcamp":
       printLink("https://fluttr.bandcamp.com/", "https://fluttr.bandcamp.com/");
       printLineBreak();
       break;
-    case "Y2F0IHlvdXR1YmU=":
+    case "cat youtube":
       printLink(
         "https://www.youtube.com/channel/UCrtf_NgTcCwwrMfWCb3PKHA",
         "https://www.youtube.com/channel/UCrtf_NgTcCwwrMfWCb3PKHA"
       );
       printLineBreak();
       break;
-    case "Y2F0IHNvdW5kY2xvdWQ=":
+    case "cat soundcloud":
       printLink(
         "https://soundcloud.com/fluttrr",
         "https://soundcloud.com/fluttrr"
       );
       printLineBreak();
       break;
-    case "Y2F0IGtvZmk=":
+    case "cat kofi":
       printLink("https://ko-fi.com/fluttr", "https://ko-fi.com/fluttr");
       printLineBreak();
       break;
-    case "Y2F0IGZsaWNrcg==":
+    case "cat flickr":
       printLink(
         "https://www.flickr.com/photos/192855899@N07/",
         "https://www.flickr.com/photos/192855899@N07/"
       );
       printLineBreak();
       break;
-    case "Y2F0IHBsdXNoaWVz":
+    case "cat plushies":
       printLink("https://imgur.com/a/Lg5jDp0", "https://imgur.com/a/Lg5jDp0");
       printLineBreak();
       break;
-    case "Y2F0IC5vbmx5ZmFucw==":
+    case "cat .onlyfans":
       printLine(
-        "You really thought I'd put my OnlyFans link here? You gotta look harder than that."
+        "haha"
       );
       break;
-    case "Y2F0IC5mYXZtdXNpYw==":
+    case "cat .favmusic":
       printFavMusic();
-      break;
-    case "Y2xlYXI=":
-      clear();
-      break;
-    case "aGlzdG9yeQ==":
-      printLine(history.substring(0, history.length - 9).replaceAll("§", ", "));
-      break;
-    case "c2l0ZQ==":
-      window.location.href = "./regular";
-      break;
-    case "":
       break;
     default:
       if (command.toLowerCase().startsWith("cat"))
@@ -217,17 +212,36 @@ function printHelp() {
 
 function printAbout() {
   printLine(
-    "My name is Anna, I'm a 21 years old computer science student from Germany."
+    "Hey! Thanks for trusting me enough to actually go on my website lol. This is mostly a hub for all my profiles and this section you're reading right now."
   );
   printLineBreak();
 
   printLine(
-    "I make music, I do digital illustrations, I sew and make plushies, I do photography, I create designs, I love watercolor painting and much more!"
+    "I study computer science and I'm into various things, such as:"
   );
   printLineBreak();
 
+  printIndentedLine("* Anime (I don't watch nearly as much as I'd like to)");
+  printIndentedLine(
+    "* Listening to music (EDM, Rap, Singer/Songwriter, Classical, Rock and OSTs)"
+  );
+  printIndentedLine("* Making music");
+  printIndentedLine("* Learning Japanese");
+  printIndentedLine("* 3D Printing");
+  printIndentedLine("* Tech/Programming");
+  printIndentedLine("* Collecting Vinyl and Manga");
+  printIndentedLine("* Good audio equipment (Headphones, IEMs, amps, speakers)");
+  printIndentedLine("* Tea");
+  printIndentedLine("* Cooking/Baking");
+  printIndentedLine("* Sewing Plushies (haven't done it in ages)");
+  printIndentedLine("* Wild Camping (also very rarely do this lol)");
+  printLineBreak();
+
+  printLine("Feel free to message me anywhere for any reason!");
+  printLineBreak();
+
   const line = printSpan(
-    'You can find links to any of my profiles by either using the "ls" command and printing each link using "cat [link]" or just going on my normal homepage by typing "site" (or just click\u00A0',
+    'You can find links to any of my profiles by using the "ls" command to list all my profiles and then using "cat [link]". You can also just switch to the regular version of this site by typing "site" (or just click\u00A0',
     "--text"
   );
 
@@ -266,11 +280,6 @@ function printLs(num) {
   printSpan("steam", "--accent");
   printLineBreak();
 
-  // Twitter
-  printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0", "--text");
-  printSpan("twitter", "--accent");
-  printLineBreak();
-
   // GitHub
   printSpan("-rw-r--r-- 1 fluttr coding 64 Mar  1 13:29\u00A0", "--text");
   printSpan("github", "--accent");
@@ -291,10 +300,10 @@ function printLs(num) {
   printSpan("anilist", "--accent");
   printLineBreak();
 
-    // Discogs
-    printSpan("-rw-r--r-- 1 fluttr stats\u00A0 64 Mar  1 13:29\u00A0", "--text");
-    printSpan("discogs", "--accent");
-    printLineBreak();
+  // Discogs
+  printSpan("-rw-r--r-- 1 fluttr stats\u00A0 64 Mar  1 13:29\u00A0", "--text");
+  printSpan("discogs", "--accent");
+  printLineBreak();
 
   // Bandcamp
   printSpan("-rw-r--r-- 1 fluttr music\u00A0 64 Mar  1 13:29\u00A0", "--text");

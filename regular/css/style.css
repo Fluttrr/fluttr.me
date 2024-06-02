@@ -11,6 +11,18 @@ p {
 	font-size: 18px;
 }
 
+li {
+	font-family: Nunito, Helvetica, Arial, sans-serif;
+	color: white;
+	font-size: 18px;
+}
+
+ul {
+	margin-bottom: 1rem;
+	padding: 0;
+	list-style-type: none;
+}
+
 body {
 	background-color: #252525;
 	max-width: 100%;
