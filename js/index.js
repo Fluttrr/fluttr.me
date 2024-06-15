@@ -71,7 +71,7 @@ function evalCommand() {
       printAbout();
       break;
     case "ls":
-      printLs(11);
+      printLs(14);
       break;
     case "clear":
       clear();
@@ -85,6 +85,9 @@ function evalCommand() {
     case "":
       break;
     // Commands for links
+    case "cat signal":
+      printLine("fluttr.01");
+      break;
     case "cat discord":
       printLine("@fluttr.");
       break;
@@ -267,6 +270,11 @@ function printAbout() {
 function printLs(num) {
   printLine("total " + num);
 
+  // Signal
+  printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0", "--text");
+  printSpan("signal", "--accent");
+  printLineBreak();
+
   // Discord
   printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0", "--text");
   printSpan("discord", "--accent");
@@ -334,7 +342,7 @@ function printLs(num) {
 }
 
 function printLsExtra() {
-  printLs(13);
+  printLs(16);
 
   // Fake Onlyfans
   printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0", "--text");
