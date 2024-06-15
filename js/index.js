@@ -11,18 +11,18 @@ function commandPrompt() {
   const dollar = printSpan("$ ", "--text");
 
   // Get window element
-  const element = document.getElementById("window");
+  const window = document.getElementById("window");
 
   // Create blinking text prompt
   const span = document.createElement("span");
-  const node = document.createTextNode("█");
-  span.appendChild(node);
+  const cursor = document.createTextNode("█");
+  span.appendChild(cursor);
   span.setAttribute("id", "blinkingCursor");
   span.style.color = "var(--text, #ffffff)";
   span.style.animation = "blink steps(1) 1s infinite";
   span.style.display = "inline-block";
   span.setAttribute("class", "clearable");
-  element.appendChild(span);
+  window.appendChild(span);
 
   // Create input
   const input = document.createElement("span");
@@ -36,7 +36,7 @@ function commandPrompt() {
   input.setAttribute("class", "clearable");
   dollar.appendChild(input);
   input.focus();
-  element.addEventListener("keydown", doFocus());
+  window.addEventListener("keydown", doFocus());
 
   // Listen for enter key and evaluate command
   input.addEventListener("keydown", function (event) {
