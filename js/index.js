@@ -14,15 +14,15 @@ function commandPrompt() {
   const element = document.getElementById("window");
 
   // Create blinking text prompt
-  const span4 = document.createElement("span");
-  const node4 = document.createTextNode("█");
-  span4.appendChild(node4);
-  span4.setAttribute("id", "blinkingCursor");
-  span4.style.color = "var(--text, #ffffff)";
-  span4.style.animation = "blink steps(1) 1s infinite";
-  span4.style.display = "inline-block";
-  span4.setAttribute("class", "clearable");
-  element.appendChild(span4);
+  const span = document.createElement("span");
+  const node = document.createTextNode("█");
+  span.appendChild(node);
+  span.setAttribute("id", "blinkingCursor");
+  span.style.color = "var(--text, #ffffff)";
+  span.style.animation = "blink steps(1) 1s infinite";
+  span.style.display = "inline-block";
+  span.setAttribute("class", "clearable");
+  element.appendChild(span);
 
   // Create input
   const input = document.createElement("span");
@@ -246,14 +246,14 @@ function printAbout() {
   );
 
   const link = document.createElement("a");
-  const node = document.createTextNode("here");
+  const linkTextNode = document.createTextNode("here");
   link.setAttribute("href", "./regular");
-  link.appendChild(node);
+  link.appendChild(linkTextNode);
   line.appendChild(link);
 
   const endOfLine = document.createElement("span");
-  const node2 = document.createTextNode(").");
-  endOfLine.appendChild(node2);
+  const endOfLineTextNode = document.createTextNode(").");
+  endOfLine.appendChild(endOfLineTextNode);
   line.appendChild(endOfLine);
 
   printLineBreak();
@@ -397,59 +397,59 @@ function clear() {
 }
 
 function printLine(string) {
-  const description = document.createElement("p");
-  const node = document.createTextNode(string);
-  description.appendChild(node);
-  description.setAttribute("class", "clearable");
+  const text = document.createElement("p");
+  const textNode = document.createTextNode(string);
+  text.appendChild(textNode);
+  text.setAttribute("class", "clearable");
 
-  const element = document.getElementById("window");
-  element.appendChild(description);
-  return description;
+  const window = document.getElementById("window");
+  window.appendChild(text);
+  return text;
 }
 
 function printIndentedLine(string) {
-  const description = document.createElement("p");
-  const node = document.createTextNode(string);
-  description.appendChild(node);
-  description.setAttribute("class", "indent clearable");
+  const text = document.createElement("p");
+  const textNode = document.createTextNode(string);
+  text.appendChild(textNode);
+  text.setAttribute("class", "indent clearable");
 
-  const element = document.getElementById("window");
-  element.appendChild(description);
-  return description;
+  const window = document.getElementById("window");
+  window.appendChild(text);
+  return text;
 }
 
 function printSpan(string, color) {
-  const description = document.createElement("span");
-  const node = document.createTextNode(string);
-  description.appendChild(node);
-  description.style.color = "var(" + color + ", #fff)";
-  description.style.display = "inline-block";
-  description.setAttribute("class", "clearable");
+  const span = document.createElement("span");
+  const textNode = document.createTextNode(string);
+  span.appendChild(textNode);
+  span.style.color = "var(" + color + ", #fff)";
+  span.style.display = "inline-block";
+  span.setAttribute("class", "clearable");
 
-  const element = document.getElementById("window");
-  element.appendChild(description);
-  return description;
+  const window = document.getElementById("window");
+  window.appendChild(span);
+  return span;
 }
 
 function printLink(string, link) {
-  const description = document.createElement("a");
-  const node = document.createTextNode(string);
-  description.appendChild(node);
-  description.setAttribute("href", link);
-  description.setAttribute("target", "_blank");
-  description.setAttribute("class", "clearable");
+  const link = document.createElement("a");
+  const textNode = document.createTextNode(string);
+  link.appendChild(textNode);
+  link.setAttribute("href", link);
+  link.setAttribute("target", "_blank");
+  link.setAttribute("class", "clearable");
 
-  const element = document.getElementById("window");
-  element.appendChild(description);
-  return description;
+  const window = document.getElementById("window");
+  window.appendChild(link);
+  return link;
 }
 
 function printLineBreak() {
   const linebreak = document.createElement("br");
   linebreak.setAttribute("class", "clearable");
 
-  const element = document.getElementById("window");
-  element.appendChild(linebreak);
+  const window = document.getElementById("window");
+  window.appendChild(linebreak);
 }
 
 function doFocus() {
