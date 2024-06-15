@@ -432,16 +432,16 @@ function printSpan(string, color) {
 }
 
 function printLink(string, link) {
-  const link = document.createElement("a");
+  const linkElement = document.createElement("a");
   const textNode = document.createTextNode(string);
-  link.appendChild(textNode);
-  link.setAttribute("href", link);
-  link.setAttribute("target", "_blank");
-  link.setAttribute("class", "clearable");
+  linkElement.appendChild(textNode);
+  linkElement.setAttribute("href", link);
+  linkElement.setAttribute("target", "_blank");
+  linkElement.setAttribute("class", "clearable");
 
   const window = document.getElementById("window");
-  window.appendChild(link);
-  return link;
+  window.appendChild(linkElement);
+  return linkElement;
 }
 
 function printLineBreak() {
