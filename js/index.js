@@ -15,7 +15,7 @@ function commandPrompt() {
 
   // Create blinking text prompt
   const span = document.createElement("span");
-  const cursor = document.createTextNode("█");
+  const cursor = document.createTextNode("_");
   span.appendChild(cursor);
   span.setAttribute("id", "blinkingCursor");
   span.style.color = "var(--text, #ffffff)";
@@ -243,7 +243,7 @@ function printAbout() {
   printLine(
     "This site is made using nothing but HTML, CSS and vanilla JavaScript."
   );
-  
+
   printLineBreak();
 
   printLine("Feel free to message me anywhere for any reason!");
