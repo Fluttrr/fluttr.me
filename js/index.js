@@ -79,9 +79,6 @@ function evalCommand() {
     case "history":
       printLine(history.substring(0, history.length - 9).replaceAll("§", ", "));
       break;
-    case "site":
-      window.location.href = "./regular";
-      break;
     case "":
       break;
     // Commands for links
@@ -203,9 +200,6 @@ function printHelp() {
   );
   printIndentedLine("* cat <file> - Displays contents of file");
   printIndentedLine(
-    "* site \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- Redirects to a regular website"
-  );
-  printIndentedLine(
     "* clear \u00A0\u00A0\u00A0\u00A0\u00A0- Clears the screen"
   );
   printIndentedLine(
@@ -240,21 +234,10 @@ function printAbout() {
   printIndentedLine("* Wild Camping (also very rarely do this lol)");
   printLineBreak();
 
-  const line = printSpan(
-    'You can find links to any of my profiles by using the "ls" command to list all my profiles and then using "cat [link]". You can also just switch to the regular version of this site by typing "site" (or just click\u00A0',
+  printSpan(
+    'You can find links to any of my profiles by using the "ls" command to list all my profiles and then using "cat [link]".',
     "--text"
   );
-
-  const link = document.createElement("a");
-  const linkTextNode = document.createTextNode("here");
-  link.setAttribute("href", "./regular");
-  link.appendChild(linkTextNode);
-  line.appendChild(link);
-
-  const endOfLine = document.createElement("span");
-  const endOfLineTextNode = document.createTextNode(").");
-  endOfLine.appendChild(endOfLineTextNode);
-  line.appendChild(endOfLine);
 
   printLineBreak();
   printLineBreak();
