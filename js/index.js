@@ -234,17 +234,16 @@ function printAbout() {
   printIndentedLine("* Wild Camping (also very rarely do this lol)");
   printLineBreak();
 
-  printSpan(
-    'You can find links to any of my profiles by using the "ls" command to list all my profiles and then using "cat [link]".',
-    "--text"
+  printLine(
+    'You can find links to any of my profiles by using the "ls" command to list all my profiles and then using "cat [link]".'
   );
 
-  printLineBreak();
   printLineBreak();
 
   printLine(
     "This site is made using nothing but HTML, CSS and vanilla JavaScript."
   );
+  
   printLineBreak();
 
   printLine("Feel free to message me anywhere for any reason!");
