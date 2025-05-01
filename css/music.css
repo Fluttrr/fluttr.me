@@ -89,6 +89,7 @@ li {
     /* Ensure padding is included in the width */
     overflow-x: hidden;
     /* Prevent horizontal overflow */
+    z-index: 2;
 }
 
 #seekbar-container {

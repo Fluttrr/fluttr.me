@@ -21,6 +21,7 @@ function commandPrompt() {
   span.style.color = "var(--text, #ffffff)";
   span.style.animation = "blink steps(1) 1s infinite";
   span.style.display = "inline-block";
+  span.style.zIndex = "1";
   span.setAttribute("class", "clearable");
   window.appendChild(span);
 
@@ -172,8 +173,6 @@ function evalCommand() {
       break;
     case "music":
       openMusicPlayer();
-      //Sleep for 0.5 seconds to ensure new prompt is rendered after music player
-
       break;
     default:
       if (command.toLowerCase().startsWith("cat"))
@@ -203,7 +202,7 @@ function printHelp() {
     "* about \u00A0\u00A0\u00A0\u00A0\u00A0- Information about me"
   );
   printIndentedLine(
-    "* music \u00A0\u00A0\u00A0\u00A0\u00A0- Opens a music player to listen to my music (press 'q' to close it)"
+    "* music \u00A0\u00A0\u00A0\u00A0\u00A0- Opens a music player to listen to my music"
   );
   printIndentedLine(
     "* ls \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- Displays all accessible files (links)"
