@@ -215,7 +215,7 @@ function printHelp() {
   printIndentedLine(
     "* ls \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display all accessible files (links)"
   );
-  printIndentedLine("* cat <file> - displays contents of file");
+  printIndentedLine("* cat <file> - display contents of a file");
   printIndentedLine(
     "* clear \u00A0\u00A0\u00A0\u00A0\u00A0- clear the screen"
   );
