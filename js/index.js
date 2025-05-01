@@ -84,6 +84,8 @@ function evalCommand() {
     // Commands for links
     case "cat signal":
       printLine("fluttr.01");
+      printLink("https://signal.me/#eu/miUIHUv7glIcqQ14OrI3RKl2wRfZlKX-xP7Cm3Ky3qyjOIRYf4NOGL0m_fey_eNb", "https://signal.me/#eu/miUIHUv7glIcqQ14OrI3RKl2wRfZlKX-xP7Cm3Ky3qyjOIRYf4NOGL0m_fey_eNb")
+      printLineBreak();
       break;
     case "cat discord":
       printLine("@fluttr.");
@@ -422,9 +424,14 @@ function printSpan(string, color) {
 }
 
 function printLink(string, link) {
+  printLink(string, link, "--text");
+}
+
+function printLink(string, link, color) {
   const linkElement = document.createElement("a");
   const textNode = document.createTextNode(string);
   linkElement.appendChild(textNode);
+  linkElement.style.color = "var(" + color + ", #fff)";
   linkElement.setAttribute("href", link);
   linkElement.setAttribute("target", "_blank");
   linkElement.setAttribute("class", "clearable");
@@ -453,8 +460,14 @@ function doFocus() {
       rect.right <= (window.innerWidth || document.documentElement.clientWidth);
 
     if (isVisible) {
+      // Save the current scroll position
+      const scrollX = window.scrollX || window.pageXOffset;
+      const scrollY = window.scrollY || window.pageYOffset;
+
       setTimeout(function () {
-        myInput.focus({ preventScroll: true }); // Prevent scrolling to the input
+        myInput.focus();
+        // Restore the scroll position after focusing
+        window.scrollTo(scrollX, scrollY);
       }, 50);
     }
   }
