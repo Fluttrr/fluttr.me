@@ -174,6 +174,9 @@ function evalCommand() {
     case "music":
       openMusicPlayer();
       break;
+    case "blog":
+      printBlogOverview();
+      break;
     default:
       if (command.toLowerCase().startsWith("cat"))
         printLine("Usage: cat [file]");
@@ -182,7 +185,9 @@ function evalCommand() {
         command.toLowerCase().includes("a")
       )
         printLsExtra();
-      else
+      else if (command.startsWith("blog")) {
+        printBlogEntry(command.split(" ")[1]);
+      } else
         printLine(
           'Command not found. Type "help" for a list of available commands.'
         );
@@ -482,4 +487,65 @@ function openMusicPlayer() {
   document.getElementById("window").appendChild(container);
   document.getElementById("window").style.setProperty('padding-bottom', '6rem');
   generateMusic();
+}
+
+// Global variable to store the blog posts
+let blogPosts = [];
+
+// Fetch the JSON at page load
+function fetchBlogPosts() {
+  fetch('./js/posts.json')
+    .then(response => response.json())
+    .then(data => {
+      blogPosts = data.posts; // Store the posts in the global variable
+    })
+    .catch(error => console.error('Error fetching blog posts:', error));
+}
+
+// Call the fetch function at page load
+fetchBlogPosts();
+
+function printBlogOverview() {
+  if (blogPosts.length === 0) {
+    printLine("No blog posts available.");
+    return;
+  }
+
+  printLine('Blog overview (type "blog {num}" to see any entry!):');
+  printLineBreak();
+  let counter = blogPosts.length;
+  blogPosts.forEach(item => {
+    printSpan(counter + " - " + item.title + " (" + item.date + ")", "--accent");
+    if (counter >= blogPosts.length - 1) {
+      item.content.split("\n").forEach(line => {
+        printLine(line);
+        printLineBreak();
+      });
+    }
+    counter--;
+  });
+}
+
+function printBlogEntry(num) {
+  // Check if num is a string containing an integer
+  if (!/^\d+$/.test(num)) {
+    printLine("Invalid input. Please enter a valid blog entry number.");
+    return;
+  }
+
+  const index = parseInt(num) - 1; // Convert to zero-based index
+  if (index < 0 || index >= blogPosts.length) {
+    printLine("Invalid blog entry number.");
+    return;
+  }
+
+  const post = blogPosts[index];
+  printSpan(post.title, "--accent");
+  printLineBreak();
+  printSpan(post.date, "--accent");
+  post.content.split("\n").forEach(line => {
+    printLine(line);
+    printLineBreak();
+  });
+  printLineBreak();
 }
