@@ -3,6 +3,35 @@ function sanitizeFilename(title) {
     return title.replace(/[^a-zA-Z0-9]/g, '_'); // Replace non-alphanumeric characters with underscores
 }
 
+function getAlbumHTML(item) {
+    return `
+        <img class="cover" src="./img/covers/${sanitizeFilename(item.title)}.jpg" alt="Album Cover">
+        <div class="album-content">
+            <h1>${item.title}</h1>
+            <p class="info">${item.year}</p>
+            <ol>
+                ${item.songs.map(song => `
+                    <li>
+                        <p class="album-song-title">${song.title}<span class="duration">${song.length}</span></p>
+                        <button class="play-album" onclick="playSong('${sanitizeFilename(song.title)}');"><img class="play-button" src="./img/play.svg"></button>
+                    </li>
+                `).join('')}
+            </ol>
+        </div>
+    `;
+}
+
+function getSingleHTML(item) {
+    return `
+        <img class="cover" src="./img/covers/${sanitizeFilename(item.title)}.jpg" alt="Album Cover">
+        <div class="album-content">
+            <h1>${item.title}<span class="duration">${item.length}</span></h1>
+            <p class="info">${item.year}</p>
+            <button class="play-single" onclick="playSong('${sanitizeFilename(item.title)}');"><img class="play-button" src="./img/play.svg"></button>
+        </div>
+    `;
+}
+
 function generateMusic() {
     fetch('./js/songs.json')
         .then(response => response.json())
@@ -16,21 +45,7 @@ function generateMusic() {
                     const albumDiv = document.createElement('div');
                     albumDiv.classList.add('album');
 
-                    const albumContent = `
-                    <img class="cover" src="./img/covers/${sanitizeFilename(item.title)}.jpg" alt="Album Cover">
-                    <div class="album-content">
-                        <h1>${item.title}</h1>
-                        <p class="info">${item.year}</p>
-                        <ol>
-                            ${item.songs.map(song => `
-                                <li>
-                                    <p class="album-song-title">${song.title}<span class="duration">${song.length}</span></p>
-                                    <button class="play-album" onclick="playSong('${sanitizeFilename(song.title)}');"><img class="play-button" src="./img/play.svg"></button>
-                                </li>
-                            `).join('')}
-                        </ol>
-                    </div>
-                `;
+                    const albumContent = getAlbumHTML(item);
                     albumDiv.innerHTML = albumContent;
                     container.appendChild(albumDiv);
                 } else {
@@ -38,14 +53,7 @@ function generateMusic() {
                     const singleDiv = document.createElement('div');
                     singleDiv.classList.add('album');
 
-                    const singleContent = `
-                    <img class="cover" src="./img/covers/${sanitizeFilename(item.title)}.jpg" alt="Album Cover">
-                    <div class="album-content">
-                        <h1>${item.title}<span class="duration">${item.length}</span></h1>
-                        <p class="info">${item.year}</p>
-                        <button class="play-single" onclick="playSong('${sanitizeFilename(item.title)}');"><img class="play-button" src="./img/play.svg"></button>
-                    </div>
-                `;
+                    const singleContent = getSingleHTML(item);
                     singleDiv.innerHTML = singleContent;
                     container.appendChild(singleDiv);
                 }
