@@ -223,44 +223,45 @@ function printHelp() {
 
 function printAbout() {
   printLine(
-    "Hey! Thanks for trusting me enough to actually go on my website lol. This is mostly a hub for all my profiles and this section you're reading right now."
+    "hey! thanks for trusting me enough to actually go on my website lol. this is a hub for anything about me, from my links to my music to a dumb useless little blog!! and i plan to put more stuff like photos on here too eventually."
   );
   printLineBreak();
 
   printLine(
-    "I study computer science and I'm into various things, such as:"
+    "i study computer science and im into various things, such as:"
   );
   printLineBreak();
 
-  printIndentedLine("* Anime (I don't watch nearly as much as I'd like to)");
+  printIndentedLine("* anime (i dont watch nearly as much as id like to)");
   printIndentedLine(
-    "* Listening to music (EDM, Rap, Singer/Songwriter, Classical, Rock and OSTs)"
+    "* listening to music (edm, rap, singer/songwriter, classical, rock (especially noise pop) and osts)"
   );
-  printIndentedLine("* Making music");
-  printIndentedLine("* Learning Japanese");
-  printIndentedLine("* 3D Printing");
-  printIndentedLine("* Tech/Programming");
-  printIndentedLine("* Collecting Vinyl and Manga");
-  printIndentedLine("* Good audio equipment (Headphones, IEMs, amps, speakers)");
-  printIndentedLine("* Tea");
-  printIndentedLine("* Cooking/Baking");
-  printIndentedLine("* Sewing Plushies (haven't done it in ages)");
-  printIndentedLine("* Wild Camping (also very rarely do this lol)");
+  printIndentedLine("* making music (type 'music' to take a look!!)");
+  printIndentedLine("* sewing plushies");
+  printIndentedLine("* photography");
+  printIndentedLine("* tech/programming");
+  printIndentedLine("* collecting vinyl and manga");
+  printIndentedLine("* good audio gear (headphones, iems, amps, speakers)");
+  printIndentedLine("* tea (love me some white tea)");
+  printIndentedLine("* learning japanese (on a bit of a hiatus...)");
+  printIndentedLine("* 3d printing");
+  printIndentedLine("* cooking/baking");
+  printIndentedLine("* wild camping (very rarely do this lol)");
   printLineBreak();
 
   printLine(
-    'You can find links to any of my profiles by using the "ls" command to list all my profiles and then using "cat [link]".'
+    'you can find links to any of my profiles by using the "ls" command to list all my profiles and then using "cat [link]".'
   );
 
   printLineBreak();
 
   printLine(
-    "This site is made using nothing but HTML, CSS and vanilla JavaScript."
+    "this site is made using nothing but html, css and vanilla javascript."
   );
 
   printLineBreak();
 
-  printLine("Feel free to message me anywhere for any reason!");
+  printLine("feel free to message me anywhere for any reason!!");
 }
 
 function printLs(num) {
@@ -542,7 +543,7 @@ function printBlogEntry(num) {
   const post = blogPosts[index];
   printSpan(post.title, "--accent");
   printLineBreak();
-  printSpan(post.date, "--accent");
+  printSpan(post.date, "--accent2");
   post.content.split("\n").forEach(line => {
     printLine(line);
     printLineBreak();
