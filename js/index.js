@@ -1,6 +1,6 @@
 let history = "";
 
-function commandPrompt() {
+function commandPrompt(is_music_last_command = false) {
   // Create green visitor@fluttr.me: text
   printSpan("visitor@fluttr.me:", "--accent");
 
@@ -191,7 +191,7 @@ function evalCommand() {
   }
 
   // Repeat process
-  commandPrompt();
+  commandPrompt(command === "music");
 }
 
 function printHelp() {
