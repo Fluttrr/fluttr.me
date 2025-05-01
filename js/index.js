@@ -1,6 +1,6 @@
 let history = "";
 
-function commandPrompt(is_music_last_command = false) {
+function commandPrompt() {
   // Create green visitor@fluttr.me: text
   printSpan("visitor@fluttr.me:", "--accent");
 
@@ -191,7 +191,7 @@ function evalCommand() {
   }
 
   // Repeat process
-  commandPrompt(command === "music");
+  commandPrompt();
 }
 
 function printHelp() {
@@ -460,14 +460,8 @@ function doFocus() {
       rect.right <= (window.innerWidth || document.documentElement.clientWidth);
 
     if (isVisible) {
-      // Save the current scroll position
-      const scrollX = window.scrollX || window.pageXOffset;
-      const scrollY = window.scrollY || window.pageYOffset;
-
       setTimeout(function () {
-        myInput.focus();
-        // Restore the scroll position after focusing
-        window.scrollTo(scrollX, scrollY);
+        myInput.focus({ preventScroll: true }); // Prevent scrolling to the input
       }, 50);
     }
   }
