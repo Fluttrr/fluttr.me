@@ -201,29 +201,32 @@ function evalCommand() {
 function printHelp() {
   printLine("Available commands:");
   printIndentedLine(
-    "* help \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- Displays this help message"
+    "* help \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display this help message"
   );
   printIndentedLine(
-    "* about \u00A0\u00A0\u00A0\u00A0\u00A0- Information about me"
+    "* about \u00A0\u00A0\u00A0\u00A0\u00A0- all about me"
   );
   printIndentedLine(
-    "* music \u00A0\u00A0\u00A0\u00A0\u00A0- Opens a music player to listen to my music"
+    "* music \u00A0\u00A0\u00A0\u00A0\u00A0- open a music player to listen to my music"
   );
   printIndentedLine(
-    "* ls \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- Displays all accessible files (links)"
-  );
-  printIndentedLine("* cat <file> - Displays contents of file");
-  printIndentedLine(
-    "* clear \u00A0\u00A0\u00A0\u00A0\u00A0- Clears the screen"
+    "* blog \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- view my blog posts"
   );
   printIndentedLine(
-    "* history \u00A0\u00A0\u00A0- Shows previously used commands"
+    "* ls \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display all accessible files (links)"
+  );
+  printIndentedLine("* cat <file> - displays contents of file");
+  printIndentedLine(
+    "* clear \u00A0\u00A0\u00A0\u00A0\u00A0- clear the screen"
+  );
+  printIndentedLine(
+    "* history \u00A0\u00A0\u00A0- show previously used commands"
   );
 }
 
 function printAbout() {
   printLine(
-    "hey! thanks for trusting me enough to actually go on my website lol. this is a hub for anything about me, from my links to my music to a dumb useless little blog!! and i plan to put more stuff like photos on here too eventually."
+    "hey!! thanks for trusting me enough to actually go on my website lol. this is a hub for anything about me, from my links to my music to a dumb useless little blog!! and i plan to put more stuff like photos on here too eventually."
   );
   printLineBreak();
 
