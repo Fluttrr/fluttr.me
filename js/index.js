@@ -445,9 +445,18 @@ function printLineBreak() {
 function doFocus() {
   const myInput = document.getElementById("input");
   if (myInput) {
-    setTimeout(function () {
-      myInput.focus({ preventScroll: true }); // Prevent scrolling to the input
-    }, 50);
+    const rect = myInput.getBoundingClientRect();
+    const isVisible =
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+
+    if (isVisible) {
+      setTimeout(function () {
+        myInput.focus({ preventScroll: true }); // Prevent scrolling to the input
+      }, 50);
+    }
   }
 }
 
