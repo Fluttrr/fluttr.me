@@ -1,26 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fluttr</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono">
-    <script type="text/javascript" src="./js/index.js"></script>
-  </head>
-  <body onclick="doFocus()">
-    <p id="loading">Loading...</p>
-    <div id="window">
-        <p>Welcome to fluttr.me 2.0.3 NTS (GNU/Linux 5.15.79.1-github-pages x86_64)</p>
-        <br>
-        <p class="indent">* For a list of commands, type "help".</p>
-        <p class="indent">* Maintained with <span style="color:red;">♥</span> by fluttr.</p>
-        <br>
-        <p>This message is shown on each visit. Feel free to look around! </p>
-        <p><span class="accent">(C)</span> <span id="currentYear">0000</span>, fluttr</p>
-        <script>setCurrentYear();commandPrompt();</script>
-    </div>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fluttr</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/music.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono">
+  <script type="text/javascript" src="./js/index.js"></script>
+  <script type="text/javascript" src="./js/generateMusic.js"></script>
+  <script type="text/javascript" src="./js/musicPlayer.js" defer></script>
+</head>
+
+<body onclick="doFocus()">
+  <p id="loading">Loading...</p>
+  <div id="window">
+    <p>Welcome to fluttr.me 2.0.3 NTS (GNU/Linux 5.15.79.1-github-pages x86_64)</p>
+    <br>
+    <p class="indent">* For a list of commands, type "help".</p>
+    <p class="indent">* Maintained with <span style="color:red;">♥</span> by fluttr.</p>
+    <p class="indent">* New: type music to listen to my music!</p>
+    <br>
+    <p>This message is shown on each visit. Feel free to look around! </p>
+    <p><span class="accent">(C)</span> <span id="currentYear">0000</span>, fluttr</p>
+    <script>setCurrentYear(); commandPrompt();</script>
+
+    <footer id="player">
+      <div id="now-playing-container">
+        <img id="cover" src="./img/covers/awake.jpg" alt="Cover Art">
+        <p id="song-name">-</p>
+      </div>
+      <div id="seekbar-container">
+        <div>
+          <span id="current-time">0:00</span>
+          <input class="slider" id="seekbar" type="range" min="0" max="100" value="0">
+          <span id="duration">0:00</span>
+        </div>
+        <div id="control-container">
+          <button id="previous" onclick="playPreviousSong();"><img class="skip-button"
+              src="./img/backward.svg"></button>
+          <button id="main-control"><img class="play-button" src="./img/play.svg"></button>
+          <button id="next" onclick="playNextSong();"><img class="skip-button" src="./img/forward.svg"></button>
+        </div>
+      </div>
+      <div id="volume-container">
+        <button><img id="mute-button" class="volume-icon" src="./img/volume.svg"></button>
+        <input class="slider" id="volume" type="range" min="0" max="100" value="100">
+      </div>
+    </footer>
+    <audio preload=”metadata”></audio>
+  </div>
+</body>
+
 </html>

@@ -168,6 +168,11 @@ function evalCommand() {
     case "cat .favmusic":
       printFavMusic();
       break;
+    case "music":
+      openMusicPlayer();
+      //Sleep for 0.5 seconds to ensure new prompt is rendered after music player
+
+      break;
     default:
       if (command.toLowerCase().startsWith("cat"))
         printLine("Usage: cat [file]");
@@ -194,6 +199,9 @@ function printHelp() {
   );
   printIndentedLine(
     "* about \u00A0\u00A0\u00A0\u00A0\u00A0- Information about me"
+  );
+  printIndentedLine(
+    "* music \u00A0\u00A0\u00A0\u00A0\u00A0- Opens a music player to listen to my music (press 'q' to close it)"
   );
   printIndentedLine(
     "* ls \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- Displays all accessible files (links)"
@@ -436,9 +444,11 @@ function printLineBreak() {
 
 function doFocus() {
   const myInput = document.getElementById("input");
-  setTimeout(function () {
-    myInput.focus();
-  }, 50);
+  if (myInput) {
+    setTimeout(function () {
+      myInput.focus({ preventScroll: true }); // Prevent scrolling to the input
+    }, 50);
+  }
 }
 
 function hankyPanky(string) {
@@ -448,4 +458,13 @@ function hankyPanky(string) {
 function setCurrentYear() {
   const year = new Date().getFullYear();
   document.getElementById("currentYear").innerText = year;
+}
+
+function openMusicPlayer() {
+  const container = document.createElement('div');
+  container.classList.add('clearable');
+  container.classList.add('music-container');
+  document.getElementById("window").appendChild(container);
+  document.getElementById("window").style.setProperty('padding-bottom', '6rem');
+  generateMusic();
 }

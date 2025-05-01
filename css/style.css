@@ -4,7 +4,6 @@
     --background: #2d0922;
     --accent2: #6d98c8;
     --common-font: Ubuntu Mono;
-
 }
 
 .accent {
@@ -15,9 +14,11 @@
     0% {
         opacity: 0;
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
@@ -27,6 +28,7 @@
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -36,6 +38,7 @@
     0% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
@@ -58,12 +61,15 @@ body {
     height: 100%;
     width: 100%;
     overflow: wrap;
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
-body::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
+body::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
 }
 
 #focussing-window {
@@ -124,7 +130,8 @@ a:hover {
 }
 
 *[contenteditable]:empty:before {
-    content: "\feff"; /* ZERO WIDTH NO-BREAK SPACE */
+    content: "\feff";
+    /* ZERO WIDTH NO-BREAK SPACE */
 }
 
 .indent {

@@ -1,0 +1,269 @@
+{
+    "catalogue": [
+        {
+            "album": true,
+            "title": "trying to reach for the past, but will i ever feel the same?",
+            "year": 2024,
+            "songs": [
+                {
+                    "title": "trying to reach for the past",
+                    "length": "2:53"
+                },
+                {
+                    "title": "will i ever feel the same?",
+                    "length": "3:48"
+                }
+            ]
+        },
+        {
+            "album": false,
+            "title": "i wish",
+            "length": "2:18",
+            "year": 2023
+        },
+        {
+            "album": false,
+            "title": "time flies by, yet i cant quite catch it. so please, tell me, can you..?",
+            "length": "2:32",
+            "year": 2023
+        },
+        {
+            "album": false,
+            "title": "tell me, have you forgotten?",
+            "length": "2:13",
+            "year": 2023
+        },
+        {
+            "album": false,
+            "title": "say, why does eternity feel so alone?",
+            "length": "3:01",
+            "year": 2022
+        },
+        {
+            "album": false,
+            "title": "take me someplace far away",
+            "length": "4:00",
+            "year": 2022
+        },
+        {
+            "album": false,
+            "title": "is there a way out",
+            "length": "2:31",
+            "year": 2022
+        },
+        {
+            "album": false,
+            "title": "come with me",
+            "length": "3:10",
+            "year": 2022
+        },
+        {
+            "album": true,
+            "title": "does it ever become easy",
+            "year": 2022,
+            "songs": [
+                {
+                    "title": "how did this happen",
+                    "length": "2:44"
+                },
+                {
+                    "title": "honestly, what were you thinking",
+                    "length": "2:33"
+                },
+                {
+                    "title": "long lone nights eating me up",
+                    "length": "2:44"
+                },
+                {
+                    "title": "forget about me",
+                    "length": "4:11"
+                },
+                {
+                    "title": "am i dreaming (interlude)",
+                    "length": "1:16"
+                },
+                {
+                    "title": "space pirates took her favorite toy",
+                    "length": "1:51"
+                },
+                {
+                    "title": "holding on with nothing to hold on to",
+                    "length": "2:51"
+                },
+                {
+                    "title": "i suppose sometimes its worth holding out",
+                    "length": "2:24"
+                },
+                {
+                    "title": "does it ever become easy",
+                    "length": "2:22"
+                }
+            ]
+        },
+        {
+            "album": false,
+            "title": "oh how long it's been",
+            "length": "4:02",
+            "year": 2022
+        },
+        {
+            "album": false,
+            "title": "where did my dreams go?",
+            "length": "3:00",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "Till the End of Time",
+            "length": "4:41",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "Down This Road",
+            "length": "4:24",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "come watch the stars with me!!",
+            "length": "4:16",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "lit (a silent voice ost) (fluttr lofi edit)",
+            "length": "3:04",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "when will the flowers start blooming again?",
+            "length": "3:12",
+            "year": 2021
+        },
+        {
+            "album": true,
+            "title": "sometimes its better to just not look back",
+            "year": 2021,
+            "songs": [
+                {
+                    "title": "pendulum",
+                    "length": "5:14"
+                },
+                {
+                    "title": "will you be there to catch me?",
+                    "length": "3:24"
+                },
+                {
+                    "title": "endless nights, wont you stop?",
+                    "length": "2:25"
+                },
+                {
+                    "title": "breaking",
+                    "length": "3:33"
+                },
+                {
+                    "title": "sometimes its better to just not look back",
+                    "length": "2:26"
+                }
+            ]
+        },
+        {
+            "album": false,
+            "title": "lost time",
+            "length": "3:50",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "Fall",
+            "length": "3:50",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "Wave",
+            "length": "2:33",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "eternity",
+            "length": "2:41",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "frei",
+            "length": "4:12",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "why",
+            "length": "4:13",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "new beginnings",
+            "length": "3:18",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "Stars",
+            "length": "2:56",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "awake",
+            "length": "2:58",
+            "year": 2021
+        },
+        {
+            "album": false,
+            "title": "Breathe",
+            "length": "3:25",
+            "year": 2020
+        },
+        {
+            "album": false,
+            "title": "Light",
+            "length": "4:24",
+            "year": 2020
+        },
+        {
+            "album": false,
+            "title": "dream",
+            "length": "4:12",
+            "year": 2020
+        },
+        {
+            "album": false,
+            "title": "Future",
+            "length": "3:22",
+            "year": 2020
+        },
+        {
+            "album": false,
+            "title": "coast",
+            "length": "1:51",
+            "year": 2020
+        },
+        {
+            "album": false,
+            "title": "alone",
+            "length": "3:17",
+            "year": 2020
+        },
+        {
+            "album": false,
+            "title": "haze",
+            "length": "1:49",
+            "year": 2020
+        }
+    ]
+}
