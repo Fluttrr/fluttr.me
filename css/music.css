@@ -38,7 +38,7 @@ h1 {
 }
 
 .info {
-    font-size: 0.8em;
+    font-size: 0.8rem;
     color: grey;
     margin-top: 0.2rem;
 }
@@ -71,6 +71,7 @@ li {
 .duration {
     color: grey;
     margin-left: 0.5rem;
+    font-size: 0.8rem;
 }
 
 #player {

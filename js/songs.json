@@ -4,13 +4,16 @@
             "album": true,
             "title": "trying to reach for the past, but will i ever feel the same?",
             "year": 2024,
+            "description": "little ambient ep",
             "songs": [
                 {
                     "title": "trying to reach for the past",
+                    "description": "ambient",
                     "length": "2:53"
                 },
                 {
                     "title": "will i ever feel the same?",
+                    "description": "ambient",
                     "length": "3:48"
                 }
             ]
@@ -19,83 +22,100 @@
             "album": false,
             "title": "i wish",
             "length": "2:18",
+            "description": "piano lofi ambient thing",
             "year": 2023
         },
         {
             "album": false,
             "title": "time flies by, yet i cant quite catch it. so please, tell me, can you..?",
             "length": "2:32",
+            "description": "ambient",
             "year": 2023
         },
         {
             "album": false,
             "title": "tell me, have you forgotten?",
             "length": "2:13",
+            "description": "electronic",
             "year": 2023
         },
         {
             "album": false,
             "title": "say, why does eternity feel so alone?",
             "length": "3:01",
+            "description": "piano/ambient",
             "year": 2022
         },
         {
             "album": false,
             "title": "take me someplace far away",
             "length": "4:00",
+            "description": "melodic dubstep",
             "year": 2022
         },
         {
             "album": false,
             "title": "is there a way out",
             "length": "2:31",
+            "description": "lofi?",
             "year": 2022
         },
         {
             "album": false,
             "title": "come with me",
             "length": "3:10",
+            "description": "synthwave",
             "year": 2022
         },
         {
             "album": true,
             "title": "does it ever become easy",
             "year": 2022,
+            "description": "album-ish",
             "songs": [
                 {
                     "title": "how did this happen",
+                    "description": "ambient",
                     "length": "2:44"
                 },
                 {
                     "title": "honestly, what were you thinking",
+                    "description": "piano house",
                     "length": "2:33"
                 },
                 {
                     "title": "long lone nights eating me up",
+                    "description": "orchestral",
                     "length": "2:44"
                 },
                 {
                     "title": "forget about me",
+                    "description": "happy hardcore",
                     "length": "4:11"
                 },
                 {
                     "title": "am i dreaming (interlude)",
+                    "description": "ambient",
                     "length": "1:16"
                 },
                 {
                     "title": "space pirates took her favorite toy",
+                    "description": "lofi??",
                     "length": "1:51"
                 },
                 {
                     "title": "holding on with nothing to hold on to",
+                    "description": "orchestral/ambient",
                     "length": "2:51"
                 },
                 {
                     "title": "i suppose sometimes its worth holding out",
+                    "description": "lofi?",
                     "length": "2:24"
                 },
                 {
                     "title": "does it ever become easy",
+                    "description": "orchestral-ish",
                     "length": "2:22"
                 }
             ]
@@ -104,67 +124,80 @@
             "album": false,
             "title": "oh how long it's been",
             "length": "4:02",
+            "description": "ambient/lofi mix",
             "year": 2022
         },
         {
             "album": false,
             "title": "where did my dreams go?",
             "length": "3:00",
+            "description": "lofi (vocals from stargazing)",
             "year": 2021
         },
         {
             "album": false,
             "title": "Till the End of Time",
             "length": "4:41",
+            "description": "generic old electronic music",
             "year": 2021
         },
         {
             "album": false,
             "title": "Down This Road",
             "length": "4:24",
+            "description": "some subgenre of house",
             "year": 2021
         },
         {
             "album": false,
             "title": "come watch the stars with me!!",
             "length": "4:16",
+            "description": "happy hardcore",
             "year": 2021
         },
         {
             "album": false,
             "title": "lit (a silent voice ost) (fluttr lofi edit)",
             "length": "3:04",
+            "description": "lofi",
             "year": 2021
         },
         {
             "album": false,
             "title": "when will the flowers start blooming again?",
             "length": "3:12",
+            "description": "lofi",
             "year": 2021
         },
         {
             "album": true,
             "title": "sometimes its better to just not look back",
             "year": 2021,
+            "description": "ep :3",
             "songs": [
                 {
                     "title": "pendulum",
+                    "description": "orchestral with lots of synths",
                     "length": "5:14"
                 },
                 {
                     "title": "will you be there to catch me?",
+                    "description": "progressive house",
                     "length": "3:24"
                 },
                 {
                     "title": "endless nights, wont you stop?",
+                    "description": "ambient",
                     "length": "2:25"
                 },
                 {
                     "title": "breaking",
+                    "description": "breakcore",
                     "length": "3:33"
                 },
                 {
                     "title": "sometimes its better to just not look back",
+                    "description": "lofi",
                     "length": "2:26"
                 }
             ]
@@ -173,96 +206,112 @@
             "album": false,
             "title": "lost time",
             "length": "3:50",
+            "description": "orchestral electronic mix",
             "year": 2021
         },
         {
             "album": false,
             "title": "Fall",
             "length": "3:50",
+            "description": "progressive house",
             "year": 2021
         },
         {
             "album": false,
             "title": "Wave",
             "length": "2:33",
+            "description": "synthwave",
             "year": 2021
         },
         {
             "album": false,
             "title": "eternity",
             "length": "2:41",
+            "description": "piano/ambient",
             "year": 2021
         },
         {
             "album": false,
             "title": "frei",
             "length": "4:12",
+            "description": "orchestral lofi mix",
             "year": 2021
         },
         {
             "album": false,
             "title": "why",
             "length": "4:13",
+            "description": "orchestral lofi mix",
             "year": 2021
         },
         {
             "album": false,
             "title": "new beginnings",
             "length": "3:18",
+            "description": "orchestral",
             "year": 2021
         },
         {
             "album": false,
             "title": "Stars",
             "length": "2:56",
+            "description": "happy hardcore",
             "year": 2021
         },
         {
             "album": false,
             "title": "awake",
             "length": "2:58",
+            "description": "lofi",
             "year": 2021
         },
         {
             "album": false,
             "title": "Breathe",
             "length": "3:25",
+            "description": "house",
             "year": 2020
         },
         {
             "album": false,
             "title": "Light",
             "length": "4:24",
+            "description": "progressive house",
             "year": 2020
         },
         {
             "album": false,
             "title": "dream",
             "length": "4:12",
+            "description": "lofi sort of thing",
             "year": 2020
         },
         {
             "album": false,
             "title": "Future",
             "length": "3:22",
+            "description": "progressive house",
             "year": 2020
         },
         {
             "album": false,
             "title": "coast",
             "length": "1:51",
+            "description": "orchestral",
             "year": 2020
         },
         {
             "album": false,
             "title": "alone",
             "length": "3:17",
+            "description": "ambient",
             "year": 2020
         },
         {
             "album": false,
             "title": "haze",
             "length": "1:49",
+            "description": "ambient/lofi",
             "year": 2020
         }
     ]

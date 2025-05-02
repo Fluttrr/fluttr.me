@@ -8,11 +8,12 @@ function getAlbumHTML(item) {
         <img class="cover" src="./img/covers/${sanitizeFilename(item.title)}.jpg" alt="Album Cover">
         <div class="album-content">
             <h1>${item.title}</h1>
-            <p class="info">${item.year}</p>
+            <p class="info">${item.year} &bull; ${item.description}</p>
             <ol>
                 ${item.songs.map(song => `
                     <li>
                         <p class="album-song-title">${song.title}<span class="duration">${song.length}</span></p>
+                        <span class="info">${song.description}</span>
                         <button class="play-album" onclick="playSong('${sanitizeFilename(song.title)}');"><img class="play-button" src="./img/play.svg"></button>
                     </li>
                 `).join('')}
@@ -26,7 +27,7 @@ function getSingleHTML(item) {
         <img class="cover" src="./img/covers/${sanitizeFilename(item.title)}.jpg" alt="Album Cover">
         <div class="album-content">
             <h1>${item.title}<span class="duration">${item.length}</span></h1>
-            <p class="info">${item.year}</p>
+            <p class="info">${item.year} &bull; ${item.description}</p>
             <button class="play-single" onclick="playSong('${sanitizeFilename(item.title)}');"><img class="play-button" src="./img/play.svg"></button>
         </div>
     `;
