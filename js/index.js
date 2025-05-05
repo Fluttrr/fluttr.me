@@ -543,7 +543,7 @@ function printBlogEntry(num) {
     return;
   }
 
-  const post = blogPosts[index];
+  const post = blogPosts[blogPosts.length - index];
   printSpan(post.title, "--accent");
   printLineBreak();
   printSpan(post.date, "--accent2");
