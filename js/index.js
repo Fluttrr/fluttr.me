@@ -357,33 +357,33 @@ function printLsExtra() {
 
 function printFavMusic() {
   printLink(
-    "San Holo - worthy (Electronic)",
+    "Willy Rodrigez - wetdream (noise pop)",
+    "https://www.youtube.com/watch?v=d8GaT09uxow&pp=ygUYd2lsbHkgcm9kcmlndWV6IHdldGRyZWFt"
+  );
+  printLineBreak();
+  printLink(
+    "San Holo - worthy (electronic)",
     "https://www.youtube.com/watch?v=ZIjGhWi6FEI"
   );
   printLineBreak();
   printLink(
-    "The 1975 - I Always Wanna Die (Sometimes) (Pop Rock)",
-    "https://youtu.be/k0Z6IxOeuMk"
+    "Ruel - SITTING IN TRAFFIC (singer/songwriter)",
+    "https://www.youtube.com/watch?v=TJje4xifm-I&pp=ygURc2l0dGluZyBpbiB0cmFmaWM%3D"
   );
   printLineBreak();
   printLink(
-    "Lauv - Bad Trip (Singer-Songwriter/Rock/Pop)",
-    "https://www.youtube.com/watch?v=vYqb9AmKVIM"
-  );
-  printLineBreak();
-  printLink(
-    "Aries - KIDS ON MOLLY (Rock/Rap)",
+    "Aries - KIDS ON MOLLY (rap/rock)",
     "https://www.youtube.com/watch?v=6gbV8tUuYiY"
   );
   printLineBreak();
   printLink(
-    "Corderoy - Touch Your Face (Electronic)",
-    "https://www.youtube.com/watch?v=sqdTzyxiuP8"
+    "Parannoul - White Ceiling (noise pop)",
+    "https://www.youtube.com/watch?v=Jp9qIHFlvgc&pp=ygUNd2hpdGUgY2VpbGluZw%3D%3D"
   );
   printLineBreak();
   printLink(
-    "San Holo - idk anything (demo) (Electronic)",
-    "https://youtu.be/rT7hbSMQh9w"
+    "drug bug - took my heart (indie rock maybe?? idk what genre this is..)",
+    "https://www.youtube.com/watch?v=xdF4mq_DPH8&pp=ygUWdG9vayBteSBoZWFydCBkcnVnIGJ1Zw%3D%3D"
   );
   printLineBreak();
 }
