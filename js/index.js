@@ -528,6 +528,7 @@ function printBlogOverview() {
     printLineBreak();
     counter--;
   });
+  printLineBreak();
 }
 
 function printBlogEntry(num) {
@@ -544,6 +545,7 @@ function printBlogEntry(num) {
   }
 
   const post = blogPosts[blogPosts.length - index - 1];
+  printLineBreak();
   printSpan(post.title, "--accent");
   printLineBreak();
   printSpan(post.date, "--accent2");
