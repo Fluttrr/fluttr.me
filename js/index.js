@@ -523,9 +523,9 @@ function printBlogOverview() {
     if (counter >= blogPosts.length - 1) {
       item.content.split("\n").forEach(line => {
         printLine(line);
-        printLineBreak();
       });
     }
+    printLineBreak();
     counter--;
   });
 }
