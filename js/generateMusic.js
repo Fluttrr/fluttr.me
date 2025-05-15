@@ -33,6 +33,8 @@ function getSingleHTML(item) {
     `;
 }
 
+// This variable is used to prevent the player from being re-initialzed upon multiple music commands
+let firstLaunch = true;
 function generateMusic() {
     const containers = document.getElementsByClassName('music-container');
     const container = containers[containers.length - 1];
@@ -56,5 +58,7 @@ function generateMusic() {
         }
     });
     document.getElementById('player').setAttribute('style', 'visibility: visible;');
-    initPlayer();
+    if (firstLaunch)
+        initPlayer();
+    firstLaunch = false;
 }
