@@ -475,10 +475,6 @@ function doFocus() {
   }
 }
 
-function hankyPanky(string) {
-  return btoa(string);
-}
-
 function setCurrentYear() {
   const year = new Date().getFullYear();
   document.getElementById("currentYear").innerText = year;
