@@ -34,32 +34,27 @@ function getSingleHTML(item) {
 }
 
 function generateMusic() {
-    fetch('./js/songs.json')
-        .then(response => response.json())
-        .then(data => {
-            const catalogue = data.catalogue;
-            const containers = document.getElementsByClassName('music-container');
-            const container = containers[containers.length - 1];
-            catalogue.forEach(item => {
-                if (item.album) {
-                    // Generate album HTML
-                    const albumDiv = document.createElement('div');
-                    albumDiv.classList.add('album');
+    const containers = document.getElementsByClassName('music-container');
+    const container = containers[containers.length - 1];
+    songs.forEach(item => {
+        if (item.album) {
+            // Generate album HTML
+            const albumDiv = document.createElement('div');
+            albumDiv.classList.add('album');
 
-                    const albumContent = getAlbumHTML(item);
-                    albumDiv.innerHTML = albumContent;
-                    container.appendChild(albumDiv);
-                } else {
-                    // Generate single song HTML
-                    const singleDiv = document.createElement('div');
-                    singleDiv.classList.add('album');
+            const albumContent = getAlbumHTML(item);
+            albumDiv.innerHTML = albumContent;
+            container.appendChild(albumDiv);
+        } else {
+            // Generate single song HTML
+            const singleDiv = document.createElement('div');
+            singleDiv.classList.add('album');
 
-                    const singleContent = getSingleHTML(item);
-                    singleDiv.innerHTML = singleContent;
-                    container.appendChild(singleDiv);
-                }
-            });
-        })
-        .catch(error => console.error('Error loading JSON:', error));
+            const singleContent = getSingleHTML(item);
+            singleDiv.innerHTML = singleContent;
+            container.appendChild(singleDiv);
+        }
+    });
     document.getElementById('player').setAttribute('style', 'visibility: visible;');
+    initPlayer();
 }

@@ -67,24 +67,15 @@ const setSliderMax = () => {
     seekSlider.max = Math.floor(audio.duration);
 }
 
-const displayBufferedAmount = () => {
-    const bufferedAmount = Math.floor(audio.buffered.end(audio.buffered.length - 1));
-    audioPlayerContainer.style.setProperty('--buffered-width', `${(bufferedAmount / seekSlider.max) * 100}%`);
-}
-
 if (audio.readyState > 0) {
     displayDuration();
     setSliderMax();
-    displayBufferedAmount();
 } else {
     audio.addEventListener('loadedmetadata', () => {
         displayDuration();
         setSliderMax();
-        displayBufferedAmount();
     });
 }
-
-audio.addEventListener('progress', displayBufferedAmount);
 
 const currentTimeContainer = document.getElementById('current-time');
 
@@ -124,28 +115,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let songList = [];
 
-// Get all the songs from the JSON file
-fetch('./js/songs.json')
-    .then(response => response.json())
-    .then(data => {
-        const catalogue = data.catalogue;
-
-        catalogue.forEach(item => {
-            if (item.album) {
-                item.songs.forEach(song => {
-                    song.albumName = item.title;
-                    songList.push(song);
-                });
-            } else {
-                item.albumName = item.title;
-                songList.push(item);
-            }
+// Get all the individual songs from the JSON file
+function initPlayer() {
+    songs.forEach(item => {
+    if (item.album) {
+        item.songs.forEach(song => {
+            song.albumName = item.title;
+            songList.push(song);
         });
+    } else {
+        item.albumName = item.title;
+        songList.push(item);
+    }
+    });
 
-        audio.src = `./songs/${sanitizeFilename(songList[0].title)}.opus`;
-        updateNowPlaying(songList[0]);
-    })
-    .catch(error => console.error('Error loading JSON:', error));
+    audio.src = `./songs/${sanitizeFilename(songList[0].title)}.opus`;
+    updateNowPlaying(songList[0]);
+}
 
 audio.onended = () => {
     playNextSong();
