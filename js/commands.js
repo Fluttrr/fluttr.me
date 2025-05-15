@@ -214,14 +214,14 @@ function blog() {
   }
 
   printLine('Blog overview (type "blog {num}" to see any entry!):');
-  printLineBreak();
   let counter = blogPosts.length;
+  printLineBreak();
   blogPosts.forEach(item => {
     printSpan(counter + " - " + item.title + " (" + item.date + ")", "--accent");
     if (counter >= blogPosts.length - 1) {
       item.content.split("\n").forEach(line => {
-        printLine(line);
         printLineBreak();
+        printLine(line);
       });
     }
     printLineBreak();
@@ -252,5 +252,4 @@ function blogEntry(num) {
     printLine(line);
     printLineBreak();
   });
-  printLineBreak();
 }
