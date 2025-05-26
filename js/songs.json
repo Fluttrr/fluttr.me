@@ -2,6 +2,49 @@
     "catalogue": [
         {
             "album": true,
+            "title": "i want to go on a journey with you... will you come? ><",
+            "year": 2025,
+            "description": "little random ep with some shitty first attempts at vocals :3",
+            "songs": [
+                {
+                    "title": "petrichor in boulder",
+                    "description": "orchestral/lofi",
+                    "length": "4:51"
+                },
+                {
+                    "title": "heartbreak in tokyo",
+                    "description": "noise pop/rock",
+                    "length": "3:48"
+                },
+                {
+                    "title": "pink sunsets with a dash of melancholy",
+                    "description": "lofi-ish",
+                    "length": "4:00"
+                },
+                {
+                    "title": "our roses are withering (interlude)",
+                    "description": "ambient",
+                    "length": "1:36"
+                },
+                {
+                    "title": "aaaaaaaa",
+                    "description": "breakcore",
+                    "length": "3:17"
+                },
+                {
+                    "title": "over and over again",
+                    "description": "lofi-ish",
+                    "length": "3:36"
+                },
+                {
+                    "title": "drifting apart as we travel the cosmos",
+                    "description": "noise pop/rock",
+                    "length": "3:07"
+                }
+            ]
+        },
+        {
+            "album": true,
             "title": "trying to reach for the past, but will i ever feel the same?",
             "year": 2024,
             "description": "little ambient ep",
