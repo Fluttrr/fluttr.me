@@ -231,14 +231,10 @@ function blog() {
 }
 
 function blogEntry(num) {
-  // Check if num is a string containing an integer
-  if (!/^\d+$/.test(num)) {
-    printLine("Invalid input. Please enter a valid blog entry number.");
-    return;
-  }
-
   const index = parseInt(num) - 1; // Convert to zero-based index
-  if (index < 0 || index >= blogPosts.length) {
+
+  // Check if num is a string containing an integer
+  if (!/^\d+$/.test(num) || index < 0 || index >= blogPosts.length) {
     printLine("Invalid blog entry number.");
     return;
   }
