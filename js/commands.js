@@ -207,11 +207,7 @@ function music() {
 
 	let previousScrollPosition = window.scrollY; // Save the current scroll position
 	generateMusic();
-	if (previousScrollPosition > 0) // Do not scroll if at the top of the page (feels weird)
-		previousScrollPosition += window.innerHeight * 0.8;
-	setTimeout(() => {
-		window.scrollTo(0, previousScrollPosition); // Scroll to see the top of the list
-	}, 0);
+	scroll(previousScrollPosition); // Scroll to see the top of the music player
 }
 
 function blog() {
@@ -220,6 +216,7 @@ function blog() {
 		return;
 	}
 
+	let previousScrollPosition = window.scrollY; // Save the current scroll position
 	printLine('Blog overview (type "blog {num}" to see any entry!):');
 	let counter = blogPosts.length;
 	printLineBreak();
@@ -235,6 +232,7 @@ function blog() {
 		counter--;
 	});
 	printLineBreak();
+	scroll(previousScrollPosition); // Scroll to see the top of the list
 }
 
 function blogEntry(num) {
@@ -246,6 +244,7 @@ function blogEntry(num) {
 		return;
 	}
 
+	let previousScrollPosition = window.scrollY; // Save the current scroll position
 	const post = blogPosts[blogPosts.length - index - 1];
 	printLineBreak();
 	printSpan(post.title, "--accent");
@@ -255,4 +254,13 @@ function blogEntry(num) {
 		printLine(line);
 		printLineBreak();
 	});
+	scroll(previousScrollPosition); // Scroll to see the top of the post
+}
+
+function scroll(lastPos) {
+	if (lastPos > 0) // Do not scroll if at the top of the page (feels weird)
+		lastPos += window.innerHeight * 0.9;
+	setTimeout(() => {
+		window.scrollTo(0, lastPos); // Scroll to see the top of the list
+	}, 0);
 }
