@@ -169,8 +169,8 @@ function favMusic() {
 	);
 	printLineBreak();
 	printLink(
-		"Ruel - SITTING IN TRAFFIC (singer/songwriter)",
-		"https://www.youtube.com/watch?v=TJje4xifm-I&pp=ygURc2l0dGluZyBpbiB0cmFmaWM%3D"
+		"Jeremy Zucker & Chelsea Cutler - this is how you fall in love (singer/songwriter)",
+		"https://www.youtube.com/watch?v=6qkgVgjN188"
 	);
 	printLineBreak();
 	printLink(
@@ -184,7 +184,7 @@ function favMusic() {
 	);
 	printLineBreak();
 	printLink(
-		"drug bug - took my heart (indie rock maybe?? idk what genre this is..)",
+		"drug bug - took my heart (idk what genre this is..)",
 		"https://www.youtube.com/watch?v=xdF4mq_DPH8&pp=ygUWdG9vayBteSBoZWFydCBkcnVnIGJ1Zw%3D%3D"
 	);
 	printLineBreak();
