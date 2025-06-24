@@ -15,6 +15,9 @@ function help() {
 		"* blog \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- view my blog posts"
 	);
 	printIndentedLine(
+		"* plushies \u00A0\u00A0- images of the plushies i've made"
+	);
+	printIndentedLine(
 		"* ls \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display all accessible files (links)"
 	);
 	printIndentedLine("* cat <file> - display contents of a file");
@@ -136,11 +139,6 @@ function ls(num) {
 	printSpan("-rw-r--r-- 1 fluttr photos 64 Mar  1 13:29\u00A0", "--text");
 	printSpan("flickr", "--accent");
 	printLineBreak();
-
-	// Plushies
-	printSpan("-rw-r--r-- 1 fluttr images 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("plushies", "--accent");
-	printLineBreak();
 }
 
 function lsExtra() {
@@ -257,10 +255,16 @@ function blogEntry(num) {
 	scroll(previousScrollPosition); // Scroll to see the top of the post
 }
 
-function scroll(lastPos) {
-	if (lastPos > 0) // Do not scroll if at the top of the page (feels weird)
-		lastPos += window.innerHeight * 0.9;
-	setTimeout(() => {
-		window.scrollTo(0, lastPos); // Scroll to see the top of the list
-	}, 0);
+
+
+function plushies() {
+	const window = document.getElementById("window");
+
+	plushieFilenames.slice().reverse().forEach(filename => {
+		const img = new Image();
+		printLine(filename);
+		img.src = "../img/plushies/" + filename;
+		img.className = "clearable"
+		window.appendChild(img);
+	})
 }

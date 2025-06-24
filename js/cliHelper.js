@@ -58,3 +58,11 @@ function printLineBreak() {
   const window = document.getElementById("window");
   window.appendChild(linebreak);
 }
+
+function scroll(lastPos) {
+	if (lastPos > 0) // Do not scroll if at the top of the page (feels weird)
+		lastPos += window.innerHeight * 0.9;
+	setTimeout(() => {
+		window.scrollTo(0, lastPos); // Scroll to see the top of the list
+	}, 0);
+}

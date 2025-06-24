@@ -137,3 +137,10 @@ a:hover {
 .indent {
     margin-left: 1.5rem;
 }
+
+img {
+    max-width: 450px;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}

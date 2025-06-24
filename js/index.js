@@ -157,10 +157,6 @@ function evalCommand() {
       );
       printLineBreak();
       break;
-    case "cat plushies":
-      printLink("https://imgur.com/a/Lg5jDp0", "https://imgur.com/a/Lg5jDp0");
-      printLineBreak();
-      break;
     case "cat .onlyfans":
       printLine(
         "haha"
@@ -174,6 +170,9 @@ function evalCommand() {
       break;
     case "blog":
       blog();
+      break;
+    case "plushies":
+      plushies();
       break;
     default:
       if (command.toLowerCase().startsWith("cat"))

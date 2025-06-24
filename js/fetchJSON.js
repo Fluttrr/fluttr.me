@@ -16,3 +16,12 @@ fetch('./js/songs.json')
     songs = data.catalogue;
   })
   .catch(error => console.error('Error fetching songs:', error))
+
+let plushieFilenames = [];
+
+fetch('./js/plushieManifest.json')
+  .then(response => response.json())
+  .then(data => {
+    plushieFilenames = data.filenames;
+  })
+  .catch(error => console.error('Error fetching number of plushie images: ', error))
