@@ -139,7 +139,8 @@ a:hover {
 }
 
 img {
-    max-width: 450px;
+    width: 450px;
+    max-width: 80%;
     display: block;
     border-radius: 10px;
     margin-bottom: 1rem;

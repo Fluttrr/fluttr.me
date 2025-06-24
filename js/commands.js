@@ -260,6 +260,7 @@ function blogEntry(num) {
 function plushies() {
 	const window = document.getElementById("window");
 
+	let previousScrollPosition = window.scrollY; // Save the current scroll position
 	plushieFilenames.slice().reverse().forEach(filename => {
 		const img = new Image();
 		printLine(filename);
@@ -267,4 +268,5 @@ function plushies() {
 		img.className = "clearable"
 		window.appendChild(img);
 	})
+	scroll(previousScrollPosition); // Scroll to see the top plushies
 }
