@@ -1,45 +1,32 @@
 let latestUpdateDate = "1970-01-01";
 let latestUpdateType = "";
 
-let blogPosts = [];
+var blogPosts;
+var songs;
+var plushieList;
+var photoAlbums;
 
-fetch('./js/posts.json')
-	.then(response => response.json())
-	.then(data => {
-		blogPosts = data.posts;
-		updateLatestUpdate(blogPosts[0].date, "blog post");
-	})
-	.catch(error => console.error('Error fetching blog posts:', error));
+async function fetchJSON(filename, type) {
+	try {
+		const response = await fetch(`./js/${filename}`);
+		const data = await response.json();
+		let result = data.content;
+		updateLatestUpdate(result[0].date, type);
+		return result;
+	} catch (error) {
+		console.error('Error fetching blog posts:', error);
+		return [];
+	}
+}
 
-let songs = [];
+async function loadAllData() {
+    blogPosts = await fetchJSON("posts.json", "blog post");
+    songs = await fetchJSON("musicManifest.json", "music");
+    plushieList = await fetchJSON("plushieManifest.json", "plushies");
+    photoAlbums = await fetchJSON("photoManifest.json", "photos");
+}
 
-fetch('./js/musicManifest.json')
-	.then(response => response.json())
-	.then(data => {
-		songs = data.catalogue;
-		updateLatestUpdate(songs[0].date, "music");
-	})
-	.catch(error => console.error('Error fetching songs:', error))
-
-let plushieList = [];
-
-fetch('./js/plushieManifest.json')
-	.then(response => response.json())
-	.then(data => {
-		plushieList = data.filenames;
-		updateLatestUpdate(plushieList[0].date, "plushies");
-	})
-	.catch(error => console.error('Error fetching plushie manifest:', error))
-
-let photoAlbums = [];
-
-fetch('./js/photoManifest.json')
-	.then(response => response.json())
-	.then(data => {
-		photoAlbums = data.albums;
-		updateLatestUpdate(photoAlbums[0].date, "photos");
-	})
-	.catch(error => console.error('Error fetching photo manifest:', error))
+loadAllData();
 
 // This function updates the "Latest Update" display at the top of the page
 function updateLatestUpdate(date, type) {
