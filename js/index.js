@@ -174,16 +174,21 @@ function evalCommand() {
     case "plushies":
       plushies();
       break;
+    case "photos":
+      photos();
+      break;
     default:
-      if (command.toLowerCase().startsWith("cat"))
+      if (command.startsWith("cat"))
         printLine("Usage: cat [file]");
       else if (
-        command.toLowerCase().startsWith("ls") &&
-        command.toLowerCase().includes("a")
+        command.startsWith("ls") &&
+        command.includes("a")
       )
         lsExtra();
       else if (command.startsWith("blog")) {
         blogEntry(command.split(" ")[1]);
+      }  else if (command.startsWith("photos")) {
+        photoAlbum(command.split(" ")[1]);
       } else
         printLine(
           'Command not found. Type "help" for a list of available commands.'

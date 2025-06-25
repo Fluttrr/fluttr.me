@@ -1,0 +1,124 @@
+{
+    "albums": [
+        {
+            "name": "bloom",
+            "date": "14th of april, 2025",
+            "count": 6
+        },
+        {
+            "name": "miyajima_032025",
+            "date": "march 2025",
+            "count": 36
+        },
+        {
+            "name": "hiroshima_032025",
+            "date": "march 2025",
+            "count": 18
+        },
+        {
+            "name": "kobe_032025",
+            "date": "march 2025",
+            "count": 10
+        },
+        {
+            "name": "nara_032025",
+            "date": "march 2025",
+            "count": 10
+        },
+        {
+            "name": "osaka_032025",
+            "date": "march 2025",
+            "count": 26
+        },
+        {
+            "name": "kyoto_032025",
+            "date": "march 2025",
+            "count": 30
+        },
+        {
+            "name": "fujikawaguchiko_032025",
+            "date": "march 2025",
+            "count": 17
+        },
+        {
+            "name": "tokyo_032025",
+            "date": "march 2025",
+            "count": 81
+        },
+        {
+            "name": "riverside",
+            "date": "30th of september, 2022",
+            "count": 5
+        },
+        {
+            "name": "autumn_paths",
+            "date": "6th of november, 2021",
+            "count": 3
+        },
+        {
+            "name": "endless_skies",
+            "date": "3rd of september, 2021",
+            "count": 3
+        },
+        {
+            "name": "i_sprained_my_ankle_for_these",
+            "date": "28th of august, 2021",
+            "count": 14
+        },
+        {
+            "name": "summer_fields",
+            "date": "29th of july, 2021",
+            "count": 13
+        },
+        {
+            "name": "blooming",
+            "date": "4th of april, 2021",
+            "count": 13
+        },
+        {
+            "name": "spring",
+            "date": "31st of march, 2021",
+            "count": 13
+        },
+        {
+            "name": "dusk",
+            "date": "23rd of march, 2021",
+            "count": 3
+        },
+        {
+            "name": "nightly_forest",
+            "date": "25th of february, 2021",
+            "count": 3
+        },
+        {
+            "name": "calm_fields",
+            "date": "18th of february, 2021",
+            "count": 1
+        },
+        {
+            "name": "moody_night",
+            "date": "16th of february, 2021",
+            "count": 3
+        },
+        {
+            "name": "clouds",
+            "date": "15th of february, 2021",
+            "count": 1
+        },
+        {
+            "name": "snowy_night",
+            "date": "11th of february, 2021",
+            "count": 8
+        },
+        {
+            "name": "snowy_sunset",
+            "date": "10th of february, 2021",
+            "count": 6
+        },
+        {
+            "name": "foggy_forest",
+            "date": "5th of february, 2021",
+            "count": 20
+        }
+    ]
+}

@@ -15,6 +15,9 @@ function help() {
 		"* blog \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- view my blog posts"
 	);
 	printIndentedLine(
+		"* photos \u00A0\u00A0\u00A0\u00A0- view my photo gallery"
+	);
+	printIndentedLine(
 		"* plushies \u00A0\u00A0- images of the plushies i've made"
 	);
 	printIndentedLine(
@@ -236,7 +239,7 @@ function blog() {
 function blogEntry(num) {
 	const index = parseInt(num) - 1; // Convert to zero-based index
 
-	// Check if num is a string containing an integer
+	// Check if num is a string containing a valid integer
 	if (!/^\d+$/.test(num) || index < 0 || index >= blogPosts.length) {
 		printLine("Invalid blog entry number.");
 		return;
@@ -245,7 +248,7 @@ function blogEntry(num) {
 	let previousScrollPosition = window.scrollY; // Save the current scroll position
 	const post = blogPosts[blogPosts.length - index - 1];
 	printLineBreak();
-	printSpan(post.title, "--accent");
+	printSpan(num + " - " + post.title, "--accent");
 	printLineBreak();
 	printSpan(post.date, "--accent2");
 	post.content.split("\n").forEach(line => {
@@ -269,4 +272,47 @@ function plushies() {
 		window.appendChild(img);
 	})
 	scroll(previousScrollPosition); // Scroll to see the top plushies
+}
+
+function photos() {
+	printLine('Photo album overview (type "photos {num}" to view any album!):')
+	printLineBreak();
+
+	photoAlbum(photoAlbums.length);
+
+	printLineBreak();
+
+	for (let i = 1; i < photoAlbums.length; i++) {
+		const album = photoAlbums[i];
+		printSpan(`${String(photoAlbums.length - i).padStart(2, '0')} - ${album.name}, ${album.date} (${album.count} photos)`, "--accent");
+		printLineBreak();
+	}
+
+	printLineBreak();
+}
+
+function photoAlbum(num) {
+	const index = parseInt(num) - 1; // Convert to zero-based index
+
+	// Check if num is a string containing an integer
+	if (!/^\d+$/.test(num) || index < 0 || index >= photoAlbums.length) {
+		printLine("Invalid album number.");
+		return;
+	}
+
+	const albumInfo = photoAlbums[photoAlbums.length - num];
+	printSpan(`${String(num).padStart(2, '0')} - ${albumInfo.name}, ${albumInfo.date} (${albumInfo.count} photos)`, "--accent");
+
+	const window = document.getElementById("window");
+	const gallery = document.createElement("div");
+	gallery.classList.add("clearable")
+	gallery.classList.add("gallery")
+	window.appendChild(gallery);
+
+	for (let i = 1; i <= albumInfo.count; i++) {
+		const img = new Image();
+		let filename = String(i).padStart(4, '0')
+		img.src = `../img/photos/${albumInfo.name}/${filename}.jpg`;
+		gallery.appendChild(img);
+	}
 }
