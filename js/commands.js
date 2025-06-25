@@ -198,7 +198,7 @@ function blog() {
 	let counter = blogPosts.length;
 	printLineBreak();
 	blogPosts.forEach(item => {
-		printSpan(`${counter} - ${item.title} (${prettifyDate(item.date)})`, "--accent")
+		printSpan(`${String(counter).padStart(2, '0')} - ${item.title} (${prettifyDate(item.date)})`, "--accent")
 		if (counter >= blogPosts.length - 1) {
 			item.content.split("\n").forEach(line => {
 				printLineBreak();
@@ -283,11 +283,10 @@ function photoAlbum(num) {
 	const albumInfo = photoAlbums[photoAlbums.length - num];
 	printSpan(`${String(num).padStart(2, '0')} - ${albumInfo.name}, ${prettifyDate(albumInfo.date)} (${albumInfo.count} photos)`, "--accent");
 
-	const window = document.getElementById("window");
 	const gallery = document.createElement("div");
 	gallery.classList.add("clearable")
 	gallery.classList.add("gallery")
-	window.appendChild(gallery);
+	document.getElementById("window").appendChild(gallery);
 
 	for (let i = 1; i <= albumInfo.count; i++) {
 		const img = new Image();
