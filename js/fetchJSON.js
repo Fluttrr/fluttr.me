@@ -13,7 +13,7 @@ fetch('./js/posts.json')
 
 let songs = [];
 
-fetch('./js/songs.json')
+fetch('./js/musicManifest.json')
 	.then(response => response.json())
 	.then(data => {
 		songs = data.catalogue;
