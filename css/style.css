@@ -146,6 +146,7 @@ a:hover {
     column-count: 4;    
     column-gap: 1rem;
     margin-top: 0.2rem;
+    margin-bottom: 1rem;
 }  
 
 .gallery img {    
@@ -155,11 +156,7 @@ a:hover {
     display: block;
     border-radius: 10px;
     margin-bottom: 1rem; 
-}  
-
-.gallery p {
-    margin: 0;
-}
+} 
 
 @media (max-width: 1000px) {
    .gallery {
