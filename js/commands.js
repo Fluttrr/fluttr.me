@@ -265,6 +265,28 @@ function photos() {
 	for (let i = 1; i < photoAlbums.length; i++) {
 		const album = photoAlbums[i];
 		printSpan(`${String(photoAlbums.length - i).padStart(2, '0')} - ${album.name}, ${prettifyDate(album.date)} (${album.count} photos)`, "--accent");
+		const thumbContainer = document.createElement("div");
+		thumbContainer.classList.add("clearable");
+
+		const usedThumbnails = new Set();
+
+		// This loop generates the preview thumbnails
+		for (let j = 0; j < Math.min(3, album.count); j++) {
+			let thumbnailPick;
+
+			// Keep generating a new pick until it's unique
+			do {
+				thumbnailPick = Math.floor(Math.random() * album.count) + 1;
+			} while (usedThumbnails.has(thumbnailPick)); // Check for duplicates
+
+			usedThumbnails.add(thumbnailPick);
+
+			const img = new Image();
+			img.src = `../img/photos/${album.name}/${String(thumbnailPick).padStart(4, '0')}.jpg`;
+			img.classList.add("album-thumbnail");
+			thumbContainer.appendChild(img);
+		}
+		document.getElementById("window").appendChild(thumbContainer);
 		printLineBreak();
 	}
 
