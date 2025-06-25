@@ -63,110 +63,74 @@ function evalCommand() {
 
   printLineBreak();
 
-  switch (command.toLowerCase().trim()) {
-    // Commands for the terminal
-    case "help":
-      help();
-      break;
-    case "about":
-      about();
-      break;
-    case "ls":
-      ls(14);
-      break;
-    case "clear":
-      clear();
-      break;
-    case "history":
-      printLine(history.substring(0, history.length - 9).replaceAll("§", ", "));
-      break;
-    case "":
-      break;
-    // Commands for links
-    case "cat signal":
+  const commands = {
+    help: help,
+    about: about,
+    ls: () => ls(14),
+    clear: clear,
+    history: () => printLine(history.substring(0, history.length - 9).replaceAll("§", ", ")),
+    "": () => {},
+
+    // Links
+    "cat signal": () => {
       printLine("fluttr.01");
-      printLink("https://signal.me/#eu/miUIHUv7glIcqQ14OrI3RKl2wRfZlKX-xP7Cm3Ky3qyjOIRYf4NOGL0m_fey_eNb", "https://signal.me/#eu/miUIHUv7glIcqQ14OrI3RKl2wRfZlKX-xP7Cm3Ky3qyjOIRYf4NOGL0m_fey_eNb")
+      printLink("https://signal.me/#eu/miUIHUv7glIcqQ14OrI3RKl2wRfZlKX-xP7Cm3Ky3qyjOIRYf4NOGL0m_fey_eNb", "https://signal.me/#eu/miUIHUv7glIcqQ14OrI3RKl2wRfZlKX-xP7Cm3Ky3qyjOIRYf4NOGL0m_fey_eNb");
       printLineBreak();
-      break;
-    case "cat discord":
-      printLine("@fluttr.");
-      break;
-    case "cat steam":
-      printLink(
-        "https://steamcommunity.com/id/fluttr/",
-        "https://steamcommunity.com/id/fluttr/"
-      );
+    },
+    "cat discord": () => printLine("@fluttr."),
+    "cat steam": () => {
+      printLink("https://steamcommunity.com/id/fluttr/", "https://steamcommunity.com/id/fluttr/");
       printLineBreak();
-      break;
-    case "cat github":
+    },
+    "cat github": () => {
       printLink("https://github.com/Fluttrr", "https://github.com/Fluttrr");
       printLineBreak();
-      break;
-    case "cat codewars":
-      printLink(
-        "https://www.codewars.com/users/Flutter",
-        "https://www.codewars.com/users/Flutter"
-      );
+    },
+    "cat codewars": () => {
+      printLink("https://www.codewars.com/users/Flutter", "https://www.codewars.com/users/Flutter");
       printLineBreak();
-      break;
-    case "cat lastfm":
-      printLink(
-        "https://www.last.fm/user/Fluttrr",
-        "https://www.last.fm/user/Fluttrr"
-      );
+    },
+    "cat lastfm": () => {
+      printLink("https://www.last.fm/user/Fluttrr", "https://www.last.fm/user/Fluttrr");
       printLineBreak();
-      break;
-    case "cat anilist":
-      printLink(
-        "https://anilist.co/user/Flutter/",
-        "https://anilist.co/user/Flutter/"
-      );
+    },
+    "cat anilist": () => {
+      printLink("https://anilist.co/user/Flutter/", "https://anilist.co/user/Flutter/");
       printLineBreak();
-      break;
-    case "cat discogs":
-      printLink(
-        "https://www.discogs.com/user/Fluttr/collection?header=1",
-        "https://www.discogs.com/user/Fluttr/collection?header=1"
-      );
+    },
+    "cat discogs": () => {
+      printLink("https://www.discogs.com/user/Fluttr/collection?header=1", "https://www.discogs.com/user/Fluttr/collection?header=1");
       printLineBreak();
-      break;
-    case "cat .onlyfans":
-      printLine(
-        "haha"
-      );
-      break;
-    case "cat .favmusic":
-      favMusic();
-      break;
-    case "music":
-      music();
-      break;
-    case "blog":
-      blog();
-      break;
-    case "plushies":
-      plushies();
-      break;
-    case "photos":
-      photos();
-      break;
-    default:
-      if (command.startsWith("cat"))
-        printLine("Usage: cat [file]");
-      else if (
-        command.startsWith("ls") &&
-        command.includes("a")
-      )
-        lsExtra();
-      else if (command.startsWith("blog")) {
-        blogEntry(command.split(" ")[1]);
-      }  else if (command.startsWith("photos")) {
-        photoAlbum(command.split(" ")[1]);
-      } else
-        printLine(
-          'Command not found. Type "help" for a list of available commands.'
-        );
-      break;
+    },
+    "cat .onlyfans": () => printLine("haha"),
+    "cat .favmusic": favMusic,
+    music: music,
+    blog: blog,
+    plushies: plushies,
+    photos: photos,
+  };
+
+  // Default command handler for unknown commands
+  const handleUnknownCommand = (command) => {
+    if (command.startsWith("cat")) {
+      printLine("Usage: cat [file]");
+    } else if (command.startsWith("ls") && command.includes("a")) {
+      lsExtra();
+    } else if (command.startsWith("blog")) {
+      blogEntry(command.split(" ")[1]);
+    } else if (command.startsWith("photos")) {
+      photoAlbum(command.split(" ")[1]);
+    } else {
+      printLine('Command not found. Type "help" for a list of available commands.');
+    }
+  };
+
+  // Execute command
+  const normalizedCommand = command.toLowerCase().trim();
+  if (commands[normalizedCommand]) {
+    commands[normalizedCommand]();  // Execute the command if it exists
+  } else {
+    handleUnknownCommand(normalizedCommand);  // Handle unknown command
   }
 
   // Repeat process
