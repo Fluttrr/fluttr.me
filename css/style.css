@@ -180,9 +180,14 @@ a:hover {
    }
 }
 
+.album-thumbnail-container {
+    max-height: 5rem;
+    overflow: hidden;
+}
+
 .album-thumbnail {
     height: 5rem;
     border-radius: 5px;
     display: inline-block;
-    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }

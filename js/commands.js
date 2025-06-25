@@ -267,6 +267,7 @@ function photos() {
 		printSpan(`${String(photoAlbums.length - i).padStart(2, '0')} - ${album.name}, ${prettifyDate(album.date)} (${album.count} photos)`, "--accent");
 		const thumbContainer = document.createElement("div");
 		thumbContainer.classList.add("clearable");
+		thumbContainer.classList.add("album-thumbnail-container");
 
 		const usedThumbnails = new Set();
 
