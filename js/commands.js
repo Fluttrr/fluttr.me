@@ -34,7 +34,7 @@ function help() {
 
 function about() {
 	printLine(
-		"hey!! thanks for trusting me enough to actually go on my website lol. this is a hub for anything about me, from my links to my music to a dumb useless little blog!! and i plan to put more stuff like photos on here too eventually."
+		"hey!! thanks for trusting me enough to actually go on my website lol. this is a hub for anything about me, from my links to my music to a dumb useless little blog and even my photos and plushies!!"
 	);
 	printLineBreak();
 
@@ -48,8 +48,10 @@ function about() {
 		"* listening to music (edm, rap, singer/songwriter, classical, rock (especially noise pop) and osts)"
 	);
 	printIndentedLine("* making music (type 'music' to take a look!!)");
-	printIndentedLine("* sewing plushies");
-	printIndentedLine("* photography");
+	printIndentedLine("* sewing plushies (type 'plushies to see them..)");
+	printIndentedLine("* making friendship bracelets")
+	printIndentedLine("* embroidery??")
+	printIndentedLine("* photography (type 'photos' for a wall)");
 	printIndentedLine("* tech/programming");
 	printIndentedLine("* collecting vinyl and manga");
 	printIndentedLine("* good audio gear (headphones, iems, amps, speakers)");
@@ -57,7 +59,7 @@ function about() {
 	printIndentedLine("* learning japanese (on a bit of a hiatus...)");
 	printIndentedLine("* 3d printing");
 	printIndentedLine("* cooking/baking");
-	printIndentedLine("* wild camping (very rarely do this lol)");
+	printIndentedLine("* wild camping (i never do this lol)");
 	printLineBreak();
 
 	printLine(
