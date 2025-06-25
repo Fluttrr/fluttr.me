@@ -60,7 +60,6 @@ function printLineBreak() {
 }
 
 function scroll(lastPos) {
-  console.log(lastPos);
 	if (lastPos > 0) // Do not scroll if at the top of the page (feels weird)
 		lastPos += window.innerHeight * 0.9;
 	setTimeout(() => {
