@@ -206,9 +206,7 @@ function music() {
 	document.getElementById("window").appendChild(container);
 	document.getElementById("window").style.setProperty('margin-bottom', '5rem');
 
-	let previousScrollPosition = window.scrollY; // Save the current scroll position
 	generateMusic();
-	scroll(previousScrollPosition); // Scroll to see the top of the music player
 }
 
 function blog() {
@@ -217,7 +215,6 @@ function blog() {
 		return;
 	}
 
-	let previousScrollPosition = window.scrollY; // Save the current scroll position
 	printLine('Blog overview (type "blog {num}" to see any entry!):');
 	let counter = blogPosts.length;
 	printLineBreak();
@@ -233,7 +230,6 @@ function blog() {
 		counter--;
 	});
 	printLineBreak();
-	scroll(previousScrollPosition); // Scroll to see the top of the list
 }
 
 function blogEntry(num) {
@@ -245,7 +241,6 @@ function blogEntry(num) {
 		return;
 	}
 
-	let previousScrollPosition = window.scrollY; // Save the current scroll position
 	const post = blogPosts[blogPosts.length - index - 1];
 	printLineBreak();
 	printSpan(num + " - " + post.title, "--accent");
@@ -255,23 +250,17 @@ function blogEntry(num) {
 		printLine(line);
 		printLineBreak();
 	});
-	scroll(previousScrollPosition); // Scroll to see the top of the post
 }
 
-
-
 function plushies() {
-	const window = document.getElementById("window");
-
-	let previousScrollPosition = window.scrollY; // Save the current scroll position
+	const windowElement = document.getElementById("window");
 	plushieFilenames.slice().reverse().forEach(filename => {
 		const img = new Image();
 		printLine(filename);
 		img.src = "../img/plushies/" + filename;
 		img.className = "clearable"
-		window.appendChild(img);
+		windowElement.appendChild(img);
 	})
-	scroll(previousScrollPosition); // Scroll to see the top plushies
 }
 
 function photos() {

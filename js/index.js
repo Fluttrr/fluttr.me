@@ -48,6 +48,8 @@ function commandPrompt() {
 }
 
 function evalCommand() {
+  let previousScrollPosition = window.scrollY; // Save the current scroll position
+
   // Change previous input and cursor's IDs to make sure that in the next cycle the correct elements are selected
   const previousInput = document.getElementById("input");
   previousInput.setAttribute("contenteditable", "false");
@@ -198,6 +200,7 @@ function evalCommand() {
 
   // Repeat process
   commandPrompt();
+  scroll(previousScrollPosition); // Scroll down to correct position
 }
 
 function doFocus() {
