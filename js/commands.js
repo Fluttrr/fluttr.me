@@ -114,11 +114,6 @@ function ls(num) {
 	printSpan("-rw-r--r-- 1 fluttr stats\u00A0 64 Mar  1 13:29\u00A0", "--text");
 	printSpan("discogs", "--accent");
 	printLineBreak();
-
-	// Ko-Fi
-	printSpan("-rw-r--r-- 1 fluttr donate 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("kofi", "--accent");
-	printLineBreak();
 }
 
 function lsExtra() {

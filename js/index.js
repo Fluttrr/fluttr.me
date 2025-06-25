@@ -130,10 +130,6 @@ function evalCommand() {
       );
       printLineBreak();
       break;
-    case "cat kofi":
-      printLink("https://ko-fi.com/fluttr", "https://ko-fi.com/fluttr");
-      printLineBreak();
-      break;
     case "cat .onlyfans":
       printLine(
         "haha"
