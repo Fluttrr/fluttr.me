@@ -100,11 +100,6 @@ function ls(num) {
 	printSpan("github", "--accent");
 	printLineBreak();
 
-	// Codewars
-	printSpan("-rw-r--r-- 1 fluttr coding 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("codewars", "--accent");
-	printLineBreak();
-
 	// Last.fm
 	printSpan("-rw-r--r-- 1 fluttr stats\u00A0 64 Mar  1 13:29\u00A0", "--text");
 	printSpan("lastfm", "--accent");
@@ -120,29 +115,9 @@ function ls(num) {
 	printSpan("discogs", "--accent");
 	printLineBreak();
 
-	// Bandcamp
-	printSpan("-rw-r--r-- 1 fluttr music\u00A0 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("bandcamp", "--accent");
-	printLineBreak();
-
-	// YouTube (Music)
-	printSpan("-rw-r--r-- 1 fluttr music\u00A0 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("youtube", "--accent");
-	printLineBreak();
-
-	// Soundcloud
-	printSpan("-rw-r--r-- 1 fluttr music\u00A0 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("soundcloud", "--accent");
-	printLineBreak();
-
 	// Ko-Fi
 	printSpan("-rw-r--r-- 1 fluttr donate 64 Mar  1 13:29\u00A0", "--text");
 	printSpan("kofi", "--accent");
-	printLineBreak();
-
-	// Flickr
-	printSpan("-rw-r--r-- 1 fluttr photos 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("flickr", "--accent");
 	printLineBreak();
 }
 
@@ -202,6 +177,13 @@ function clear() {
 }
 
 function music() {
+	printSpan("you can also find my music on\u00A0", "--text");
+	printLink("bandcamp", "https://fluttr.bandcamp.com");
+	printSpan(",\u00A0", "--text");
+	printLink("youtube", "https://www.youtube.com/channel/UCrtf_NgTcCwwrMfWCb3PKHA");
+	printSpan("\u00A0and streaming services like\u00A0", "--text");
+	printLink("spotify", "https://open.spotify.com/artist/6vRyHtkx50nQkp8kUuyj0h?si=de82da17c25b44e7");
+
 	const container = document.createElement('div');
 	container.classList.add('clearable');
 	container.classList.add('music-container');

@@ -130,33 +130,8 @@ function evalCommand() {
       );
       printLineBreak();
       break;
-    case "cat bandcamp":
-      printLink("https://fluttr.bandcamp.com/", "https://fluttr.bandcamp.com/");
-      printLineBreak();
-      break;
-    case "cat youtube":
-      printLink(
-        "https://www.youtube.com/channel/UCrtf_NgTcCwwrMfWCb3PKHA",
-        "https://www.youtube.com/channel/UCrtf_NgTcCwwrMfWCb3PKHA"
-      );
-      printLineBreak();
-      break;
-    case "cat soundcloud":
-      printLink(
-        "https://soundcloud.com/fluttrr",
-        "https://soundcloud.com/fluttrr"
-      );
-      printLineBreak();
-      break;
     case "cat kofi":
       printLink("https://ko-fi.com/fluttr", "https://ko-fi.com/fluttr");
-      printLineBreak();
-      break;
-    case "cat flickr":
-      printLink(
-        "https://www.flickr.com/photos/192855899@N07/",
-        "https://www.flickr.com/photos/192855899@N07/"
-      );
       printLineBreak();
       break;
     case "cat .onlyfans":
