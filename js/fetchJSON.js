@@ -20,10 +20,12 @@ async function fetchJSON(filename, type) {
 }
 
 async function loadAllData() {
-    blogPosts = await fetchJSON("posts.json", "blog post");
-    songs = await fetchJSON("musicManifest.json", "music");
-    plushieList = await fetchJSON("plushieManifest.json", "plushies");
-    photoAlbums = await fetchJSON("photoManifest.json", "photos");
+	blogPosts = await fetchJSON("posts.json", "blog post");
+	songs = await fetchJSON("musicManifest.json", "music");
+	plushieList = await fetchJSON("plushieManifest.json", "plushies");
+	photoAlbums = await fetchJSON("photoManifest.json", "photos");
+
+	autoExecUrl(); // once the data is loaded, check if there are any URL parameters to execute
 }
 
 loadAllData();
@@ -62,4 +64,40 @@ function prettifyDate(date) {
 		daySuffix = "th"
 
 	return `${day}${daySuffix} of ${month}, ${year}`;
+}
+
+function autoExecUrl() {
+	// Get the query string part of the URL (?color=blue)
+	const queryString = window.location.search;
+
+	// Parse the query string
+	const urlParams = new URLSearchParams(queryString);
+
+	// Get values of parameters
+	const blogParam = urlParams.get('blog');
+	const photosParam = urlParams.get('photos');
+	const plushies = urlParams.get('plushies');
+	const music = urlParams.get('music');
+	const about = urlParams.get('about');
+
+	const input = document.getElementById("input");
+	if (blogParam)
+		if (blogParam == "true")
+			input.textContent = "blog";
+		else // has to be a number
+			input.textContent = `blog ${blogParam}`;
+	if (photosParam)
+		if (photosParam == "true")
+			input.textContent = "photos";
+		else // has to be a number
+			input.textContent = `photos ${photosParam}`;
+	if (plushies)
+		input.textContent = "plushies";
+	if (music)
+		input.textContent = "music";
+	if (about)
+		input.textContent = "about";
+
+	if (blogParam || photosParam || plushies || music || about)
+		evalCommand();
 }
