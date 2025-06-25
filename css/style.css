@@ -138,16 +138,7 @@ a:hover {
     margin-left: 1.5rem;
 }
 
-img {
-    width: 450px;
-    max-width: 80%;
-    display: block;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-}
-
-.gallery {    
-    line-height: 0;       
+.gallery {        
     -webkit-column-count: 4;    
     -webkit-column-gap: 0px;    
     -moz-column-count: 4;
@@ -160,8 +151,15 @@ img {
 .gallery img {    
     max-width: 100%;
     width: 100% !important;    
-    height: auto !important;  
+    height: auto !important; 
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 1rem; 
 }  
+
+.gallery p {
+    margin: 0;
+}
 
 @media (max-width: 1000px) {
    .gallery {

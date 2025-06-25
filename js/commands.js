@@ -238,12 +238,24 @@ function blogEntry(num) {
 
 function plushies() {
 	const windowElement = document.getElementById("window");
+	const gallery = document.createElement("div");
+	gallery.classList.add("clearable")
+	gallery.classList.add("gallery")
+	windowElement.appendChild(gallery);
+
 	plushieFilenames.slice().reverse().forEach(filename => {
+		const imageContainer = document.createElement("div");
+		imageContainer.style.breakInside = "avoid";
+		const imageTitle = document.createElement("p");
+		imageTitle.textContent = filename;
+		
 		const img = new Image();
-		printLine(filename);
 		img.src = "../img/plushies/" + filename;
 		img.className = "clearable"
-		windowElement.appendChild(img);
+
+		imageContainer.appendChild(imageTitle);
+		imageContainer.appendChild(img);
+		gallery.appendChild(imageContainer);
 	})
 }
 
