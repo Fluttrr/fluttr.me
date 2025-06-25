@@ -198,7 +198,7 @@ function blog() {
 	let counter = blogPosts.length;
 	printLineBreak();
 	blogPosts.forEach(item => {
-		printSpan(counter + " - " + item.title + " (" + item.date + ")", "--accent");
+		printSpan(`${counter} - ${item.title} (${prettifyDate(item.date)})`, "--accent")
 		if (counter >= blogPosts.length - 1) {
 			item.content.split("\n").forEach(line => {
 				printLineBreak();
@@ -224,7 +224,7 @@ function blogEntry(num) {
 	printLineBreak();
 	printSpan(num + " - " + post.title, "--accent");
 	printLineBreak();
-	printSpan(post.date, "--accent2");
+	printSpan(prettifyDate(post.date), "--accent2");
 	post.content.split("\n").forEach(line => {
 		printLine(line);
 		printLineBreak();
@@ -238,14 +238,14 @@ function plushies() {
 	gallery.classList.add("gallery")
 	windowElement.appendChild(gallery);
 
-	plushieFilenames.slice().reverse().forEach(filename => {
+	plushieList.forEach(plushie => {
 		const imageContainer = document.createElement("div");
 		imageContainer.style.breakInside = "avoid";
 		const imageTitle = document.createElement("p");
-		imageTitle.textContent = filename;
+		imageTitle.textContent = `${plushie.name} (${plushie.date})`;
 		
 		const img = new Image();
-		img.src = "../img/plushies/" + filename;
+		img.src = "../img/plushies/" + plushie.name;
 		img.className = "clearable"
 
 		imageContainer.appendChild(imageTitle);
@@ -264,7 +264,7 @@ function photos() {
 
 	for (let i = 1; i < photoAlbums.length; i++) {
 		const album = photoAlbums[i];
-		printSpan(`${String(photoAlbums.length - i).padStart(2, '0')} - ${album.name}, ${album.date} (${album.count} photos)`, "--accent");
+		printSpan(`${String(photoAlbums.length - i).padStart(2, '0')} - ${album.name}, ${prettifyDate(album.date)} (${album.count} photos)`, "--accent");
 		printLineBreak();
 	}
 
@@ -281,7 +281,7 @@ function photoAlbum(num) {
 	}
 
 	const albumInfo = photoAlbums[photoAlbums.length - num];
-	printSpan(`${String(num).padStart(2, '0')} - ${albumInfo.name}, ${albumInfo.date} (${albumInfo.count} photos)`, "--accent");
+	printSpan(`${String(num).padStart(2, '0')} - ${albumInfo.name}, ${prettifyDate(albumInfo.date)} (${albumInfo.count} photos)`, "--accent");
 
 	const window = document.getElementById("window");
 	const gallery = document.createElement("div");
