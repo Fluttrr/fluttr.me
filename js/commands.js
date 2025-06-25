@@ -283,7 +283,7 @@ function photos() {
 			usedThumbnails.add(thumbnailPick);
 
 			const img = new Image();
-			img.src = `../img/photos/${album.name}/${String(thumbnailPick).padStart(4, '0')}.jpg`;
+			img.src = `../img/photos/${album.name}/${String(thumbnailPick).padStart(4, '0')}.jpg-thumb.jpg`;
 			img.classList.add("album-thumbnail");
 			thumbContainer.appendChild(img);
 		}
