@@ -7,6 +7,10 @@
     --common-font: Ubuntu Mono;
 }
 
+footer img {
+    margin-bottom: 0;
+}
+
 .album {
     margin: 1rem 0;
 }
