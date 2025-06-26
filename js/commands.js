@@ -1,5 +1,3 @@
-let history = "";
-
 function help() {
 	printLine("Available commands:");
 	printIndentedLine(
@@ -194,37 +192,31 @@ function blog() {
 		return;
 	}
 
-	printLine('Blog overview (type "blog {num}" to see any entry!):');
-	let counter = blogPosts.length;
-	printLineBreak();
-	blogPosts.forEach(item => {
-		printSpan(`${String(counter).padStart(2, '0')} - ${item.title} (${prettifyDate(item.date)})`, "--accent")
-		if (counter >= blogPosts.length - 1) {
-			item.content.split("\n").forEach(line => {
-				printLineBreak();
-				printLine(line);
-			});
-		}
-		printLineBreak();
-		counter--;
-	});
+	printLine('Blog overview (type "blog {num}" or "blog {name}" to see any entry! Incomplete names are searched for.):');
+
+	blogEntry(blogPosts.length);
+	blogEntry(blogPosts.length - 1);
+
+
+	for (let i = 2; i < blogPosts.length; i++) {
+		const post = blogPosts[i];
+		printLine(`${String(blogPosts.length - i).padStart(2, '0')} - ${post.title} (${prettifyDate(post.date)})`, "--accent")
+	}
 	printLineBreak();
 }
 
-function blogEntry(num) {
-	const index = parseInt(num) - 1; // Convert to zero-based index
-
-	// Check if num is a string containing a valid integer
-	if (!/^\d+$/.test(num) || index < 0 || index >= blogPosts.length) {
-		printLine("Invalid blog entry number.");
+function blogEntry(query) {
+	let index = getIndexFromQuery(blogPosts, query);
+	
+	if (index == -1) {
+		printLine("Blog entry does not exist!");
 		return;
 	}
 
-	const post = blogPosts[blogPosts.length - index - 1];
+	const post = blogPosts[index];
 	printLineBreak();
-	printSpan(num + " - " + post.title, "--accent");
-	printLineBreak();
-	printSpan(prettifyDate(post.date), "--accent2");
+	printLine(`${String(blogPosts.length - index).padStart(2, "0")} - ${post.title}`, "--accent");
+	printLine(prettifyDate(post.date), "--accent2");
 	post.content.split("\n").forEach(line => {
 		printLine(line);
 		printLineBreak();
@@ -242,10 +234,10 @@ function plushies() {
 		const imageContainer = document.createElement("div");
 		imageContainer.style.breakInside = "avoid";
 		const imageTitle = document.createElement("p");
-		imageTitle.textContent = `${plushie.name} (${plushie.date})`;
+		imageTitle.textContent = `${plushie.title} (${plushie.date})`;
 		
 		const img = new Image();
-		img.src = "../img/plushies/" + plushie.name;
+		img.src = "../img/plushies/" + plushie.title;
 		img.className = "clearable"
 
 		imageContainer.appendChild(imageTitle);
@@ -255,7 +247,7 @@ function plushies() {
 }
 
 function photos() {
-	printLine('Photo album overview (type "photos {num}" to view any album!):')
+	printLine('Photo album overview (type "photos {num}" or "photos {name}" to view any album! Incomplete names are searched for.):')
 	printLineBreak();
 
 	photoAlbum(photoAlbums.length);
@@ -264,15 +256,21 @@ function photos() {
 
 	for (let i = 1; i < photoAlbums.length; i++) {
 		const album = photoAlbums[i];
-		printSpan(`${String(photoAlbums.length - i).padStart(2, '0')} - ${album.name}, ${prettifyDate(album.date)} (${album.count} photos)`, "--accent");
+		printLine(`${String(photoAlbums.length - i).padStart(2, '0')} - ${album.title}, ${prettifyDate(album.date)} (${album.count} photos)`, "--accent");
+		
 		const thumbContainer = document.createElement("div");
 		thumbContainer.classList.add("clearable");
 		thumbContainer.classList.add("album-thumbnail-container");
+		generateThumbnails(album, thumbContainer);
+		document.getElementById("window").appendChild(thumbContainer);
+	}
 
-		const usedThumbnails = new Set();
+	printLineBreak();
+}
 
-		// This loop generates the preview thumbnails
-		for (let j = 0; j < Math.min(3, album.count); j++) {
+function generateThumbnails(album, container) {
+	const usedThumbnails = new Set();
+	for (let j = 0; j < Math.min(3, album.count); j++) {
 			let thumbnailPick;
 
 			// Keep generating a new pick until it's unique
@@ -283,28 +281,22 @@ function photos() {
 			usedThumbnails.add(thumbnailPick);
 
 			const img = new Image();
-			img.src = `../img/photos/${album.name}/${String(thumbnailPick).padStart(4, '0')}.jpg-thumb.jpg`;
+			img.src = `../img/photos/${album.title}/${String(thumbnailPick).padStart(4, '0')}.jpg-thumb.jpg`;
 			img.classList.add("album-thumbnail");
-			thumbContainer.appendChild(img);
+			container.appendChild(img);
 		}
-		document.getElementById("window").appendChild(thumbContainer);
-		printLineBreak();
-	}
-
-	printLineBreak();
 }
 
-function photoAlbum(num) {
-	const index = parseInt(num) - 1; // Convert to zero-based index
+function photoAlbum(query) {
+	const index = getIndexFromQuery(photoAlbums, query);
 
-	// Check if num is a string containing an integer
-	if (!/^\d+$/.test(num) || index < 0 || index >= photoAlbums.length) {
-		printLine("Invalid album number.");
+	if (index == -1) {
+		printLine("Blog entry does not exist!");
 		return;
 	}
 
-	const albumInfo = photoAlbums[photoAlbums.length - num];
-	printSpan(`${String(num).padStart(2, '0')} - ${albumInfo.name}, ${prettifyDate(albumInfo.date)} (${albumInfo.count} photos)`, "--accent");
+	const albumInfo = photoAlbums[index];
+	printSpan(`${String(photoAlbums.length - index).padStart(2, '0')} - ${albumInfo.title}, ${prettifyDate(albumInfo.date)} (${albumInfo.count} photos)`, "--accent");
 
 	const gallery = document.createElement("div");
 	gallery.classList.add("clearable")
@@ -314,7 +306,33 @@ function photoAlbum(num) {
 	for (let i = 1; i <= albumInfo.count; i++) {
 		const img = new Image();
 		let filename = String(i).padStart(4, '0')
-		img.src = `../img/photos/${albumInfo.name}/${filename}.jpg`;
+		img.src = `../img/photos/${albumInfo.title}/${filename}.jpg`;
 		gallery.appendChild(img);
 	}
+}
+
+// returns the index of the corresponding blog post/photo album/ etc.
+function getIndexFromQuery(array, query) {
+	let index;
+	
+	// get index from query
+	if (/^\d+$/.test(query)) { // it is a number
+		index = array.length - parseInt(query);
+	} else {
+		index = searchTitle(array, query)
+	}
+
+	if (index < 0 || index >= array.length) {
+		return -1;
+	}
+
+	return index;
+}
+
+function searchTitle(array, query) {
+	for (let i = 0; i < array.length; i++) {
+		if (array[i].title.startsWith(query))
+			return i;
+		}
+	return -1;
 }

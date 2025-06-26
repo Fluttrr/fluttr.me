@@ -8,7 +8,7 @@ var photoAlbums;
 
 async function fetchJSON(filename, type) {
 	try {
-		const response = await fetch(`./js/${filename}`);
+		const response = await fetch(`../json/${filename}`);
 		const data = await response.json();
 		let result = data.content;
 		updateLatestUpdate(result[0].date, type);
@@ -84,13 +84,15 @@ function autoExecUrl() {
 	if (blogParam)
 		if (blogParam == "true")
 			input.textContent = "blog";
-		else // has to be a number
+		else // has to be a specific post
 			input.textContent = `blog ${blogParam}`;
+
 	if (photosParam)
 		if (photosParam == "true")
 			input.textContent = "photos";
-		else // has to be a number
+		else // has to be a specific album
 			input.textContent = `photos ${photosParam}`;
+
 	if (plushies)
 		input.textContent = "plushies";
 	if (music)
