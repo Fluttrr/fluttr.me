@@ -8,7 +8,7 @@ var photoAlbums;
 
 async function fetchJSON(filename, type) {
 	try {
-		const response = await fetch(`./js/${filename}`);
+		const response = await fetch(`../json/${filename}`);
 		const data = await response.json();
 		let result = data.content;
 		updateLatestUpdate(result[0].date, type);
