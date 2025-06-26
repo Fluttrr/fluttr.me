@@ -12,7 +12,7 @@ function commandPrompt() {
   const dollar = printSpan("$ ", "--text");
 
   // Get window element
-  const window = document.getElementById("window");
+  const windowElement = document.getElementById("window");
 
   // Create blinking text prompt
   const span = document.createElement("span");
@@ -24,7 +24,7 @@ function commandPrompt() {
   span.style.display = "inline-block";
   span.style.zIndex = "1";
   span.setAttribute("class", "clearable");
-  window.appendChild(span);
+  windowElement.appendChild(span);
 
   // Create input
   const input = document.createElement("span");
@@ -38,19 +38,33 @@ function commandPrompt() {
   input.setAttribute("class", "clearable");
   dollar.appendChild(input);
   input.focus();
+
+  // This handles the command recall feature
   input.addEventListener("keydown", (event) => {
     doFocus();
     const key = event.key;
     if (key == "ArrowUp" && scrollingIndex - 1 >= 0) {
       scrollingIndex--;
-      input.innerText = history[scrollingIndex];
+      input.textContent = history[scrollingIndex];
     } else if (key == "ArrowDown" && scrollingIndex + 1 <= history.length) {
       scrollingIndex++;
       if (scrollingIndex == history.length)
-        input.innerText = "";
+        input.textContent = "";
       else
-        input.innerText = history[scrollingIndex];
+        input.textContent = history[scrollingIndex];
     }
+
+    // This block moves the cursor to the end of the input, timeout is there to apparently fix some chrome bug
+    setTimeout(function(){
+      const input = document.querySelector('#input');
+      const range = document.createRange();
+      const sel = window.getSelection();
+      range.selectNodeContents(input);
+      range.collapse(false); // move cursor to end
+      sel.removeAllRanges();
+      sel.addRange(range);
+      input.focus();
+    }, 0);
   });
 
   // Listen for enter key and evaluate command
@@ -75,7 +89,7 @@ function evalCommand() {
   previousBlinkingCursor.setAttribute("id", "previousBlinkingCursor");
 
   const command = previousInput.innerText;
-  if (history[history.length - 1] != command)
+  if (history[history.length - 1] != command && command != "")
     history.push(command)
   scrollingIndex = history.length;
 
