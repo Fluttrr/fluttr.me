@@ -1,5 +1,3 @@
-let history = "";
-
 function help() {
 	printLine("Available commands:");
 	printIndentedLine(

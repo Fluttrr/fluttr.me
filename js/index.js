@@ -1,3 +1,6 @@
+let history = [];
+let scrollingIndex = 0; // this variable keeps track on which command the user currently is while using the up and down arrows to recall
+
 function commandPrompt() {
   // Create green visitor@fluttr.me: text
   printSpan("visitor@fluttr.me:", "--accent");
@@ -35,7 +38,20 @@ function commandPrompt() {
   input.setAttribute("class", "clearable");
   dollar.appendChild(input);
   input.focus();
-  window.addEventListener("keydown", doFocus());
+  input.addEventListener("keydown", (event) => {
+    doFocus();
+    const key = event.key;
+    if (key == "ArrowUp" && scrollingIndex - 1 >= 0) {
+      scrollingIndex--;
+      input.innerText = history[scrollingIndex];
+    } else if (key == "ArrowDown" && scrollingIndex + 1 <= history.length) {
+      scrollingIndex++;
+      if (scrollingIndex == history.length)
+        input.innerText = "";
+      else
+        input.innerText = history[scrollingIndex];
+    }
+  });
 
   // Listen for enter key and evaluate command
   input.addEventListener("keydown", function (event) {
@@ -49,7 +65,7 @@ function commandPrompt() {
 
 function evalCommand() {
   let previousScrollPosition = window.scrollY; // Save the current scroll position
-
+ 
   // Change previous input and cursor's IDs to make sure that in the next cycle the correct elements are selected
   const previousInput = document.getElementById("input");
   previousInput.setAttribute("contenteditable", "false");
@@ -59,7 +75,9 @@ function evalCommand() {
   previousBlinkingCursor.setAttribute("id", "previousBlinkingCursor");
 
   const command = previousInput.innerText;
-  history += command + "§";
+  if (history[history.length - 1] != command)
+    history.push(command)
+  scrollingIndex = history.length;
 
   printLineBreak();
 
@@ -68,7 +86,7 @@ function evalCommand() {
     about: about,
     ls: () => ls(14),
     clear: clear,
-    history: () => printLine(history.substring(0, history.length - 9).replaceAll("§", ", ")),
+    history: () => { printLine(history.join(", ")) },
     "": () => {},
 
     // Links
