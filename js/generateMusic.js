@@ -1,4 +1,3 @@
-// Helper function to sanitize filenames
 function sanitizeFilename(title) {
 	return title.replace(/[^a-zA-Z0-9]/g, '_'); // Replace non-alphanumeric characters with underscores
 }
@@ -39,23 +38,12 @@ function generateMusic() {
 	const containers = document.getElementsByClassName('music-container');
 	const container = containers[containers.length - 1];
 	songs.forEach(item => {
-		if (item.album) {
-			// Generate album HTML
-			const albumDiv = document.createElement('div');
-			albumDiv.classList.add('album');
-
-			const albumContent = getAlbumHTML(item);
-			albumDiv.innerHTML = albumContent;
-			container.appendChild(albumDiv);
-		} else {
-			// Generate single song HTML
-			const singleDiv = document.createElement('div');
-			singleDiv.classList.add('album');
-
-			const singleContent = getSingleHTML(item);
-			singleDiv.innerHTML = singleContent;
-			container.appendChild(singleDiv);
-		}
+		const div = document.createElement('div');
+		div.classList.add('album');
+		const content = item.album ? getAlbumHTML(item) : getSingleHTML(item);
+		div.innerHTML = content;
+		container.appendChild(singleDiv);
+		
 	});
 	document.getElementById('player').setAttribute('style', 'visibility: visible;');
 	if (firstLaunch)
