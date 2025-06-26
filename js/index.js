@@ -149,9 +149,9 @@ function evalCommand() {
 		} else if (command.startsWith("ls") && command.includes("a")) {
 			lsExtra();
 		} else if (command.startsWith("blog")) {
-			blogEntry(command.split(" ")[1]);
+			blogEntry(command.substring(command.search(" ") + 1, command.length));
 		} else if (command.startsWith("photos")) {
-			photoAlbum(command.split(" ")[1]);
+			photoAlbum(command.substring(command.search(" ") + 1, command.length));
 		} else {
 			printLine('Command not found. Type "help" for a list of available commands.');
 		}

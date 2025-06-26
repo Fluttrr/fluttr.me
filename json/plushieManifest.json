@@ -1,59 +1,59 @@
 {
 	"content": [
 		{
-			"name": "pbj.jpg",
+			"title": "pbj.jpg",
 			"date": "2025-06-14"
 		},
 		{
-			"name": "weatherday.jpg",
+			"title": "weatherday.jpg",
 			"date": "2025-04-14"
 		},
 		{
-			"name": "abigail.jpg",
+			"title": "abigail.jpg",
 			"date": "2025-04-14"
 		},
 		{
-			"name": "sakutaro.jpg",
+			"title": "sakutaro.jpg",
 			"date": "2021-10-29"
 		},
 		{
-			"name": "hearts.jpg",
+			"title": "hearts.jpg",
 			"date": "2021-10-25"
 		},
 		{
-			"name": "chao.jpg",
+			"title": "chao.jpg",
 			"date": "2021-08-27"
 		},
 		{
-			"name": "chomosuke.jpg",
+			"title": "chomosuke.jpg",
 			"date": "2021-08-18"
 		},
 		{
-			"name": "yum.jpg",
+			"title": "yum.jpg",
 			"date": "2021-07-31"
 		},
 		{
-			"name": "slimerancher2.jpg",
+			"title": "slimerancher2.jpg",
 			"date": "2021-07-21"
 		},
 		{
-			"name": "nigh.jpg",
+			"title": "nigh.jpg",
 			"date": "2021-06-06"
 		},
 		{
-			"name": "sprout.jpg",
+			"title": "sprout.jpg",
 			"date": "2021-05-12"
 		},
 		{
-			"name": "bnnuy.jpg",
+			"title": "bnnuy.jpg",
 			"date": "2021-05-11"
 		},
 		{
-			"name": "jiji.jpg",
+			"title": "jiji.jpg",
 			"date": "2021-05-10"
 		},
 		{
-			"name": "slimerancher.jpg",
+			"title": "slimerancher.jpg",
 			"date": "2020-01-13"
 		}
 	]

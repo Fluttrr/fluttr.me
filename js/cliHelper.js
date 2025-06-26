@@ -1,8 +1,9 @@
-function printLine(string) {
+function printLine(string, color = "--text") {
 	const text = document.createElement("p");
 	const textNode = document.createTextNode(string);
 	text.appendChild(textNode);
 	text.setAttribute("class", "clearable");
+	text.style.color = "var(" + color + ", #fff)";
 
 	const window = document.getElementById("window");
 	window.appendChild(text);

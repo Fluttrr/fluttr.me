@@ -183,6 +183,7 @@ a:hover {
 .album-thumbnail-container {
 	max-height: 5rem;
 	overflow: hidden;
+	margin-bottom: 1rem;
 }
 
 .album-thumbnail {
