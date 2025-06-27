@@ -207,7 +207,7 @@ function blog() {
 
 function blogEntry(query) {
 	let index = getIndexFromQuery(blogPosts, query);
-	
+
 	if (index == -1) {
 		printLine("Blog entry does not exist!");
 		return;
@@ -235,7 +235,7 @@ function plushies() {
 		imageContainer.style.breakInside = "avoid";
 		const imageTitle = document.createElement("p");
 		imageTitle.textContent = `${plushie.title} (${plushie.date})`;
-		
+
 		const img = new Image();
 		img.src = "../img/plushies/" + plushie.title;
 		img.className = "clearable"
@@ -247,7 +247,8 @@ function plushies() {
 }
 
 function photos() {
-	printLine('Photo album overview (type "photos {num}" or "photos {name}" to view any album! Incomplete names are searched for.):')
+	printLine('Photo album overview (type "photos {num}" or "photos {name}" to view any album! Incomplete names are searched for.)')
+	printLine('Click on an image for a high resolution version!');
 	printLineBreak();
 
 	photoAlbum(photoAlbums.length);
@@ -257,7 +258,7 @@ function photos() {
 	for (let i = 1; i < photoAlbums.length; i++) {
 		const album = photoAlbums[i];
 		printLine(`${String(photoAlbums.length - i).padStart(2, '0')} - ${album.title}, ${prettifyDate(album.date)} (${album.count} photos)`, "--accent");
-		
+
 		const thumbContainer = document.createElement("div");
 		thumbContainer.classList.add("clearable");
 		thumbContainer.classList.add("album-thumbnail-container");
@@ -271,20 +272,24 @@ function photos() {
 function generateThumbnails(album, container) {
 	const usedThumbnails = new Set();
 	for (let j = 0; j < Math.min(3, album.count); j++) {
-			let thumbnailPick;
+		let thumbnailPick;
 
-			// Keep generating a new pick until it's unique
-			do {
-				thumbnailPick = Math.floor(Math.random() * album.count) + 1;
-			} while (usedThumbnails.has(thumbnailPick)); // Check for duplicates
+		// Keep generating a new pick until it's unique
+		do {
+			thumbnailPick = Math.floor(Math.random() * album.count) + 1;
+		} while (usedThumbnails.has(thumbnailPick)); // Check for duplicates
 
-			usedThumbnails.add(thumbnailPick);
+		usedThumbnails.add(thumbnailPick);
 
-			const img = new Image();
-			img.src = `../img/photos/${album.title}/${String(thumbnailPick).padStart(4, '0')}.jpg-thumb.jpg`;
-			img.classList.add("album-thumbnail");
-			container.appendChild(img);
-		}
+		const linkContainer = document.createElement("a");
+		linkContainer.href = `../img/photos/${album.title}/${String(thumbnailPick).padStart(4, '0')}.jpg`;
+		linkContainer.target = "_blank";
+		const img = new Image();
+		img.src = `../img/photos/${album.title}/${String(thumbnailPick).padStart(4, '0')}.jpg-thumb.jpg`;
+		img.classList.add("album-thumbnail");
+		linkContainer.appendChild(img);
+		container.appendChild(linkContainer);
+	}
 }
 
 function photoAlbum(query) {
@@ -304,17 +309,21 @@ function photoAlbum(query) {
 	document.getElementById("window").appendChild(gallery);
 
 	for (let i = 1; i <= albumInfo.count; i++) {
-		const img = new Image();
 		let filename = String(i).padStart(4, '0')
-		img.src = `../img/photos/${albumInfo.title}/${filename}.jpg`;
-		gallery.appendChild(img);
+		const linkContainer = document.createElement("a");
+		linkContainer.href = `../img/photos/${albumInfo.title}/${String(filename).padStart(4, '0')}.jpg`;
+		linkContainer.target = "_blank";
+		const img = new Image();
+		img.src = `../img/photos/${albumInfo.title}/${filename}.jpg-medium.jpg`;
+		linkContainer.appendChild(img);
+		gallery.appendChild(linkContainer);
 	}
 }
 
 // returns the index of the corresponding blog post/photo album/ etc.
 function getIndexFromQuery(array, query) {
 	let index;
-	
+
 	// get index from query
 	if (/^\d+$/.test(query)) { // it is a number
 		index = array.length - parseInt(query);
@@ -333,6 +342,6 @@ function searchTitle(array, query) {
 	for (let i = 0; i < array.length; i++) {
 		if (array[i].title.startsWith(query))
 			return i;
-		}
+	}
 	return -1;
 }
