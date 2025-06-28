@@ -1,55 +1,49 @@
-function printLine(string, color = "--text") {
-	const text = document.createElement("p");
-	const textNode = document.createTextNode(string);
-	text.appendChild(textNode);
+function print(string, color = "--text", type = "line", indent = false, link = "") {
+	let text;
+	if (type == "line") {
+		text = document.createElement("p");
+		if (indent)
+			text.classList.add("indent");
+	} else if (type == "span")
+		text = document.createElement("span");
+	else if (type == "link") {
+		text = document.createElement("a");
+		text.setAttribute("href", link);
+		text.setAttribute("target", "_blank");
+	}
+
+	text.innerText = string;
 	text.setAttribute("class", "clearable");
-	text.style.color = `var("${color}, #fff)`;
+	if (indent)
+		text.setAttribute("class", "indent clearable");
+	text.style.color = `var(${color}, #fff)`;
 
-	const window = document.getElementById("window");
-	window.appendChild(text);
+	document.getElementById("window").appendChild(text);
 	return text;
 }
 
-function printIndentedLine(string) {
-	const text = document.createElement("p");
-	const textNode = document.createTextNode(string);
-	text.appendChild(textNode);
-	text.setAttribute("class", "indent clearable");
+function printIndentedLine(string, color = "--text") {
+	return print(string, color, "line", true);
+}
 
-	const window = document.getElementById("window");
-	window.appendChild(text);
+function printSpan(string, color = "--text") {
+	return print(string, color, "span")
+}
+
+function printLink(text, link, color) {
+	return print(text, color, "link", false, link);
+}
+
+function printCommandLink(string, color = "--text", command, indent = false) {
+	const text = document.createElement("span");
+	text.style.color = `var(${color}, #fff)`;
+	text.classList.add("cmd-link");
+	if (indent)
+		text.classList.add("indent");
+	text.innerText = string;
+	text.setAttribute("onclick", `execCmdForUser("${command}")`);
+	document.getElementById("window").appendChild(text);
 	return text;
-}
-
-function printSpan(string, color) {
-	const span = document.createElement("span");
-	const textNode = document.createTextNode(string);
-	span.appendChild(textNode);
-	span.style.color = `var(${color}, #fff)`;
-	span.style.display = "inline-block";
-	span.setAttribute("class", "clearable");
-
-	const window = document.getElementById("window");
-	window.appendChild(span);
-	return span;
-}
-
-function printLink(string, link) {
-	printLink(string, link, "--text");
-}
-
-function printLink(string, link, color) {
-	const linkElement = document.createElement("a");
-	const textNode = document.createTextNode(string);
-	linkElement.appendChild(textNode);
-	linkElement.style.color = `var(${color}, #fff)`;
-	linkElement.setAttribute("href", link);
-	linkElement.setAttribute("target", "_blank");
-	linkElement.setAttribute("class", "clearable");
-
-	const window = document.getElementById("window");
-	window.appendChild(linkElement);
-	return linkElement;
 }
 
 function printLineBreak() {
@@ -58,12 +52,4 @@ function printLineBreak() {
 
 	const window = document.getElementById("window");
 	window.appendChild(linebreak);
-}
-
-function scroll(lastPos) {
-	if (lastPos > 0) // Do not scroll if at the top of the page (feels weird)
-		lastPos += window.innerHeight * 0.9;
-	setTimeout(() => {
-		window.scrollTo(0, lastPos); // Scroll to see the top of the list
-	}, 10);
 }

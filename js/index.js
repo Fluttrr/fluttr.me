@@ -9,7 +9,7 @@ function commandPrompt() {
 	printSpan("~", "--accent2");
 
 	// Create white dollar sign
-	const dollar = printSpan("$ ", "--text");
+	const dollar = printSpan("$ ");
 
 	// Get window element
 	const windowElement = document.getElementById("window");
@@ -55,7 +55,7 @@ function commandPrompt() {
 		}
 
 		// This block moves the cursor to the end of the input, timeout is there to apparently fix some chrome bug
-		setTimeout(function(){
+		setTimeout(function() {
 			const input = document.querySelector('#input');
 			const range = document.createRange();
 			const sel = window.getSelection();
@@ -78,8 +78,6 @@ function commandPrompt() {
 }
 
 function evalCommand() {
-	let previousScrollPosition = window.scrollY; // Save the current scroll position
- 
 	// Change previous input and cursor's IDs to make sure that in the next cycle the correct elements are selected
 	const previousInput = document.getElementById("input");
 	previousInput.setAttribute("contenteditable", "false");
@@ -100,16 +98,16 @@ function evalCommand() {
 		about: about,
 		ls: () => ls(14),
 		clear: clear,
-		history: () => { printLine(history.join(", ")) },
+		history: () => { print(history.join(", ")) },
 		"": () => {},
 
 		// Links
 		"cat signal": () => {
-			printLine("fluttr.01");
+			print("fluttr.01");
 			printLink("https://signal.me/#eu/miUIHUv7glIcqQ14OrI3RKl2wRfZlKX-xP7Cm3Ky3qyjOIRYf4NOGL0m_fey_eNb", "https://signal.me/#eu/miUIHUv7glIcqQ14OrI3RKl2wRfZlKX-xP7Cm3Ky3qyjOIRYf4NOGL0m_fey_eNb");
 			printLineBreak();
 		},
-		"cat discord": () => printLine("@fluttr."),
+		"cat discord": () => print("@fluttr."),
 		"cat steam": () => {
 			printLink("https://steamcommunity.com/id/fluttr/", "https://steamcommunity.com/id/fluttr/");
 			printLineBreak();
@@ -134,7 +132,7 @@ function evalCommand() {
 			printLink("https://www.discogs.com/user/Fluttr/collection?header=1", "https://www.discogs.com/user/Fluttr/collection?header=1");
 			printLineBreak();
 		},
-		"cat .onlyfans": () => printLine("haha"),
+		"cat .onlyfans": () => print("haha"),
 		"cat .favmusic": favMusic,
 		music: music,
 		blog: blog,
@@ -145,7 +143,7 @@ function evalCommand() {
 	// Default command handler for unknown commands
 	const handleUnknownCommand = (command) => {
 		if (command.startsWith("cat")) {
-			printLine("Usage: cat [file]");
+			print("Usage: cat [file]");
 		} else if (command.startsWith("ls") && command.includes("a")) {
 			lsExtra();
 		} else if (command.startsWith("blog")) {
@@ -153,7 +151,7 @@ function evalCommand() {
 		} else if (command.startsWith("photos")) {
 			photoAlbum(command.substring(command.search(" ") + 1, command.length));
 		} else {
-			printLine('Command not found. Type "help" for a list of available commands.');
+			print('Command not found. Type "help" for a list of available commands.');
 		}
 	};
 
@@ -167,7 +165,16 @@ function evalCommand() {
 
 	// Repeat process
 	commandPrompt();
-	scroll(previousScrollPosition); // Scroll down to correct position
+
+	// scroll after a short delay for loading images
+	setTimeout(function() {
+		previousInput.scrollIntoView();
+	}, 10)
+}
+
+function execCmdForUser(command) {
+	document.getElementById("input").textContent = command;
+	evalCommand();
 }
 
 function doFocus() {

@@ -1,5 +1,5 @@
 function help() {
-	printLine("Available commands:");
+	print("Available commands:");
 	printIndentedLine(
 		"* help \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display this help message"
 	);
@@ -31,12 +31,12 @@ function help() {
 }
 
 function about() {
-	printLine(
+	print(
 		"hey!! thanks for trusting me enough to actually go on my website lol. this is a hub for anything about me, from my links to my music to a dumb useless little blog and even my photos and plushies!!"
 	);
 	printLineBreak();
 
-	printLine(
+	print(
 		"i study computer science and im into various things, such as:"
 	);
 	printLineBreak();
@@ -60,57 +60,57 @@ function about() {
 	printIndentedLine("* wild camping (i never do this lol)");
 	printLineBreak();
 
-	printLine(
+	print(
 		'you can find links to any of my profiles by using the "ls" command to list all my profiles and then using "cat [link]".'
 	);
 
 	printLineBreak();
 
-	printLine(
+	print(
 		"this site is made using nothing but html, css and vanilla javascript."
 	);
 
 	printLineBreak();
 
-	printLine("feel free to message me anywhere for any reason!!");
+	print("feel free to message me anywhere for any reason!!");
 }
 
 function ls(num) {
-	printLine("total " + num);
+	print("total " + num);
 
 	// Signal
-	printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("signal", "--accent");
+	printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0");
+	printCommandLink("signal", "--accent", "cat signal");
 	printLineBreak();
 
 	// Discord
-	printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("discord", "--accent");
+	printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0");
+	printCommandLink("discord", "--accent", "cat discord");
 	printLineBreak();
 
 	// Steam
-	printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("steam", "--accent");
+	printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0");
+	printCommandLink("steam", "--accent", "cat steam");
 	printLineBreak();
 
 	// GitHub
-	printSpan("-rw-r--r-- 1 fluttr coding 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("github", "--accent");
+	printSpan("-rw-r--r-- 1 fluttr coding 64 Mar  1 13:29\u00A0");
+	printCommandLink("github", "--accent", "cat github");
 	printLineBreak();
 
 	// Last.fm
-	printSpan("-rw-r--r-- 1 fluttr stats\u00A0 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("lastfm", "--accent");
+	printSpan("-rw-r--r-- 1 fluttr stats\u00A0 64 Mar  1 13:29\u00A0");
+	printCommandLink("lastfm", "--accent", "cat lastfm");
 	printLineBreak();
 
 	// Anilist
-	printSpan("-rw-r--r-- 1 fluttr stats\u00A0 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("anilist", "--accent");
+	printSpan("-rw-r--r-- 1 fluttr stats\u00A0 64 Mar  1 13:29\u00A0");
+	printCommandLink("anilist", "--accent", "cat anilist");
 	printLineBreak();
 
 	// Discogs
-	printSpan("-rw-r--r-- 1 fluttr stats\u00A0 64 Mar  1 13:29\u00A0", "--text");
-	printSpan("discogs", "--accent");
+	printSpan("-rw-r--r-- 1 fluttr stats\u00A0 64 Mar  1 13:29\u00A0");
+	printCommandLink("discogs", "--accent", "cat discogs");
 	printLineBreak();
 }
 
@@ -118,13 +118,13 @@ function lsExtra() {
 	ls(16);
 
 	// Fake Onlyfans
-	printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0", "--text");
-	printSpan(".onlyfans", "--accent2");
+	printSpan("-rw-r--r-- 1 fluttr social 64 Mar  1 13:29\u00A0");
+	printCommandLink(".onlyfans", "--accent2", "cat .onlyfans");
 	printLineBreak();
 
 	// Favorite music
-	printSpan("-rw-r--r-- 1 fluttr lists\u00A0 64 Mar  1 13:29\u00A0", "--text");
-	printSpan(".favmusic", "--accent2");
+	printSpan("-rw-r--r-- 1 fluttr lists\u00A0 64 Mar  1 13:29\u00A0");
+	printCommandLink(".favmusic", "--accent2", "cat .favmusic");
 	printLineBreak();
 }
 
@@ -170,12 +170,13 @@ function clear() {
 }
 
 function music() {
-	printSpan("you can also find my music on\u00A0", "--text");
+	printSpan("you can also find my music on\u00A0");
 	printLink("bandcamp", "https://fluttr.bandcamp.com");
-	printSpan(",\u00A0", "--text");
+	printSpan(",\u00A0");
 	printLink("youtube", "https://www.youtube.com/channel/UCrtf_NgTcCwwrMfWCb3PKHA");
-	printSpan("\u00A0and streaming services like\u00A0", "--text");
+	printSpan("\u00A0and streaming services like\u00A0");
 	printLink("spotify", "https://open.spotify.com/artist/6vRyHtkx50nQkp8kUuyj0h?si=de82da17c25b44e7");
+	printSpan("!");
 
 	const container = document.createElement('div');
 	container.classList.add('clearable');
@@ -188,11 +189,11 @@ function music() {
 
 function blog() {
 	if (blogPosts.length === 0) {
-		printLine("No blog posts available.");
+		print("No blog posts available.");
 		return;
 	}
 
-	printLine('Blog overview (type "blog {num}" or "blog {name}" to see any entry! Incomplete names are searched for.):');
+	print('Blog overview (type "blog {num}" or "blog {name}" to see any entry! Incomplete names are searched for.):');
 
 	blogEntry(blogPosts.length);
 	blogEntry(blogPosts.length - 1);
@@ -200,7 +201,9 @@ function blog() {
 
 	for (let i = 2; i < blogPosts.length; i++) {
 		const post = blogPosts[i];
-		printLine(`${String(blogPosts.length - i).padStart(2, '0')} - ${post.title} (${prettifyDate(post.date)})`, "--accent")
+		const num = String(blogPosts.length - i).padStart(2, '0');
+		printCommandLink(`${num} - ${post.title} (${prettifyDate(post.date)})`, "--accent", `blog ${num}`);
+		printLineBreak();
 	}
 	printLineBreak();
 }
@@ -209,16 +212,16 @@ function blogEntry(query) {
 	let index = getIndexFromQuery(blogPosts, query);
 
 	if (index == -1) {
-		printLine("Blog entry does not exist!");
+		print("Blog entry does not exist!");
 		return;
 	}
 
 	const post = blogPosts[index];
 	printLineBreak();
-	printLine(`${String(blogPosts.length - index).padStart(2, "0")} - ${post.title}`, "--accent");
-	printLine(prettifyDate(post.date), "--accent2");
+	print(`${String(blogPosts.length - index).padStart(2, "0")} - ${post.title}`, "--accent");
+	print(prettifyDate(post.date), "--accent2");
 	post.content.split("\n").forEach(line => {
-		printLine(line);
+		print(line);
 		printLineBreak();
 	});
 }
@@ -247,18 +250,16 @@ function plushies() {
 }
 
 function photos() {
-	printLine('Photo album overview (type "photos {num}" or "photos {name}" to view any album! Incomplete names are searched for.)')
-	printLine('Click on an image for a high resolution version!');
+	print('Photo album overview (type "photos {num}" or "photos {name}" to view any album! Incomplete names are searched for.)')
+	print('Click on an image for a high resolution version!');
 	printLineBreak();
 
 	photoAlbum(photoAlbums.length);
 
-	printLineBreak();
-
 	for (let i = 1; i < photoAlbums.length; i++) {
 		const album = photoAlbums[i];
-		printLine(`${String(photoAlbums.length - i).padStart(2, '0')} - ${album.title}, ${prettifyDate(album.date)} (${album.count} photos)`, "--accent");
-
+		const num = String(photoAlbums.length - i).padStart(2, '0');
+		printCommandLink(`${num} - ${album.title}, ${prettifyDate(album.date)} (${album.count} photos)`, "--accent", `photos ${num}`);
 		const thumbContainer = document.createElement("div");
 		thumbContainer.classList.add("clearable");
 		thumbContainer.classList.add("album-thumbnail-container");
@@ -296,7 +297,7 @@ function photoAlbum(query) {
 	const index = getIndexFromQuery(photoAlbums, query);
 
 	if (index == -1) {
-		printLine("Blog entry does not exist!");
+		print("Blog entry does not exist!");
 		return;
 	}
 

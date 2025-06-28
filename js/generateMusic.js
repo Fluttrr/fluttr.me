@@ -42,7 +42,7 @@ function generateMusic() {
 		div.classList.add('album');
 		const content = item.album ? getAlbumHTML(item) : getSingleHTML(item);
 		div.innerHTML = content;
-		container.appendChild(singleDiv);
+		container.appendChild(div);
 		
 	});
 	document.getElementById('player').setAttribute('style', 'visibility: visible;');

@@ -80,26 +80,22 @@ function autoExecUrl() {
 	const music = urlParams.get('music');
 	const about = urlParams.get('about');
 
-	const input = document.getElementById("input");
 	if (blogParam)
 		if (blogParam == "true")
-			input.textContent = "blog";
+			execCmdForUser("blog");
 		else // has to be a specific post
-			input.textContent = `blog ${blogParam}`;
+			execCmdForUser(`blog ${blogParam}`);
 
 	if (photosParam)
 		if (photosParam == "true")
-			input.textContent = "photos";
+			execCmdForUser("photos")
 		else // has to be a specific album
-			input.textContent = `photos ${photosParam}`;
+			execCmdForUser(`photos ${photosParam}`);
 
 	if (plushies)
-		input.textContent = "plushies";
+		execCmdForUser("plushies");
 	if (music)
-		input.textContent = "music";
+		execCmdForUser("music");
 	if (about)
-		input.textContent = "about";
-
-	if (blogParam || photosParam || plushies || music || about)
-		evalCommand();
+		execCmdForUser("about");
 }

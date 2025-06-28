@@ -107,16 +107,29 @@ p {
 }
 
 span {
-	min-height: 1.25rem
+	min-height: 1.25rem;
+	display: inline-block;
+}
+
+.music-container span {
+	min-height: 1rem;
 }
 
 a {
 	color: var(--text, #fff);
 	text-decoration: underline;
+	min-height: 1.25rem;
+	display: inline-block;
 }
 
 a:hover {
-	color: var(--accent, #fff);
+	color: var(--accent, #fff) !important;
+}
+
+.cmd-link:hover {
+	text-decoration: underline;
+	cursor: pointer;
+	color: var(--accent, "#fff");
 }
 
 #input {
@@ -146,7 +159,6 @@ a:hover {
 	column-count: 4;
 	column-gap: 1rem;
 	margin-top: 0.2rem;
-	margin-bottom: 1rem;
 }
 
 .gallery img {
