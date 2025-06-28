@@ -3,7 +3,7 @@ function printLine(string, color = "--text") {
 	const textNode = document.createTextNode(string);
 	text.appendChild(textNode);
 	text.setAttribute("class", "clearable");
-	text.style.color = "var(" + color + ", #fff)";
+	text.style.color = `var("${color}, #fff)`;
 
 	const window = document.getElementById("window");
 	window.appendChild(text);
@@ -25,7 +25,7 @@ function printSpan(string, color) {
 	const span = document.createElement("span");
 	const textNode = document.createTextNode(string);
 	span.appendChild(textNode);
-	span.style.color = "var(" + color + ", #fff)";
+	span.style.color = `var(${color}, #fff)`;
 	span.style.display = "inline-block";
 	span.setAttribute("class", "clearable");
 
@@ -42,7 +42,7 @@ function printLink(string, link, color) {
 	const linkElement = document.createElement("a");
 	const textNode = document.createTextNode(string);
 	linkElement.appendChild(textNode);
-	linkElement.style.color = "var(" + color + ", #fff)";
+	linkElement.style.color = `var(${color}, #fff)`;
 	linkElement.setAttribute("href", link);
 	linkElement.setAttribute("target", "_blank");
 	linkElement.setAttribute("class", "clearable");
