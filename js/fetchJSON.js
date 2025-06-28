@@ -20,7 +20,7 @@ async function fetchJSON(filename, type) {
 }
 
 async function loadAllData() {
-	blogPosts = await fetchJSON("posts.json", "blog post");
+	blogPosts = await fetchJSON("posts.json", "blog");
 	songs = await fetchJSON("musicManifest.json", "music");
 	plushieList = await fetchJSON("plushieManifest.json", "plushies");
 	photoAlbums = await fetchJSON("photoManifest.json", "photos");
@@ -38,7 +38,8 @@ function updateLatestUpdate(date, type) {
 		latestUpdateDate = date;
 		latestUpdateType = type;
 	}
-	document.getElementById("latest-update").textContent = `${prettifyDate(latestUpdateDate)} (${latestUpdateType})`;
+	document.getElementById("latest-update").textContent = `${prettifyDate(latestUpdateDate)} (${latestUpdateType})`
+	document.getElementById("latest-update").setAttribute("onclick", `execCmdForUser("${latestUpdateType}")`);
 }
 
 function prettifyDate(date) {
