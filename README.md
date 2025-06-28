@@ -5,3 +5,4 @@ Command Prompt Static Homepage with regular fallback homepage
 * themes
 * html blog features (images etc.)
 * new-since-last-visit popup
+* prev/next buttons for albums/blog posts
