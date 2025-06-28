@@ -279,8 +279,6 @@ function photos() {
 		generateThumbnails(album, thumbContainer);
 		document.getElementById("window").appendChild(thumbContainer);
 	}
-
-	printLineBreak();
 }
 
 function generateThumbnails(album, container) {
