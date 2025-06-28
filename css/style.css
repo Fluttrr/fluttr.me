@@ -159,6 +159,8 @@ a:hover {
 	column-count: 4;
 	column-gap: 1rem;
 	margin-top: 0.2rem;
+	box-sizing: content-box;
+	margin-bottom: 1rem;
 }
 
 .gallery img {
