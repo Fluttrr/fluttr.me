@@ -34,10 +34,11 @@ function printLink(text, link, color) {
 	return print(text, color, "link", false, link);
 }
 
-function printCommandLink(string, color = "--text", command, indent = false) {
+function printCommandLink(string, color = "--text", command = string, indent = false) {
 	const text = document.createElement("span");
 	text.style.color = `var(${color}, #fff)`;
 	text.classList.add("cmd-link");
+	text.classList.add("clearable");
 	if (indent)
 		text.classList.add("indent");
 	text.innerText = string;
