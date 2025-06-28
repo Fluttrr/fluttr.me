@@ -129,7 +129,7 @@ a:hover {
 .cmd-link:hover {
 	text-decoration: underline;
 	cursor: pointer;
-	color: var(--accent, "#fff");
+	color: var(--accent, "#fff") !important;
 }
 
 #input {
