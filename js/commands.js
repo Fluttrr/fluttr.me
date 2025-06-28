@@ -3,43 +3,43 @@ function help() {
 
 	let line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("help"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display this help message"));
+	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display this help message"));
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("about"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0- all about me"));
+	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- all about me"));
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("music"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0- open a music player to listen to my music"));
+	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- open a music player to listen to my music"));
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("blog"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- view my blog posts"));
+	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- view my blog posts"));
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("photos"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0- view my photo gallery"));
+	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0- view my photo gallery"));
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("plushies"));
-	line.appendChild(printSpan("\u00A0\u00A0- images of the plushies I've made"));
+	line.appendChild(printSpan("\u00A0\u00A0\u00A0- images of the plushies I've made"));
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("ls"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display all accessible files (links)"));
+	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display all accessible files (links)"));
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("cat <file>"));
-	line.appendChild(printSpan(" - display contents of a file"));
+	line.appendChild(printSpan("\u00A0- display contents of a file"));
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("clear"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0- clear the screen"));
+	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- clear the screen"));
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("history"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0- show previously used commands"));
+	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0- show previously used commands"));
 
 }
 
