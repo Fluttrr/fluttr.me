@@ -32,8 +32,9 @@ function commandPrompt() {
 	input.setAttribute("contenteditable", "true");
 	input.setAttribute("autofocus", "true");
 	input.setAttribute("auto-focus", "true");
-	input.setAttribute("onBlur", "this.focus(); doFocus()");
-	input.setAttribute("ng-blur", "doFocus()");
+	// These interfere with clicking commands while being scrolled up because the browser automatically scrolls down to the input instead of executing the command
+	//input.setAttribute("onBlur", "this.focus(); doFocus()");
+	//input.setAttribute("ng-blur", "doFocus()");
 	input.setAttribute("spellcheck", "false");
 	input.setAttribute("class", "clearable");
 	dollar.appendChild(input);
@@ -55,7 +56,7 @@ function commandPrompt() {
 		}
 
 		// This block moves the cursor to the end of the input, timeout is there to apparently fix some chrome bug
-		setTimeout(function() {
+		setTimeout(function () {
 			const input = document.querySelector('#input');
 			const range = document.createRange();
 			const sel = window.getSelection();
@@ -99,7 +100,7 @@ function evalCommand() {
 		ls: () => ls(14),
 		clear: clear,
 		history: () => { print(history.join(", ")) },
-		"": () => {},
+		"": () => { },
 
 		// Links
 		"cat signal": () => {
@@ -167,13 +168,13 @@ function evalCommand() {
 	commandPrompt();
 
 	// scroll after a short delay for loading images
-	setTimeout(function() {
+	setTimeout(function () {
 		previousInput.scrollIntoView();
 	}, 10)
 }
 
 function execCmdForUser(command) {
-	document.getElementById("input").textContent = command;
+	document.getElementById("input").innerText = command;
 	evalCommand();
 }
 

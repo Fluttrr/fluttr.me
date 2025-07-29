@@ -42,7 +42,7 @@ function printCommandLink(string, color = "--text", command = string, indent = f
 	if (indent)
 		text.classList.add("indent");
 	text.innerText = string;
-	text.setAttribute("onclick", `execCmdForUser("${command}")`);
+	text.setAttribute("onclick", `execCmdForUser("${command}");`);
 	document.getElementById("window").appendChild(text);
 	return text;
 }
