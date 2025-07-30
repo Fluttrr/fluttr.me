@@ -2,6 +2,29 @@
 	"content": [
 		{
 			"album": true,
+			"title": "but maybe we can get there.",
+			"date": "2025-07-30",
+			"description": "tiny ep to experiment more with vocals...",
+			"songs": [
+				{
+					"title": "wish you by my side",
+					"description": "edm",
+					"length": "3:09"
+				},
+				{
+					"title": "thunder struck my heart",
+					"description": "noise pop",
+					"length": "3:35"
+				},
+				{
+					"title": "that night our fingers touched",
+					"description": "drum and bass-ish",
+					"length": "4:14"
+				}
+			]
+		},
+		{
+			"album": true,
 			"title": "i want to go on a journey with you... will you come? ><",
 			"date": "2025-05-26",
 			"description": "little random ep with some shitty first attempts at vocals :3",
