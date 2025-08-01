@@ -256,6 +256,25 @@ button:hover {
 	/* Adjust based on line height (e.g., 1.5rem * 3 lines) */
 }
 
+.lyrics-container {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	margin-left: 0.5rem;
+	display: none;
+}
+
+.lyrics-button {
+	color: var(--accent, #FFF);
+	height: 0.8rem;
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+.lyrics-line { 
+	font-size: 0.8rem;
+	min-height: 0.8rem;
+}
+
 @media (max-width: 768px) {
 	#song-name {
 		display: none;
