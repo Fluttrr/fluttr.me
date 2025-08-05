@@ -233,10 +233,29 @@ function blogEntry(query) {
 	printLineBreak();
 	print(`${String(blogPosts.length - index).padStart(2, "0")} - ${post.title}`, "--accent");
 	print(prettifyDate(post.date), "--accent2");
-	post.content.split("\n").forEach(line => {
-		print(line);
-		printLineBreak();
-	});
+	blogContent(post.content);
+}
+
+function blogContent(content) {
+	const windowElement = document.getElementById("window");
+	const postContentDiv = document.createElement("div");
+	postContentDiv.classList.add("post-content")
+	postContentDiv.classList.add("clearable");
+	windowElement.appendChild(postContentDiv);
+	content.forEach(section => {
+		if (section.type == "text") {
+			section.data.split("\n").forEach(line => {
+				postContentDiv.appendChild(print(line));
+				postContentDiv.appendChild(printLineBreak());
+			})
+		} else if (section.type == "image") {
+			const img = new Image();
+			img.src = `./img/blog/${section.data}`;
+			img.style.display = "block";
+			postContentDiv.appendChild(img);
+			postContentDiv.appendChild(printLineBreak());
+		}
+	})
 }
 
 function plushies() {
@@ -254,7 +273,6 @@ function plushies() {
 
 		const img = new Image();
 		img.src = "../img/plushies/" + plushie.title;
-		img.className = "clearable"
 
 		imageContainer.appendChild(imageTitle);
 		imageContainer.appendChild(img);

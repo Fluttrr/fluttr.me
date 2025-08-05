@@ -53,4 +53,5 @@ function printLineBreak() {
 
 	const window = document.getElementById("window");
 	window.appendChild(linebreak);
+	return linebreak;
 }

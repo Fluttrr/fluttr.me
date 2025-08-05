@@ -208,3 +208,9 @@ a:hover {
 	display: inline-block;
 	margin-right: 0.5rem;
 }
+
+.post-content img {
+	max-height: 40vh;
+	max-width: 100%;
+	border-radius: 0.5rem;
+}
