@@ -7,6 +7,7 @@ const nowPlayingContainer = document.getElementById("song-name");
 const nowPlayingCover = document.getElementById("cover");
 
 let songList = [];
+let currentSong;
 let wavesurfer = WaveSurfer.create({
 	container: "#waveform",
 	waveColor: "#fdfefc",
@@ -98,11 +99,8 @@ wavesurfer.on("finish", () => {
 });
 
 function playNextSong() {
-	console.log(wavesurfer.getMediaElement().src);
 	const currentSongIndex = songList.findIndex(
-		(song) =>
-			sanitizeFilename(song.title) ===
-			wavesurfer.getMediaElement().src.split("/").pop().split(".")[0]
+		(song) => song.title === currentSong.title
 	);
 	const nextSongIndex = (currentSongIndex + 1) % songList.length;
 	playSong(songList[nextSongIndex]);
@@ -111,9 +109,7 @@ function playNextSong() {
 
 function playPreviousSong() {
 	const currentSongIndex = songList.findIndex(
-		(song) =>
-			sanitizeFilename(song.title) ===
-			wavesurfer.getMediaElement().src.split("/").pop().split(".")[0]
+		(song) => song.title === currentSong.title
 	);
 	const previousSongIndex =
 		(currentSongIndex - 1 + songList.length) % songList.length;
@@ -122,6 +118,7 @@ function playPreviousSong() {
 }
 
 function playSong(song) {
+	currentSong = song;
 	wavesurfer.load(`./songs/${sanitizeFilename(song.title)}.opus`);
 	updateNowPlaying(song);
 	wavesurfer.seekTo(0);
