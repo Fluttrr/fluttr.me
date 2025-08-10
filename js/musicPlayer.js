@@ -120,11 +120,10 @@ function playPreviousSong() {
 	enableAutoplay();
 }
 
-function playSong(song, autoplay = true) {
+function playSong(song) {
 	wavesurfer.load(`./songs/${sanitizeFilename(song.title)}.opus`);
 	updateNowPlaying(song);
 	wavesurfer.seekTo(0);
-	if (autoplay) play();
 }
 
 function playSongFromName(songname) {
