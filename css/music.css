@@ -280,3 +280,15 @@ button:hover {
 		display: none;
 	}
 }
+
+#waveform {
+	display: inline-block;
+	width: 100%;
+}
+
+#waveform-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.4rem;
+}

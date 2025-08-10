@@ -23,6 +23,7 @@
 	<script type="text/javascript" src="./js/generateMusic.js"></script>
 	<script type="text/javascript" src="./js/musicPlayer.js" defer></script>
 	<!-- defer because player elements need to load first -->
+	<script src="https://unpkg.com/wavesurfer.js"></script>
 </head>
 
 <body onclick="doFocus();">
@@ -53,10 +54,10 @@
 				<p id="song-name">-</p>
 			</div>
 			<div id="seekbar-container">
-				<div>
-					<span id="current-time">0:00</span>
-					<input class="slider" id="seekbar" type="range" min="0" max="100" value="0">
-					<span id="duration">0:00</span>
+				<div id="waveform-container">
+					<span class="waveform-time" id="current-time">0:00</span>
+					<div id="waveform"></div>
+					<span class="waveform-time" id="duration">0:00</span>
 				</div>
 				<div id="control-container">
 					<button id="previous" onclick="playPreviousSong();"><img class="skip-button"
@@ -74,5 +75,4 @@
 		<audio preload=”metadata”></audio>
 	</div>
 </body>
-
 </html>
