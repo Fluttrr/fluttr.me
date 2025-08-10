@@ -98,6 +98,7 @@ wavesurfer.on("finish", () => {
 });
 
 function playNextSong() {
+	console.log(wavesurfer.getMediaElement().src);
 	const currentSongIndex = songList.findIndex(
 		(song) =>
 			sanitizeFilename(song.title) ===
