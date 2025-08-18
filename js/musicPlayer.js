@@ -98,6 +98,10 @@ wavesurfer.on("finish", () => {
 	playNextSong();
 });
 
+wavesurfer.on("ready", () => {
+	durationContainer.textContent = calculateTime(wavesurfer.getDuration());
+});
+
 function playNextSong() {
 	const currentSongIndex = songList.findIndex(
 		(song) => song.title === currentSong.title
@@ -135,7 +139,6 @@ function playSongFromName(songname) {
 function enableAutoplay() {
 	wavesurfer.on("ready", () => {
 		play();
-		durationContainer.textContent = calculateTime(wavesurfer.getDuration());
 	});
 }
 
