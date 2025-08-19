@@ -3,31 +3,51 @@ function help() {
 
 	let line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("help"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display this help message"));
+	line.appendChild(
+		printSpan(
+			"\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display this help message"
+		)
+	);
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("about"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- all about me"));
+	line.appendChild(
+		printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- all about me")
+	);
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("music"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- open a music player to listen to my music"));
+	line.appendChild(
+		printSpan(
+			"\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- open a music player to listen to my music"
+		)
+	);
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("blog"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- view my blog posts"));
+	line.appendChild(
+		printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- view my blog posts")
+	);
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("photos"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0- view my photo gallery"));
+	line.appendChild(
+		printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0- view my photo gallery")
+	);
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("plushies"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0- images of the plushies I've made"));
+	line.appendChild(
+		printSpan("\u00A0\u00A0\u00A0- images of the plushies I've made")
+	);
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("ls"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display all accessible files (links)"));
+	line.appendChild(
+		printSpan(
+			"\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display all accessible files (links)"
+		)
+	);
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("cat <file>"));
@@ -35,12 +55,15 @@ function help() {
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("clear"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- clear the screen"));
+	line.appendChild(
+		printSpan("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- clear the screen")
+	);
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("history"));
-	line.appendChild(printSpan("\u00A0\u00A0\u00A0\u00A0- show previously used commands"));
-
+	line.appendChild(
+		printSpan("\u00A0\u00A0\u00A0\u00A0- show previously used commands")
+	);
 }
 
 function about() {
@@ -49,9 +72,7 @@ function about() {
 	);
 	printLineBreak();
 
-	print(
-		"i study computer science and im into various things, such as:"
-	);
+	print("i study computer science and im into various things, such as:");
 	printLineBreak();
 
 	printIndentedLine("* anime (i dont watch nearly as much as id like to)");
@@ -60,8 +81,8 @@ function about() {
 	);
 	printIndentedLine("* making music (type 'music' to take a look!!)");
 	printIndentedLine("* sewing plushies (type 'plushies to see them..)");
-	printIndentedLine("* making friendship bracelets")
-	printIndentedLine("* embroidery??")
+	printIndentedLine("* making friendship bracelets");
+	printIndentedLine("* embroidery??");
 	printIndentedLine("* photography (type 'photos' for a wall)");
 	printIndentedLine("* tech/programming");
 	printIndentedLine("* collecting vinyl and manga");
@@ -186,16 +207,22 @@ function music() {
 	printSpan("you can also find my music on\u00A0");
 	printLink("bandcamp", "https://fluttr.bandcamp.com");
 	printSpan(",\u00A0");
-	printLink("youtube", "https://www.youtube.com/channel/UCrtf_NgTcCwwrMfWCb3PKHA");
+	printLink(
+		"youtube",
+		"https://www.youtube.com/channel/UCrtf_NgTcCwwrMfWCb3PKHA"
+	);
 	printSpan("\u00A0and streaming services like\u00A0");
-	printLink("spotify", "https://open.spotify.com/artist/6vRyHtkx50nQkp8kUuyj0h?si=de82da17c25b44e7");
+	printLink(
+		"spotify",
+		"https://open.spotify.com/artist/6vRyHtkx50nQkp8kUuyj0h?si=de82da17c25b44e7"
+	);
 	printSpan("!");
 
-	const container = document.createElement('div');
-	container.classList.add('clearable');
-	container.classList.add('music-container');
+	const container = document.createElement("div");
+	container.classList.add("clearable");
+	container.classList.add("music-container");
 	document.getElementById("window").appendChild(container);
-	document.getElementById("window").style.setProperty('margin-bottom', '5rem');
+	document.getElementById("window").style.setProperty("margin-bottom", "5rem");
 
 	generateMusic();
 }
@@ -206,16 +233,21 @@ function blog() {
 		return;
 	}
 
-	print('Blog overview (type "blog {num}" or "blog {name}" to see any entry! Incomplete names are searched for.):');
+	print(
+		'Blog overview (type "blog {num}" or "blog {name}" to see any entry! Incomplete names are searched for.):'
+	);
 
 	blogEntry(blogPosts.length);
 	blogEntry(blogPosts.length - 1);
 
-
 	for (let i = 2; i < blogPosts.length; i++) {
 		const post = blogPosts[i];
-		const num = String(blogPosts.length - i).padStart(2, '0');
-		printCommandLink(`${num} - ${post.title} (${prettifyDate(post.date)})`, "--accent", `blog ${num}`);
+		const num = String(blogPosts.length - i).padStart(2, "0");
+		printCommandLink(
+			`${num} - ${post.title} (${prettifyDate(post.date)})`,
+			"--accent",
+			`blog ${num}`
+		);
 		printLineBreak();
 	}
 	printLineBreak();
@@ -231,7 +263,10 @@ function blogEntry(query) {
 
 	const post = blogPosts[index];
 	printLineBreak();
-	print(`${String(blogPosts.length - index).padStart(2, "0")} - ${post.title}`, "--accent");
+	print(
+		`${String(blogPosts.length - index).padStart(2, "0")} - ${post.title}`,
+		"--accent"
+	);
 	print(prettifyDate(post.date), "--accent2");
 	blogContent(post.content);
 }
@@ -239,15 +274,15 @@ function blogEntry(query) {
 function blogContent(content) {
 	const windowElement = document.getElementById("window");
 	const postContentDiv = document.createElement("div");
-	postContentDiv.classList.add("post-content")
+	postContentDiv.classList.add("post-content");
 	postContentDiv.classList.add("clearable");
 	windowElement.appendChild(postContentDiv);
-	content.forEach(section => {
+	content.forEach((section) => {
 		if (section.type == "text") {
-			section.data.split("\n").forEach(line => {
+			section.data.split("\n").forEach((line) => {
 				postContentDiv.appendChild(print(line));
 				postContentDiv.appendChild(printLineBreak());
-			})
+			});
 		} else if (section.type == "image") {
 			const img = new Image();
 			img.src = `./img/blog/${section.data}`;
@@ -255,17 +290,17 @@ function blogContent(content) {
 			postContentDiv.appendChild(img);
 			postContentDiv.appendChild(printLineBreak());
 		}
-	})
+	});
 }
 
 function plushies() {
 	const windowElement = document.getElementById("window");
 	const gallery = document.createElement("div");
-	gallery.classList.add("clearable")
-	gallery.classList.add("gallery")
+	gallery.classList.add("clearable");
+	gallery.classList.add("gallery");
 	windowElement.appendChild(gallery);
 
-	plushieList.forEach(plushie => {
+	plushieList.forEach((plushie) => {
 		const imageContainer = document.createElement("div");
 		imageContainer.style.breakInside = "avoid";
 		const imageTitle = document.createElement("p");
@@ -277,20 +312,28 @@ function plushies() {
 		imageContainer.appendChild(imageTitle);
 		imageContainer.appendChild(img);
 		gallery.appendChild(imageContainer);
-	})
+	});
 }
 
 function photos() {
-	print('Photo album overview (type "photos {num}" or "photos {name}" to view any album! Incomplete names are searched for.)')
-	print('Click on an image for a high resolution version!');
+	print(
+		'Photo album overview (type "photos {num}" or "photos {name}" to view any album! Incomplete names are searched for.)'
+	);
+	print("Click on an image for a high resolution version!");
 	printLineBreak();
 
 	photoAlbum(photoAlbums.length);
 
 	for (let i = 1; i < photoAlbums.length; i++) {
 		const album = photoAlbums[i];
-		const num = String(photoAlbums.length - i).padStart(2, '0');
-		printCommandLink(`${num} - ${album.title}, ${prettifyDate(album.date)} (${album.count} photos)`, "--accent", `photos ${num}`);
+		const num = String(photoAlbums.length - i).padStart(2, "0");
+		printCommandLink(
+			`${num} - ${album.title}, ${prettifyDate(album.date)} (${
+				album.count
+			} photos)`,
+			"--accent",
+			`photos ${num}`
+		);
 		const thumbContainer = document.createElement("div");
 		thumbContainer.classList.add("clearable");
 		thumbContainer.classList.add("album-thumbnail-container");
@@ -312,10 +355,15 @@ function generateThumbnails(album, container) {
 		usedThumbnails.add(thumbnailPick);
 
 		const linkContainer = document.createElement("a");
-		linkContainer.href = `../img/photos/${album.title}/${String(thumbnailPick).padStart(4, '0')}.jpg`;
+		linkContainer.href = `../img/photos/${album.title}/${String(
+			thumbnailPick
+		).padStart(4, "0")}.jpg`;
 		linkContainer.target = "_blank";
 		const img = new Image();
-		img.src = `../img/photos/${album.title}/${String(thumbnailPick).padStart(4, '0')}.jpg-thumb.jpg`;
+		img.src = `../img/photos/${album.title}/${String(thumbnailPick).padStart(
+			4,
+			"0"
+		)}.jpg-thumb.jpg`;
 		img.classList.add("album-thumbnail");
 		linkContainer.appendChild(img);
 		container.appendChild(linkContainer);
@@ -331,17 +379,24 @@ function photoAlbum(query) {
 	}
 
 	const albumInfo = photoAlbums[index];
-	printSpan(`${String(photoAlbums.length - index).padStart(2, '0')} - ${albumInfo.title}, ${prettifyDate(albumInfo.date)} (${albumInfo.count} photos)`, "--accent");
+	printSpan(
+		`${String(photoAlbums.length - index).padStart(2, "0")} - ${
+			albumInfo.title
+		}, ${prettifyDate(albumInfo.date)} (${albumInfo.count} photos)`,
+		"--accent"
+	);
 
 	const gallery = document.createElement("div");
-	gallery.classList.add("clearable")
-	gallery.classList.add("gallery")
+	gallery.classList.add("clearable");
+	gallery.classList.add("gallery");
 	document.getElementById("window").appendChild(gallery);
 
 	for (let i = 1; i <= albumInfo.count; i++) {
-		let filename = String(i).padStart(4, '0')
+		let filename = String(i).padStart(4, "0");
 		const linkContainer = document.createElement("a");
-		linkContainer.href = `../img/photos/${albumInfo.title}/${String(filename).padStart(4, '0')}.jpg`;
+		linkContainer.href = `../img/photos/${albumInfo.title}/${String(
+			filename
+		).padStart(4, "0")}.jpg`;
 		linkContainer.target = "_blank";
 		const img = new Image();
 		img.src = `../img/photos/${albumInfo.title}/${filename}.jpg-medium.jpg`;
@@ -350,15 +405,26 @@ function photoAlbum(query) {
 	}
 }
 
+function marco() {
+	print("this is mark");
+	const img = new Image();
+	img.src = "../img/marco.jpg";
+	img.style.width = "5rem";
+	img.style.display = "block";
+	img.classList.add("clearable");
+	document.getElementById("window").append(img);
+}
+
 // returns the index of the corresponding blog post/photo album/ etc.
 function getIndexFromQuery(array, query) {
 	let index;
 
 	// get index from query
-	if (/^\d+$/.test(query)) { // it is a number
+	if (/^\d+$/.test(query)) {
+		// it is a number
 		index = array.length - parseInt(query);
 	} else {
-		index = searchTitle(array, query)
+		index = searchTitle(array, query);
 	}
 
 	if (index < 0 || index >= array.length) {
@@ -370,8 +436,7 @@ function getIndexFromQuery(array, query) {
 
 function searchTitle(array, query) {
 	for (let i = 0; i < array.length; i++) {
-		if (array[i].title.startsWith(query))
-			return i;
+		if (array[i].title.startsWith(query)) return i;
 	}
 	return -1;
 }
