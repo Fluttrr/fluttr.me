@@ -80,9 +80,7 @@ function about() {
 		"* listening to music (edm, rap, singer/songwriter, classical, rock (especially noise pop) and osts)"
 	);
 	printIndentedLine("* making music (type 'music' to take a look!!)");
-	printIndentedLine("* sewing plushies (type 'plushies to see them..)");
-	printIndentedLine("* making friendship bracelets");
-	printIndentedLine("* embroidery??");
+	printIndentedLine("* sewing plushies (type 'plushies' to see them..)");
 	printIndentedLine("* photography (type 'photos' for a wall)");
 	printIndentedLine("* tech/programming");
 	printIndentedLine("* collecting vinyl and manga");
