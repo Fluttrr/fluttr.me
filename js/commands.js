@@ -45,13 +45,13 @@ function help() {
 	line.appendChild(printCommandLink("ls"));
 	line.appendChild(
 		printSpan(
-			"\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display all accessible files (links)"
+			"\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0- display list of links"
 		)
 	);
 
 	line = printIndentedLine("* ");
-	line.appendChild(printCommandLink("cat <file>"));
-	line.appendChild(printSpan("\u00A0- display contents of a file"));
+	line.appendChild(printCommandLink("cat <link>"));
+	line.appendChild(printSpan("\u00A0- output link"));
 
 	line = printIndentedLine("* ");
 	line.appendChild(printCommandLink("clear"));
