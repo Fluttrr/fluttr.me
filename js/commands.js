@@ -278,7 +278,9 @@ function blogContent(content) {
 	content.forEach((section) => {
 		if (section.type == "text") {
 			section.data.split("\n").forEach((line) => {
-				postContentDiv.appendChild(print(line));
+				const paragraph = print(line);
+				paragraph.classList.add("blog-p");
+				postContentDiv.appendChild(paragraph);
 				postContentDiv.appendChild(printLineBreak());
 			});
 		} else if (section.type == "image") {
