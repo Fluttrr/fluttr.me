@@ -123,11 +123,15 @@ a {
 }
 
 a:hover {
-	color: var(--accent, #fff) !important;
+	color: var(--accent2, #fff) !important;
+}
+
+.cmd-link {
+	text-decoration: underline;
+	color: var(--text, "#fff");
 }
 
 .cmd-link:hover {
-	text-decoration: underline;
 	cursor: pointer;
 	color: var(--accent, "#fff") !important;
 }
