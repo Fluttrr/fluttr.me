@@ -285,9 +285,17 @@ function blogContent(content) {
 			});
 		} else if (section.type == "image") {
 			const img = new Image();
-			img.src = `./img/blog/${section.data}`;
+			img.src = `./blog/${section.data}`;
 			img.style.display = "block";
 			postContentDiv.appendChild(img);
+			postContentDiv.appendChild(printLineBreak());
+		} else if (section.type == "audio") {
+			const player = document.createElement("audio");
+			player.controls = true;
+			player.src = `./blog/${section.data}`;
+			player.preload = "auto";
+			player.style.display = "block";
+			postContentDiv.appendChild(player);
 			postContentDiv.appendChild(printLineBreak());
 		}
 	});
