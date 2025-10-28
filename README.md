@@ -1,6 +1,6 @@
 # fluttr.me
 
-Command Prompt Static Homepage with regular fallback homepage
+Static homepage with a CLI interface and a blog, photo & music library.
 
 ## to-do
 
