@@ -60,6 +60,7 @@ body {
 	margin: 0;
 	height: 100%;
 	width: 100%;
+	line-height: 1rem;
 	overflow: wrap;
 	-ms-overflow-style: none;
 	/* Internet Explorer 10+ */
@@ -123,11 +124,15 @@ a {
 }
 
 a:hover {
-	color: var(--accent, #fff) !important;
+	color: var(--accent2, #fff) !important;
+}
+
+.cmd-link {
+	text-decoration: underline;
+	color: var(--text, "#fff");
 }
 
 .cmd-link:hover {
-	text-decoration: underline;
 	cursor: pointer;
 	color: var(--accent, "#fff") !important;
 }
@@ -213,4 +218,15 @@ a:hover {
 	max-height: 40vh;
 	max-width: 100%;
 	border-radius: 0.5rem;
+}
+
+.blog-p {
+	line-height: 1rem;
+	max-width: 60%;
+}
+
+@media (max-width: 1000px) {
+	.blog-p {
+		max-width: 100%;
+	}
 }

@@ -49,15 +49,13 @@ function commandPrompt() {
 			input.textContent = history[scrollingIndex];
 		} else if (key == "ArrowDown" && scrollingIndex + 1 <= history.length) {
 			scrollingIndex++;
-			if (scrollingIndex == history.length)
-				input.textContent = "";
-			else
-				input.textContent = history[scrollingIndex];
+			if (scrollingIndex == history.length) input.textContent = "";
+			else input.textContent = history[scrollingIndex];
 		}
 
 		// This block moves the cursor to the end of the input, timeout is there to apparently fix some chrome bug
 		setTimeout(function () {
-			const input = document.querySelector('#input');
+			const input = document.querySelector("#input");
 			const range = document.createRange();
 			const sel = window.getSelection();
 			range.selectNodeContents(input);
@@ -89,7 +87,7 @@ function evalCommand() {
 
 	const command = previousInput.innerText;
 	if (history[history.length - 1] != command && command != "")
-		history.push(command)
+		history.push(command);
 	scrollingIndex = history.length;
 
 	printLineBreak();
@@ -99,18 +97,26 @@ function evalCommand() {
 		about: about,
 		ls: () => ls(14),
 		clear: clear,
-		history: () => { print(history.join(", ")) },
-		"": () => { },
+		history: () => {
+			print(history.join(", "));
+		},
+		"": () => {},
 
 		// Links
 		"cat signal": () => {
 			print("fluttr.01");
-			printLink("https://signal.me/#eu/miUIHUv7glIcqQ14OrI3RKl2wRfZlKX-xP7Cm3Ky3qyjOIRYf4NOGL0m_fey_eNb", "https://signal.me/#eu/miUIHUv7glIcqQ14OrI3RKl2wRfZlKX-xP7Cm3Ky3qyjOIRYf4NOGL0m_fey_eNb");
+			printLink(
+				"https://signal.me/#eu/miUIHUv7glIcqQ14OrI3RKl2wRfZlKX-xP7Cm3Ky3qyjOIRYf4NOGL0m_fey_eNb",
+				"https://signal.me/#eu/miUIHUv7glIcqQ14OrI3RKl2wRfZlKX-xP7Cm3Ky3qyjOIRYf4NOGL0m_fey_eNb"
+			);
 			printLineBreak();
 		},
 		"cat discord": () => print("@fluttr."),
 		"cat steam": () => {
-			printLink("https://steamcommunity.com/id/fluttr/", "https://steamcommunity.com/id/fluttr/");
+			printLink(
+				"https://steamcommunity.com/id/fluttr/",
+				"https://steamcommunity.com/id/fluttr/"
+			);
 			printLineBreak();
 		},
 		"cat github": () => {
@@ -118,19 +124,31 @@ function evalCommand() {
 			printLineBreak();
 		},
 		"cat codewars": () => {
-			printLink("https://www.codewars.com/users/Flutter", "https://www.codewars.com/users/Flutter");
+			printLink(
+				"https://www.codewars.com/users/Flutter",
+				"https://www.codewars.com/users/Flutter"
+			);
 			printLineBreak();
 		},
 		"cat lastfm": () => {
-			printLink("https://www.last.fm/user/Fluttrr", "https://www.last.fm/user/Fluttrr");
+			printLink(
+				"https://www.last.fm/user/Fluttrr",
+				"https://www.last.fm/user/Fluttrr"
+			);
 			printLineBreak();
 		},
 		"cat anilist": () => {
-			printLink("https://anilist.co/user/Flutter/", "https://anilist.co/user/Flutter/");
+			printLink(
+				"https://anilist.co/user/Flutter/",
+				"https://anilist.co/user/Flutter/"
+			);
 			printLineBreak();
 		},
 		"cat discogs": () => {
-			printLink("https://www.discogs.com/user/Fluttr/collection?header=1", "https://www.discogs.com/user/Fluttr/collection?header=1");
+			printLink(
+				"https://www.discogs.com/user/Fluttr/collection?header=1",
+				"https://www.discogs.com/user/Fluttr/collection?header=1"
+			);
 			printLineBreak();
 		},
 		"cat .onlyfans": () => print("haha"),
@@ -139,6 +157,7 @@ function evalCommand() {
 		blog: blog,
 		plushies: plushies,
 		photos: photos,
+		marco: marco,
 	};
 
 	// Default command handler for unknown commands
@@ -159,9 +178,9 @@ function evalCommand() {
 	// Execute command
 	const normalizedCommand = command.toLowerCase().trim();
 	if (commands[normalizedCommand]) {
-		commands[normalizedCommand]();  // Execute the command if it exists
+		commands[normalizedCommand](); // Execute the command if it exists
 	} else {
-		handleUnknownCommand(normalizedCommand);  // Handle unknown command
+		handleUnknownCommand(normalizedCommand); // Handle unknown command
 	}
 
 	// Repeat process
@@ -170,7 +189,7 @@ function evalCommand() {
 	// scroll after a short delay for loading images
 	setTimeout(function () {
 		previousInput.scrollIntoView();
-	}, 10)
+	}, 10);
 }
 
 function execCmdForUser(command) {
@@ -185,7 +204,8 @@ function doFocus() {
 		const isVisible =
 			rect.top >= 0 &&
 			rect.left >= 0 &&
-			rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+			rect.bottom <=
+				(window.innerHeight || document.documentElement.clientHeight) &&
 			rect.right <= (window.innerWidth || document.documentElement.clientWidth);
 
 		if (isVisible) {

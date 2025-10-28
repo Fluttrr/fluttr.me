@@ -23,6 +23,7 @@
 	<script type="text/javascript" src="./js/generateMusic.js"></script>
 	<script type="text/javascript" src="./js/musicPlayer.js" defer></script>
 	<!-- defer because player elements need to load first -->
+	<script src="https://unpkg.com/wavesurfer.js"></script>
 </head>
 
 <body onclick="doFocus();">
@@ -30,16 +31,11 @@
 	<div id="window">
 		<p>Welcome to fluttr.me 2.3.1 NTS (GNU/Linux 5.15.79.1-github-pages x86_64)</p>
 		<br>
-		<p class="indent">* For a list of commands, type "<span class="cmd-link"
-				onclick="execCmdForUser('help');">help</span>". Try out
-			<span class="cmd-link" onclick="execCmdForUser('blog');">blog</span>,
-			<span class="cmd-link" onclick="execCmdForUser('music');">music</span>,
-			<span class="cmd-link" onclick="execCmdForUser('photos');">photos</span>
-			or
-			<span class="cmd-link" onclick="execCmdForUser('plushies');">plushies</span>!
+		<p class="indent">* For a list of commands, type or click <span class="cmd-link"
+				onclick="execCmdForUser('help');">help</span>.
 		</p>
 		<p class="indent">* Maintained with <span style="color:red;">♥</span> by fluttr</p>
-		<p class="indent">* <a href="https://youtu.be/7fnE4SH8wxs" target="_blank">Jeremy Zucker - surprise!</a></p>
+		<p class="indent">* <a href="https://youtu.be/ebVupgDKqIQ" target="_blank">red velvet</a></p>
 		<p class="indent">* Latest update: <span class="cmd-link" id="latest-update">you're not supposed to see this
 				:3</span></p>
 		<br>
@@ -53,10 +49,10 @@
 				<p id="song-name">-</p>
 			</div>
 			<div id="seekbar-container">
-				<div>
-					<span id="current-time">0:00</span>
-					<input class="slider" id="seekbar" type="range" min="0" max="100" value="0">
-					<span id="duration">0:00</span>
+				<div id="waveform-container">
+					<span class="waveform-time" id="current-time">0:00</span>
+					<div id="waveform"></div>
+					<span class="waveform-time" id="duration">0:00</span>
 				</div>
 				<div id="control-container">
 					<button id="previous" onclick="playPreviousSong();"><img class="skip-button"
@@ -74,5 +70,4 @@
 		<audio preload=”metadata”></audio>
 	</div>
 </body>
-
 </html>
