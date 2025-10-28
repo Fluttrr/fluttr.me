@@ -1,6 +1,6 @@
 # fluttr.me
 
-Static homepage with a CLI interface and a blog, photo & music library.
+Static homepage with a CLI interface and a blog, photo & music library. This project was done using only vanilla JS (it evolved a lot over a couple of years so it's quite cursed)
 
 ## to-do
 
