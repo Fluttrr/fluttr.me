@@ -170,6 +170,8 @@ function evalCommand() {
 			blogEntry(command.substring(command.search(" ") + 1, command.length));
 		} else if (command.startsWith("photos")) {
 			photoAlbum(command.substring(command.search(" ") + 1, command.length));
+		} else if (command.startsWith("rm") || command.startsWith("sudo rm")) {
+			print("hey thats mean ;w;")
 		} else {
 			print('Command not found. Type "help" for a list of available commands.');
 		}
