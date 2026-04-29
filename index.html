@@ -1,73 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- commented out because im not sure if i want them... -->
+    <!-- <meta property="og:title" content="fluttr.me" /> -->
+    <!-- <meta property="og:description" content="hiiii :3 (my website)" /> -->
+    <!-- <meta property="og:image" content="https://fluttr.me/img/photos/clouds/0001.jpg" /> -->
+    <!-- <meta property="og:url" content="https://fluttr.me" /> -->
+    <title>Fluttr</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/music.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Ubuntu+Mono"
+    />
+    <script type="text/javascript" src="./js/cliHelper.js"></script>
+    <script type="text/javascript" src="./js/fetchJSON.js" defer></script>
+    <!-- defer because of updating the latest blog post date -->
+    <script type="text/javascript" src="./js/commands.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+    <script type="text/javascript" src="./js/generateMusic.js"></script>
+    <script type="text/javascript" src="./js/musicPlayer.js" defer></script>
+    <!-- defer because player elements need to load first -->
+    <script src="./js/wavesurfer.min.js"></script>
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<!-- commented out because im not sure if i want them... -->
-	<!-- <meta property="og:title" content="fluttr.me" /> -->
-	<!-- <meta property="og:description" content="hiiii :3 (my website)" /> -->
-	<!-- <meta property="og:image" content="https://fluttr.me/img/photos/clouds/0001.jpg" /> -->
-	<!-- <meta property="og:url" content="https://fluttr.me" /> -->
-	<title>Fluttr</title>
-	<link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
-	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" href="./css/music.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono">
-	<script type="text/javascript" src="./js/cliHelper.js"></script>
-	<script type="text/javascript" src="./js/fetchJSON.js" defer></script>
-	<!-- defer because of updating the latest blog post date -->
-	<script type="text/javascript" src="./js/commands.js"></script>
-	<script type="text/javascript" src="./js/index.js"></script>
-	<script type="text/javascript" src="./js/generateMusic.js"></script>
-	<script type="text/javascript" src="./js/musicPlayer.js" defer></script>
-	<!-- defer because player elements need to load first -->
-	<script src="./js/wavesurfer.min.js"></script>
-</head>
+  <body onclick="doFocus()">
+    <p id="loading">Loading...</p>
+    <div id="window">
+      <p>
+        Welcome to fluttr.me 2.3.1 NTS (GNU/Linux 5.15.79.1-github-pages x86_64)
+      </p>
+      <br />
+      <p class="indent">
+        * For a list of commands, type or click
+        <span class="cmd-link" onclick="execCmdForUser('help')">help</span>.
+      </p>
+      <p class="indent">
+        * Maintained with <span style="color: red">♥</span> by fluttr
+      </p>
+      <p class="indent">
+        *
+        <a href="https://www.youtube.com/watch?v=r97gtZGesiI" target="_blank"
+          >first day back - us</a
+        >
+      </p>
+      <p class="indent">
+        * Latest update:
+        <span class="cmd-link" id="latest-update"
+          >you're not supposed to see this :3</span
+        >
+      </p>
+      <br />
+      <p>This message is shown on each visit. Feel free to look around!</p>
+      <p>
+        <span class="accent">(C)</span> <span id="currentYear">0000</span>,
+        fluttr
+      </p>
+      <script>
+        setCurrentYear();
+        commandPrompt();
+      </script>
 
-<body onclick="doFocus();">
-	<p id="loading">Loading...</p>
-	<div id="window">
-		<p>Welcome to fluttr.me 2.3.1 NTS (GNU/Linux 5.15.79.1-github-pages x86_64)</p>
-		<br>
-		<p class="indent">* For a list of commands, type or click <span class="cmd-link"
-				onclick="execCmdForUser('help');">help</span>.
-		</p>
-		<p class="indent">* Maintained with <span style="color:red;">♥</span> by fluttr</p>
-		<p class="indent">* <a href="https://youtu.be/MsJOGlN9Mgs" target="_blank">samuel organ - oakwood</a></p>
-		<p class="indent">* Latest update: <span class="cmd-link" id="latest-update">you're not supposed to see this
-				:3</span></p>
-		<br>
-		<p>This message is shown on each visit. Feel free to look around!</p>
-		<p><span class="accent">(C)</span> <span id="currentYear">0000</span>, fluttr</p>
-		<script>setCurrentYear(); commandPrompt();</script>
-
-		<footer id="player">
-			<div id="now-playing-container">
-				<img id="cover" src="./img/covers/awake.jpg" alt="Cover Art">
-				<p id="song-name">-</p>
-			</div>
-			<div id="seekbar-container">
-				<div id="waveform-container">
-					<span class="waveform-time" id="current-time">0:00</span>
-					<div id="waveform"></div>
-					<span class="waveform-time" id="duration">0:00</span>
-				</div>
-				<div id="control-container">
-					<button id="previous" onclick="playPreviousSong();"><img class="skip-button"
-							src="./img/backward.svg"></button>
-					<button id="main-control"><img class="play-button" src="./img/play.svg"></button>
-					<button id="next" onclick="playNextSong();"><img class="skip-button"
-							src="./img/forward.svg"></button>
-				</div>
-			</div>
-			<div id="volume-container">
-				<button><img id="mute-button" class="volume-icon" src="./img/volume.svg"></button>
-				<input class="slider" id="volume" type="range" min="0" max="100" value="100">
-			</div>
-		</footer>
-		<audio preload=”metadata”></audio>
-	</div>
-</body>
+      <footer id="player">
+        <div id="now-playing-container">
+          <img id="cover" src="./img/covers/awake.jpg" alt="Cover Art" />
+          <p id="song-name">-</p>
+        </div>
+        <div id="seekbar-container">
+          <div id="waveform-container">
+            <span class="waveform-time" id="current-time">0:00</span>
+            <div id="waveform"></div>
+            <span class="waveform-time" id="duration">0:00</span>
+          </div>
+          <div id="control-container">
+            <button id="previous" onclick="playPreviousSong()">
+              <img class="skip-button" src="./img/backward.svg" />
+            </button>
+            <button id="main-control">
+              <img class="play-button" src="./img/play.svg" />
+            </button>
+            <button id="next" onclick="playNextSong()">
+              <img class="skip-button" src="./img/forward.svg" />
+            </button>
+          </div>
+        </div>
+        <div id="volume-container">
+          <button>
+            <img id="mute-button" class="volume-icon" src="./img/volume.svg" />
+          </button>
+          <input
+            class="slider"
+            id="volume"
+            type="range"
+            min="0"
+            max="100"
+            value="100"
+          />
+        </div>
+      </footer>
+      <audio preload="”metadata”"></audio>
+    </div>
+  </body>
 </html>
