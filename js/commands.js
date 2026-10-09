@@ -72,7 +72,7 @@ function about() {
 	);
 	printLineBreak();
 
-	print("i study computer science and im into various things, such as:");
+	print("i'm a german software engineer and im into various things, such as:");
 	printLineBreak();
 
 	printIndentedLine("* anime (i dont watch nearly as much as id like to)");
